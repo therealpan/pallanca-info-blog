@@ -1,0 +1,30 @@
+# Angelo Pallanca - Innovation & AI Consulting
+
+> Personal website of Angelo Pallanca, CEO of PiirZ Digital Limited. Innovation consulting, AI strategy, and digital transformation for enterprises, public institutions, and HNWI.
+
+## About
+
+Angelo Pallanca is an innovation and AI consultant with approximately 30 years of experience in tech. He has led digital transformation projects for international brands (Emirates, Ferragamo), public institutions (UNESCO, UNICEF, Museo del Prado, Principality of Monaco), and European organizations (EU, Interreg Europe, Regione Liguria, Gobierno de Canarias). Based in Europe, operating globally through PiirZ Digital Limited.
+
+## Services
+
+- Knowledge Consulting: workflow analysis, AI opportunity mapping, prioritized innovation roadmaps
+- Solution Scouting: independent technology evaluation, vendor-neutral shortlisting, TCO analysis
+- Project Management: end-to-end delivery ownership, stakeholder alignment, risk management
+- Interim Management: embedded Innovation/AI Director on demand, full portfolio ownership
+- AI Strategy & Integration: pragmatic AI strategies, architecture, data readiness, governance, production deployment
+
+## Contact
+
+- Email: angelo@pallanca.info
+- LinkedIn: https://linkedin.com/in/angelopallanca/
+- Book a call: https://cal.com/panbiz/30min
+
+## Links
+
+- [Home](https://pallanca.info)
+- [About](https://pallanca.info/en/about)
+- [Services](https://pallanca.info/en/services)
+- [Blog](https://pallanca.info/en/blog)
+- [Contact](https://pallanca.info/en/contact)
+- [Full content for LLMs](https://pallanca.info/llms-full.txt)

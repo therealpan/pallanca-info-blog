@@ -1,0 +1,116 @@
+# Angelo Pallanca - Innovation & AI Consulting (Full Content)
+
+> Complete site content for AI agents and language models. For a summary, see /llms.txt
+
+---
+
+## About Angelo Pallanca
+
+Angelo Pallanca is an innovation and AI consultant with approximately 30 years of experience in the tech sector. He has led digital transformation projects for international brands, public institutions, and European organizations.
+
+His approach is hands-on: he does not sell visions, he delivers solutions. When an organization needs to move an AI project from experimentation to production, he joins the team and makes it happen.
+
+He has worked with Emirates, Ferragamo, UNESCO, UNICEF, the Museo Nacional del Prado, the Principality of Monaco, Regione Liguria, Gobierno de Canarias, the European Union, and Interreg Europe.
+
+Today he focuses on enterprise AI, innovation strategy, and interim management through PiirZ Digital Limited.
+
+### Approach
+
+- Pragmatic: realistic expectations, measurable results, no buzzwords
+- Embedded: joins the client team, understands context, delivers from within
+- Independent: no vendor ties, recommendations serve the client's interest
+
+---
+
+## Services
+
+### 1. Knowledge Consulting
+- Problem: Your team knows something needs to change, but not what or where to start.
+- Approach: In-depth analysis of current workflows, inefficiency mapping, identification of where innovation and AI can deliver measurable improvements.
+- Outcome: A clear, prioritized roadmap with specific recommendations you can act on immediately.
+
+### 2. Solution Scouting
+- Problem: You are drowning in vendor pitches and cannot tell which technology actually fits your needs.
+- Approach: Independent market evaluation, testing solutions against specific requirements, shortlisting the 3 options that match stack, budget, and team capacity.
+- Outcome: An unbiased technology recommendation with comparison matrix, implementation effort, and total cost of ownership.
+
+### 3. Project Management
+- Problem: Great strategies die in execution. Innovation projects keep stalling or missing deadlines.
+- Approach: Full ownership of the delivery process: timelines, resources, stakeholder alignment, risk management. Bridging the gap between strategy and production.
+- Outcome: Projects delivered on time and on budget, with clear documentation and knowledge transfer.
+
+### 4. Interim Management
+- Problem: You need an Innovation or AI Director but cannot wait 6 months to hire one.
+- Approach: Embedded in the organization as a full-time interim director. Owns the innovation portfolio, manages teams, reports to leadership, drives execution.
+- Outcome: Immediate leadership capacity with no long-term commitment. Stays until permanent hire or mission completion.
+
+### 5. AI Strategy & Integration
+- Problem: AI experiments never make it past the proof-of-concept phase.
+- Approach: Pragmatic AI strategies grounded in business reality. Covers architecture, data readiness, governance, and change management.
+- Outcome: AI projects that actually reach production, with clear ROI metrics and a governance framework that scales.
+
+---
+
+## Blog Articles
+
+### The Probabilistic Trap: Why Enterprise AI Stalls in PoC Purgatory (2026-01-15)
+Topic: Enterprise AI
+The most expensive, least productive real estate in the modern enterprise is PoC Purgatory. Governance, not technology, is the bottleneck.
+
+### AG-UI: How a New Protocol Standardizes AI Agent Interfaces (2025-06-01)
+Topic: AI Architecture
+AG-UI is an open protocol that standardizes the connection between front-end applications and AI agents and what it means for enterprise development.
+
+### Absolute Zero Reasoner: How AI Learns to Reason Without Training Data (2025-04-15)
+Topic: AI Research
+AZR enhances AI reasoning through reinforced self-play, no external data needed. The model creates its own learning environment in a closed loop.
+
+### From Tokens to Concepts: The Rise of Large Concept Models in Multilingual AI (2025-01-10)
+Topic: AI Research
+Meta's Large Concept Models move beyond tokens to understand abstract ideas that transcend specific languages or modalities.
+
+### Learn New Stuff to Improve Old Solutions (2024-11-15)
+Topic: Innovation
+The true power of growth often lies in reimagining what already exists. Fresh knowledge applied to older methods transforms solutions in unexpected ways.
+
+### Agentic AI and the Future of Autonomous Agents (2024-07-20)
+Topic: AI Strategy
+Autonomous agents are intelligent systems engineered to achieve complex objectives with minimal human supervision.
+
+### The Reality Behind Generative AI: Beyond the Playground (2024-07-10)
+Topic: AI Strategy
+Creating a PoC with LLMs is easy. Moving to production is another story entirely.
+
+### The Future of Destination Marketing: The Rise of the Digital Travel Ambassador (2024-07-01)
+Topic: AI + Travel
+How AI-powered digital travel ambassadors are reshaping destination marketing and creating personalized visitor experiences at scale.
+
+### Private AI: The Corporate Answer to Data Security and Compliance (2024-06-20)
+Topic: Enterprise AI
+For regulated industries, sending sensitive data to public AI APIs is not an option. Private AI deployment is the enterprise path forward.
+
+### Navigating the Crucial Stages of Market, Product, and Operational Validation (2024-06-10)
+Topic: Innovation
+Startup validation is not a single event but a sequence of stages. Getting the order wrong is the most common and expensive mistake founders make.
+
+### How AI Innovation is Transforming the Travel Industry (2024-05-15)
+Topic: AI + Travel
+AI is reshaping travel from booking to experience. Personalization, dynamic pricing, and intelligent assistants are just the beginning.
+
+### Tailored Language Models: An Essential Guide for Innovators (2024-04-20)
+Topic: Enterprise AI
+Generic AI models are not enough for specialized business needs. Tailored language models deliver real competitive advantage.
+
+### Beyond Boundaries: The Case for Uncensored AI (2024-04-10)
+Topic: AI Ethics
+The debate around AI censorship touches fundamental questions about creativity, diversity of thought, and the role of guardrails in intelligent systems.
+
+---
+
+## Contact
+
+- Email: angelo@pallanca.info
+- LinkedIn: https://linkedin.com/in/angelopallanca/
+- Book a discovery call (30 min, free): https://cal.com/panbiz/30min
+- Company: PiirZ Digital Limited
+- Location: Europe (remote-first)
