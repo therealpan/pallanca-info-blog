@@ -64,7 +64,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
           <div>
             <div className="text-sm text-white font-medium">Angelo Pallanca</div>
-            <div className="text-xs text-[var(--color-text-muted)]">Innovation & AI Consultant</div>
+            <div className="text-xs text-[var(--color-text-muted)]">Digital Transformation & AI Governance</div>
           </div>
         </div>
       </section>

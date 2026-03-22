@@ -34,7 +34,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ],
   } : {
     title: 'Angelo Pallanca',
-    subtitle: 'Innovation & AI Consultant',
+    subtitle: 'Digital Transformation & AI Governance',
     bio: [
       'I have been working in tech and innovation for about 30 years. I have led digital transformation projects for international brands, public institutions, and European organizations.',
       'My approach is hands-on: I don\'t sell visions, I deliver solutions. When an organization needs to move an AI project from experimentation to production, I join the team and make sure it happens.',

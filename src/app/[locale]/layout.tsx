@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const isIt = locale === 'it';
 
-  const title = 'Angelo Pallanca | Innovation & AI Consulting';
+  const title = 'Angelo Pallanca | Digital Transformation & AI Governance';
   const description = isIt
     ? 'Consulente innovazione e AI con 30 anni di esperienza. Aiuto organizzazioni a portare progetti AI in produzione.'
     : 'Innovation and AI consultant with 30 years of experience. I help organizations ship AI projects to production.';
@@ -76,7 +76,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
           url: '/images/photos/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: 'Angelo Pallanca - Innovation & AI Consultant',
+          alt: 'Angelo Pallanca - Digital Transformation & AI Governance',
           type: 'image/jpeg',
         },
       ],
@@ -120,21 +120,21 @@ export default async function LocaleLayout({
         sameAs: [
           'https://linkedin.com/in/angelopallanca/',
         ],
-        jobTitle: 'Innovation & AI Consultant',
+        jobTitle: 'Digital Transformation & AI Governance',
         description: 'Innovation and AI consultant with 30 years of experience in technology and digital transformation.',
         knowsAbout: ['Artificial Intelligence', 'Innovation Consulting', 'Digital Transformation', 'Enterprise AI', 'Project Management', 'Interim Management'],
       },
       {
         '@type': 'ProfessionalService',
         '@id': 'https://pallanca.info/#service',
-        name: 'Angelo Pallanca - Innovation & AI Consulting',
+        name: 'Angelo Pallanca - Digital Transformation & AI Governance',
         url: 'https://pallanca.info',
         logo: {
           '@type': 'ImageObject',
           url: 'https://pallanca.info/images/logos/logo_pan_microdata.png',
         },
         image: 'https://pallanca.info/images/photos/og-image.jpg',
-        description: 'Innovation consulting, AI strategy, solution scouting, project and interim management.',
+        description: 'Digital transformation, AI governance, solution scouting, project and interim management.',
         founder: { '@id': 'https://pallanca.info/#person' },
         areaServed: 'Europe',
         serviceType: ['Innovation Consulting', 'AI Strategy', 'Solution Scouting', 'Project Management', 'Interim Management'],

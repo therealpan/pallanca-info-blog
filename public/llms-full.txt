@@ -1,4 +1,4 @@
-# Angelo Pallanca - Innovation & AI Consulting (Full Content)
+# Angelo Pallanca - Digital Transformation & AI Governance (Full Content)
 
 > Complete site content for AI agents and language models. For a summary, see /llms.txt
 
@@ -6,7 +6,7 @@
 
 ## About Angelo Pallanca
 
-Angelo Pallanca is an innovation and AI consultant with approximately 30 years of experience in the tech sector. He has led digital transformation projects for international brands, public institutions, and European organizations.
+Angelo Pallanca is an digital transformation and AI governance consultant with approximately 30 years of experience in the tech sector. He has led digital transformation projects for international brands, public institutions, and European organizations.
 
 His approach is hands-on: he does not sell visions, he delivers solutions. When an organization needs to move an AI project from experimentation to production, he joins the team and makes it happen.
 

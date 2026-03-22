@@ -153,7 +153,7 @@ export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalPr
                 </div>
                 <div>
                   <div className="text-sm text-white font-medium">Angelo Pallanca</div>
-                  <div className="text-xs text-[var(--color-text-muted)]">Innovation & AI Consultant</div>
+                  <div className="text-xs text-[var(--color-text-muted)]">Digital Transformation & AI Governance</div>
                 </div>
               </motion.div>
 
