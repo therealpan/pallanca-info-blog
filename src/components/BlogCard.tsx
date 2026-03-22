@@ -25,14 +25,16 @@ export default function BlogCard({
 
   return (
     <Link href={`/blog/${slug}`} className="glass-card p-6 flex flex-col gap-4 group">
-      <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
-        <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium">
+      <div className="flex flex-col gap-1.5">
+        <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs self-start">
           {topic}
         </span>
-        <span>{new Date(date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-        <span className="flex items-center gap-1">
-          <Clock size={12} /> {readTime} {t('readTime')}
-        </span>
+        <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+          <span>{new Date(date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+          <span className="flex items-center gap-1">
+            <Clock size={12} /> {readTime} {t('readTime')}
+          </span>
+        </div>
       </div>
       <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors line-clamp-2">
         {displayTitle}
