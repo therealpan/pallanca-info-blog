@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 const SCROLL_DISTANCE = 150;
 const MAX_CROP_LEFT = 38;
-const MAX_CROP_RIGHT = 42; // slightly more on right to remove residual
+const MAX_CROP_RIGHT = 42;
 
 export default function Navbar() {
   const t = useTranslations('nav');
@@ -47,10 +47,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2 shrink-0">
             <div
               style={{
                 clipPath: `inset(0 ${cropRight}% 0 ${cropLeft}%)`,
@@ -62,7 +62,7 @@ export default function Navbar() {
                 alt="Angelo Pallanca"
                 width={168}
                 height={59}
-                className="h-auto"
+                className="h-auto w-[120px] sm:w-[168px]"
               />
             </div>
           </Link>

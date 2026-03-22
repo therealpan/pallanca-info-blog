@@ -98,7 +98,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
             src="/images/photos/pallanca_info_bg03.webp"
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-right md:object-center"
             priority
             quality={90}
           />
