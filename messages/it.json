@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Chi sono",
+    "services": "Servizi",
+    "blog": "Blog",
+    "contact": "Contatti",
+    "cta": "Prenota una call"
+  },
+  "hero": {
+    "headline": "Consulenza per l'innovazione\nche produce risultati.",
+    "subheadline": "Aiuto leader e organizzazioni a trasformare le ambizioni AI in soluzioni pronte per la produzione. 30 anni di esperienza, zero parole vuote.",
+    "cta": "Prenota una discovery call"
+  },
+  "home": {
+    "blogSection": "Ultimi dal blog",
+    "servicesSection": "Cosa faccio",
+    "clientsSection": "Si sono affidati a me",
+    "readMore": "Leggi",
+    "viewAll": "Tutti gli articoli"
+  },
+  "about": {
+    "title": "Chi sono",
+    "meta": "Angelo Pallanca - Consulente Innovazione & AI con 30 anni di esperienza"
+  },
+  "services": {
+    "title": "Servizi",
+    "meta": "Consulenza innovazione, strategia AI, solution scouting, project e interim management"
+  },
+  "blog": {
+    "title": "Blog",
+    "meta": "Riflessioni su AI, innovazione e consulenza tecnologica",
+    "readTime": "min di lettura",
+    "backToBlog": "Torna al blog"
+  },
+  "contact": {
+    "title": "Contatti",
+    "meta": "Prenota una discovery call con Angelo Pallanca",
+    "heading": "Parliamone.",
+    "subheading": "Prenota una discovery call gratuita di 30 minuti per discutere le tue sfide e capire come posso aiutarti.",
+    "email": "Oppure scrivimi",
+    "linkedin": "Collegati su LinkedIn"
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati.",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Servizio"
+  }
+}
