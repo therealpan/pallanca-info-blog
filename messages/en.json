@@ -1,49 +1,1 @@
-{
-  "nav": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "blog": "Blog",
-    "contact": "Contact",
-    "cta": "Book a call"
-  },
-  "hero": {
-    "headline": "Innovation consulting\nthat ships.",
-    "subheadline": "I help leaders and organizations turn AI ambitions into production-ready solutions. 30 years of experience, zero buzzwords.",
-    "cta": "Book a discovery call"
-  },
-  "home": {
-    "blogSection": "Latest from the blog",
-    "servicesSection": "What I do",
-    "clientsSection": "Trusted by",
-    "readMore": "Read more",
-    "viewAll": "View all posts"
-  },
-  "about": {
-    "title": "About me",
-    "meta": "Angelo Pallanca - Innovation & AI Consultant with 30 years of experience"
-  },
-  "services": {
-    "title": "Services",
-    "meta": "Innovation consulting, AI strategy, solution scouting, project and interim management"
-  },
-  "blog": {
-    "title": "Blog",
-    "meta": "Thoughts on AI, innovation, and technology consulting",
-    "readTime": "min read",
-    "backToBlog": "Back to blog"
-  },
-  "contact": {
-    "title": "Get in touch",
-    "meta": "Book a discovery call with Angelo Pallanca",
-    "heading": "Let's talk.",
-    "subheading": "Book a free 30-minute discovery call to discuss your challenges and explore how I can help.",
-    "email": "Or drop me an email",
-    "linkedin": "Connect on LinkedIn"
-  },
-  "footer": {
-    "rights": "All rights reserved.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
-  }
-}
+{  "nav": {    "home": "Home",    "about": "About",    "services": "Services",    "blog": "Blog",    "contact": "Contact",    "cta": "Book a call"  },  "hero": {    "headline": "Innovation consultingthat ships.",    "subheadline": "I help leaders and organizations turn AI ambitions into production-ready solutions. 30 years of experience, zero buzzwords.",    "cta": "Book a discovery call"  },  "home": {    "blogSection": "my 2 cents...",    "servicesSection": "What I do",    "clientsSection": "Trusted by",    "readMore": "Read more",    "viewAll": "View all posts"  },  "about": {    "title": "About me",    "meta": "Angelo Pallanca - Innovation & AI Consultant with 30 years of experience"  },  "services": {    "title": "Services",    "meta": "Innovation consulting, AI strategy, solution scouting, project and interim management"  },  "blog": {    "title": "Blog",    "meta": "Thoughts on AI, innovation, and technology consulting",    "readTime": "min read",    "backToBlog": "Back to blog"  },  "contact": {    "title": "Get in touch",    "meta": "Book a discovery call with Angelo Pallanca",    "heading": "Let's talk.",    "subheading": "Book a free 30-minute discovery call to discuss your challenges and explore how I can help.",    "email": "Or drop me an email",    "linkedin": "Connect on LinkedIn"  },  "footer": {    "rights": "All rights reserved.",    "privacy": "Privacy Policy",    "terms": "Terms of Service"  }}
