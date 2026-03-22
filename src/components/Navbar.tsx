@@ -9,7 +9,8 @@ import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 const SCROLL_DISTANCE = 150;
-const MAX_CROP = 38; // percentage cropped from each side at full scroll
+const MAX_CROP_LEFT = 38;
+const MAX_CROP_RIGHT = 42; // slightly more on right to remove residual
 
 export default function Navbar() {
   const t = useTranslations('nav');
@@ -17,11 +18,13 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [cropPercent, setCropPercent] = useState(0);
+  const [cropLeft, setCropLeft] = useState(0);
+  const [cropRight, setCropRight] = useState(0);
 
   const handleScroll = useCallback(() => {
     const progress = Math.min(window.scrollY / SCROLL_DISTANCE, 1);
-    setCropPercent(progress * MAX_CROP);
+    setCropLeft(progress * MAX_CROP_LEFT);
+    setCropRight(progress * MAX_CROP_RIGHT);
   }, []);
 
   useEffect(() => {
@@ -50,7 +53,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2">
             <div
               style={{
-                clipPath: `inset(0 ${cropPercent}% 0 ${cropPercent}%)`,
+                clipPath: `inset(0 ${cropRight}% 0 ${cropLeft}%)`,
                 transition: 'clip-path 0.15s ease-out',
               }}
             >
