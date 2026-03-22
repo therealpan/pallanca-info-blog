@@ -2,7 +2,9 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
+import { useRef } from 'react';
 import BlogCard from '@/components/BlogCard';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface HeroPost {
   slug: string;
@@ -18,6 +20,18 @@ interface HeroPost {
 export default function HeroSection({ posts }: { posts: HeroPost[] }) {
   const t = useTranslations('hero');
   const locale = useLocale();
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const cardWidth = scrollRef.current.querySelector('div')?.offsetWidth || 300;
+    const gap = 16;
+    const distance = cardWidth + gap;
+    scrollRef.current.scrollBy({
+      left: direction === 'left' ? -distance : distance,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -36,7 +50,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
 
       {/* Main hero content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center pt-24">
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
           {t('headline')}
         </h1>
         <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
@@ -57,26 +71,47 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         </div>
       </div>
 
-      {/* Blog cards inside the fold */}
+      {/* Blog cards carousel */}
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
             {locale === 'it' ? 'Ultimi dal blog' : 'Latest from the blog'}
           </h2>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => scroll('left')}
+              className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+              aria-label="Previous"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+              aria-label="Next"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {posts.map((post) => (
-            <BlogCard
-              key={post.slug}
-              slug={post.slug}
-              title={post.title}
-              titleIt={post.titleIt}
-              excerpt={post.excerpt}
-              excerptIt={post.excerptIt}
-              date={post.date}
-              topic={post.topic}
-              readTime={post.readTime}
-            />
+            <div key={post.slug} className="min-w-[280px] md:min-w-[300px] lg:min-w-0 lg:flex-1 snap-start">
+              <BlogCard
+                slug={post.slug}
+                title={post.title}
+                titleIt={post.titleIt}
+                excerpt={post.excerpt}
+                excerptIt={post.excerptIt}
+                date={post.date}
+                topic={post.topic}
+                readTime={post.readTime}
+              />
+            </div>
           ))}
         </div>
       </div>
