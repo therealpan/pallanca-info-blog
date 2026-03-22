@@ -1,13 +1,26 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
+import BlogCard from '@/components/BlogCard';
 
-export default function HeroSection() {
+interface HeroPost {
+  slug: string;
+  title: string;
+  titleIt?: string;
+  excerpt: string;
+  excerptIt?: string;
+  date: string;
+  topic: string;
+  readTime: number;
+}
+
+export default function HeroSection({ posts }: { posts: HeroPost[] }) {
   const t = useTranslations('hero');
+  const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -18,11 +31,11 @@ export default function HeroSection() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg)]/60 via-[var(--color-bg)]/30 to-[var(--color-bg)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg)]/60 via-[var(--color-bg)]/30 to-[var(--color-bg)]/95"></div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center">
+      {/* Main hero content */}
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center pt-24">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
           {t('headline')}
         </h1>
@@ -44,8 +57,32 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* Blog cards inside the fold */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
+            {locale === 'it' ? 'Ultimi dal blog' : 'Latest from the blog'}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {posts.map((post) => (
+            <BlogCard
+              key={post.slug}
+              slug={post.slug}
+              title={post.title}
+              titleIt={post.titleIt}
+              excerpt={post.excerpt}
+              excerptIt={post.excerptIt}
+              date={post.date}
+              topic={post.topic}
+              readTime={post.readTime}
+            />
+          ))}
+        </div>
+      </div>
+
       {/* Animated scroll indicator */}
-      <div className="relative z-10 pb-8 animate-bounce">
+      <div className="relative z-10 pb-8 flex justify-center animate-bounce">
         <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
           <span className="text-xs uppercase tracking-widest">Scroll</span>
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
