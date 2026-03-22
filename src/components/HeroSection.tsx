@@ -61,7 +61,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
             href="https://cal.com/panbiz/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3.5 rounded-full text-base font-medium hover:bg-white/90 transition-colors"
+            className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
           >
             {t('cta')}
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
