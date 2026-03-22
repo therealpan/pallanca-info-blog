@@ -129,7 +129,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         </div>
 
         {/* Blog cards carousel */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-0 pb-6">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
               {tHome('blogSection')}
