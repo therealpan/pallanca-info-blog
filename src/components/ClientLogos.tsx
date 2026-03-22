@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 const clients = [
@@ -19,12 +19,12 @@ const clients = [
 ];
 
 export default function ClientLogos() {
-  const locale = useLocale();
+  const t = useTranslations('home');
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <h2 className="text-center text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-10">
-        {locale === 'it' ? 'Si sono affidati a me' : 'Trusted by'}
+        {t('clientsSection')}
       </h2>
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center justify-items-center">
         {clients.map((client) => (

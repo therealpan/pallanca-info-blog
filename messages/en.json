@@ -10,14 +10,16 @@
   "hero": {
     "headline": "Innovation consulting\nthat ships.",
     "subheadline": "I help leaders and organizations turn AI ambitions into production-ready solutions. 30 years of experience, zero buzzwords.",
-    "cta": "Book a discovery call"
+    "cta": "Book a discovery call",
+    "scroll": "Scroll"
   },
   "home": {
     "blogSection": "my 2 cents...",
     "servicesSection": "What I do",
     "clientsSection": "Trusted by",
     "readMore": "Read more",
-    "viewAll": "View all posts"
+    "viewAll": "View all posts",
+    "allServices": "All services"
   },
   "about": {
     "title": "About me",
@@ -31,7 +33,10 @@
     "title": "Blog",
     "meta": "Thoughts on AI, innovation, and technology consulting",
     "readTime": "min read",
-    "backToBlog": "Back to blog"
+    "readMore": "Read more",
+    "backToBlog": "Back to blog",
+    "discussCta": "Want to discuss this further?",
+    "bookCall": "Book a discovery call"
   },
   "contact": {
     "title": "Get in touch",
@@ -39,7 +44,9 @@
     "heading": "Let's talk.",
     "subheading": "Book a free 30-minute discovery call to discuss your challenges and explore how I can help.",
     "email": "Or drop me an email",
-    "linkedin": "Connect on LinkedIn"
+    "linkedin": "Connect on LinkedIn",
+    "emailLabel": "Email me",
+    "basedIn": "Based in"
   },
   "footer": {
     "rights": "All rights reserved.",

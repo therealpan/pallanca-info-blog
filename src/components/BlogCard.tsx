@@ -43,7 +43,7 @@ export default function BlogCard({
         {displayExcerpt}
       </p>
       <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-all">
-        {locale === 'it' ? 'Leggi' : 'Read more'} <ArrowRight size={14} />
+        {t('readMore')} <ArrowRight size={14} />
       </div>
     </Link>
   );

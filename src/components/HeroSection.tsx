@@ -1,1 +1,193 @@
-'use client';import { useTranslations, useLocale } from 'next-intl';import Image from 'next/image';import { useRef, useState, useEffect } from 'react';import { motion } from 'framer-motion';import { ChevronLeft, ChevronRight, Clock, ArrowRight } from 'lucide-react';import BlogPostModal from '@/components/BlogPostModal';interface HeroPost {  slug: string;  title: string;  titleIt?: string;  excerpt: string;  excerptIt?: string;  date: string;  topic: string;  readTime: number;  content: string;  htmlContent?: string;}function CarouselCard({  post,  onClick,}: {  post: HeroPost;  onClick: () => void;}) {  const locale = useLocale();  const displayTitle = locale === 'it' && post.titleIt ? post.titleIt : post.title;  const displayExcerpt = locale === 'it' && post.excerptIt ? post.excerptIt : post.excerpt;  return (    <motion.div      layoutId={`blog-card-${post.slug}`}      onClick={onClick}      className="glass-card p-5 flex flex-col gap-3 cursor-pointer group"      whileHover={{ scale: 1.02 }}      transition={{ type: 'spring', damping: 25, stiffness: 300 }}    >      <div className="flex flex-col gap-1.5">        <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs self-start">          {post.topic}        </span>        <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">          <span>{new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>          <span className="flex items-center gap-1">            <Clock size={12} /> {post.readTime} {locale === 'it' ? 'min' : 'min'}          </span>        </div>      </div>      <motion.h3        layoutId={`blog-title-${post.slug}`}        className="text-base font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors line-clamp-2"      >        {displayTitle}      </motion.h3>      <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 flex-1">        {displayExcerpt}      </p>      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-all">        {locale === 'it' ? 'Leggi' : 'Read more'} <ArrowRight size={14} />      </div>    </motion.div>  );}export default function HeroSection({ posts }: { posts: HeroPost[] }) {  const t = useTranslations('hero');  const locale = useLocale();  const scrollRef = useRef<HTMLDivElement>(null);  const [selectedPost, setSelectedPost] = useState<HeroPost | null>(null);  const scroll = (direction: 'left' | 'right') => {    if (!scrollRef.current) return;    const container = scrollRef.current;    const cardEl = container.querySelector('[data-card]') as HTMLElement;    if (!cardEl) return;    const cardWidth = cardEl.offsetWidth;    const gap = 16;    const distance = cardWidth + gap;    container.scrollBy({      left: direction === 'left' ? -distance : distance,      behavior: 'smooth',    });  };  return (    <>      <section className="relative min-h-screen flex flex-col overflow-hidden">        {/* Background image */}        <div className="absolute inset-0 z-0">          <Image            src="/images/photos/pallanca_info_bg03.webp"            alt=""            fill            className="object-cover"            priority            quality={90}          />          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg)]/60 via-[var(--color-bg)]/30 to-[var(--color-bg)]/95"></div>        </div>        {/* Main hero content */}        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center pt-24">          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">            {t('headline')}          </h1>          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">            {t('subheadline')}          </p>          <div className="mt-10">            <a              href="https://cal.com/panbiz/30min"              target="_blank"              rel="noopener noreferrer"              className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"            >              {t('cta')}              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />              </svg>            </a>          </div>        </div>        {/* Blog cards carousel */}        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-6">          <div className="flex items-center justify-between mb-5">            <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">              {'my 2 cents...'}            </h2>            <div className="flex items-center gap-2">              <button                onClick={() => scroll('left')}                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"                aria-label="Previous"              >                <ChevronLeft size={18} />              </button>              <button                onClick={() => scroll('right')}                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"                aria-label="Next"              >                <ChevronRight size={18} />              </button>            </div>          </div>          <div            ref={scrollRef}            className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory"            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}          >            {posts.map((post) => (              <div                key={post.slug}                data-card                className="min-w-[240px] w-[calc(20%-13px)] shrink-0 snap-start"              >                <CarouselCard                  post={post}                  onClick={() => setSelectedPost(post)}                />              </div>            ))}          </div>        </div>        {/* Animated scroll indicator */}        <div className="relative z-10 pb-8 flex justify-center animate-bounce">          <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">            <span className="text-xs uppercase tracking-widest">Scroll</span>            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />            </svg>          </a>        </div>      </section>      {/* Blog post modal */}      <BlogPostModal        isOpen={!!selectedPost}        onClose={() => setSelectedPost(null)}        post={selectedPost}      />    </>  );}
+'use client';
+
+import { useTranslations, useLocale } from 'next-intl';
+import Image from 'next/image';
+import { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Clock, ArrowRight } from 'lucide-react';
+import BlogPostModal from '@/components/BlogPostModal';
+
+interface HeroPost {
+  slug: string;
+  title: string;
+  titleIt?: string;
+  excerpt: string;
+  excerptIt?: string;
+  date: string;
+  topic: string;
+  readTime: number;
+  content: string;
+  htmlContent?: string;
+}
+
+function CarouselCard({
+  post,
+  onClick,
+}: {
+  post: HeroPost;
+  onClick: () => void;
+}) {
+  const locale = useLocale();
+  const t = useTranslations('home');
+  const tBlog = useTranslations('blog');
+  const displayTitle = locale === 'it' && post.titleIt ? post.titleIt : post.title;
+  const displayExcerpt = locale === 'it' && post.excerptIt ? post.excerptIt : post.excerpt;
+
+  return (
+    <motion.div
+      layoutId={`blog-card-${post.slug}`}
+      onClick={onClick}
+      className="glass-card p-5 flex flex-col gap-3 cursor-pointer group"
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+    >
+      <div className="flex flex-col gap-1.5">
+        <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs self-start">
+          {post.topic}
+        </span>
+        <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+          <span>{new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+          <span className="flex items-center gap-1">
+            <Clock size={12} /> {post.readTime} min
+          </span>
+        </div>
+      </div>
+      <motion.h3
+        layoutId={`blog-title-${post.slug}`}
+        className="text-base font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors line-clamp-2"
+      >
+        {displayTitle}
+      </motion.h3>
+      <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 flex-1">
+        {displayExcerpt}
+      </p>
+      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-all">
+        {t('readMore')} <ArrowRight size={14} />
+      </div>
+    </motion.div>
+  );
+}
+
+export default function HeroSection({ posts }: { posts: HeroPost[] }) {
+  const t = useTranslations('hero');
+  const tHome = useTranslations('home');
+  const locale = useLocale();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [selectedPost, setSelectedPost] = useState<HeroPost | null>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const cardEl = container.querySelector('[data-card]') as HTMLElement;
+    if (!cardEl) return;
+    const cardWidth = cardEl.offsetWidth;
+    const gap = 16;
+    const distance = cardWidth + gap;
+    container.scrollBy({
+      left: direction === 'left' ? -distance : distance,
+      behavior: 'smooth',
+    });
+  };
+
+  return (
+    <>
+      <section className="relative min-h-screen flex flex-col overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/photos/pallanca_info_bg03.webp"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg)]/60 via-[var(--color-bg)]/30 to-[var(--color-bg)]/95"></div>
+        </div>
+
+        {/* Main hero content */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center pt-24">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
+            {t('headline')}
+          </h1>
+          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
+            {t('subheadline')}
+          </p>
+          <div className="mt-10">
+            <a
+              href="https://cal.com/panbiz/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
+            >
+              {t('cta')}
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Blog cards carousel */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-6">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
+              {tHome('blogSection')}
+            </h2>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scroll('left')}
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+                aria-label="Previous"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+                aria-label="Next"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {posts.map((post) => (
+              <div
+                key={post.slug}
+                data-card
+                className="min-w-[240px] w-[calc(20%-13px)] shrink-0 snap-start"
+              >
+                <CarouselCard
+                  post={post}
+                  onClick={() => setSelectedPost(post)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Animated scroll indicator */}
+        <div className="relative z-10 pb-8 flex justify-center animate-bounce">
+          <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
+            <span className="text-xs uppercase tracking-widest">{t('scroll')}</span>
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      {/* Blog post modal */}
+      <BlogPostModal
+        isOpen={!!selectedPost}
+        onClose={() => setSelectedPost(null)}
+        post={selectedPost}
+      />
+    </>
+  );
+}

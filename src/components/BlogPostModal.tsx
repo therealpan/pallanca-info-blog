@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useCallback } from 'react';
 import { X, Clock, Calendar } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 interface BlogPostModalProps {
   isOpen: boolean;
@@ -31,6 +31,7 @@ const springTransition = {
 
 export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalProps) {
   const locale = useLocale();
+  const t = useTranslations('blog');
   const scrollYRef = useRef(0);
 
   const open = useCallback(() => {
@@ -128,7 +129,7 @@ export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalPr
                   {new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Clock size={14} /> {post.readTime} {locale === 'it' ? 'min di lettura' : 'min read'}
+                  <Clock size={14} /> {post.readTime} {t('readTime')}
                 </span>
               </motion.div>
 
@@ -180,7 +181,7 @@ export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalPr
                 className="mt-16 glass-card p-8 text-center"
               >
                 <p className="text-lg text-white font-medium mb-4">
-                  {locale === 'it' ? 'Ti interessa approfondire?' : 'Want to discuss this further?'}
+                  {t('discussCta')}
                 </p>
                 <a
                   href="https://cal.com/panbiz/30min"
@@ -188,7 +189,7 @@ export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalPr
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
                 >
-                  {locale === 'it' ? 'Prenota una discovery call' : 'Book a discovery call'}
+                  {t('bookCall')}
                 </a>
               </motion.div>
             </div>

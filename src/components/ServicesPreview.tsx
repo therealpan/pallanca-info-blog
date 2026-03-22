@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Brain, Search, FolderKanban, UserCog, ArrowRight } from 'lucide-react';
 
@@ -37,18 +37,19 @@ const services = [
 
 export default function ServicesPreview() {
   const locale = useLocale();
+  const t = useTranslations('home');
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="flex items-center justify-between mb-10">
         <h2 className="text-2xl font-bold text-white">
-          {locale === 'it' ? 'Cosa faccio' : 'What I do'}
+          {t('servicesSection')}
         </h2>
         <Link
           href="/services"
           className="flex items-center gap-1 text-[var(--color-accent)] text-sm hover:gap-2 transition-all"
         >
-          {locale === 'it' ? 'Tutti i servizi' : 'All services'} <ArrowRight size={14} />
+          {t('allServices')} <ArrowRight size={14} />
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
