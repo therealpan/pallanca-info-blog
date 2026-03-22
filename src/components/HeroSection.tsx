@@ -7,7 +7,7 @@ export default function HeroSection() {
   const t = useTranslations('hero');
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -22,7 +22,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center">
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
           {t('headline')}
         </h1>
@@ -42,6 +42,16 @@ export default function HeroSection() {
             </svg>
           </a>
         </div>
+      </div>
+
+      {/* Animated scroll indicator */}
+      <div className="relative z-10 pb-8 animate-bounce">
+        <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
       </div>
     </section>
   );

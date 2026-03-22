@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { getAllPosts } from '@/lib/blog';
 import HeroSection from '@/components/HeroSection';
@@ -17,9 +16,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <HeroSection />
 
-      <ServicesPreview />
+      {/* Below the fold starts here */}
+      <div id="below-fold">
+        <ClientLogos />
+      </div>
 
-      <ClientLogos />
+      <ServicesPreview />
 
       {/* Blog section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
