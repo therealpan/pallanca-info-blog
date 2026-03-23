@@ -27,7 +27,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
-  const html = await markdownToHtml(post.content);
+  const localizedContent = locale === 'it' && post.contentIt ? post.contentIt : post.contentEn;
+  const html = await markdownToHtml(localizedContent);
   const title = locale === 'it' && post.titleIt ? post.titleIt : post.title;
 
   return (
