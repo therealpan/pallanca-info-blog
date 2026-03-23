@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Article content */}
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="prose prose-invert prose-lg max-w-none
+          className="prose prose-invert prose-lg prose-blog max-w-none
             prose-headings:text-white prose-headings:font-bold
             prose-p:text-[var(--color-text-muted)] prose-p:leading-relaxed
             prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:underline
