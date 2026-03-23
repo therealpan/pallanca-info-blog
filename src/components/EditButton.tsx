@@ -12,12 +12,17 @@ export default function EditButton({ slug, locale }: Props) {
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    fetch("/api/auth/session")
-      .then((r) => r.json())
+    fetch("/api/auth/session", { credentials: "include" })
+      .then((r) => {
+        if (!r.ok) throw new Error(`Session fetch failed: ${r.status}`);
+        return r.json();
+      })
       .then((data) => {
         if (data?.user) setIsAuth(true);
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.log("[EditButton] session check:", err);
+      });
   }, []);
 
   if (!isAuth) return null;

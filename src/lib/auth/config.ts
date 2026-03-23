@@ -4,6 +4,7 @@ import GitHub from 'next-auth/providers/github';
 const ALLOWED_USERS = ['angelopallanca', 'therealpan'];
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true,
   providers: [
     GitHub({
       clientId: process.env.GITHUB_CLIENT_ID!,
