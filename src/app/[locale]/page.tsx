@@ -12,10 +12,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   // Pre-render markdown to HTML for modal display
   const posts = await Promise.all(
-    rawPosts.map(async (post) => ({
-      ...post,
-      htmlContent: await markdownToHtml(post.content),
-    }))
+    rawPosts.map(async (post) => {
+      const localizedContent = locale === 'it' && post.contentIt ? post.contentIt : post.contentEn;
+      return {
+        ...post,
+        htmlContent: await markdownToHtml(localizedContent),
+      };
+    })
   );
 
   return (
