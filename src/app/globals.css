@@ -43,8 +43,8 @@ body {
 
 /* Blog article typography — readability-first */
 .prose-blog p {
-  margin-bottom: 1.75em;
-  line-height: 1.8;
+  margin-bottom: 2.25em;
+  line-height: 1.85;
 }
 
 .prose-blog h2 {
