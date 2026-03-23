@@ -13,10 +13,5 @@ export function splitBilingualContent(content: string): { en: string; it?: strin
 
 export function mergeBilingualContent(en: string, it?: string): string {
   if (!it) return en;
-  return en.trim() + '
-
----ITALIAN---
-
-' + it.trim() + '
-';
+  return `${en.trim()}\n\n---ITALIAN---\n\n${it.trim()}\n`;
 }
