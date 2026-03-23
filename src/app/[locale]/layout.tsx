@@ -1,4 +1,19 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { Inter, Source_Serif_4 } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const sourceSerif = Source_Serif_4({
+  subsets: ['latin'],
+  variable: '--font-source-serif',
+  display: 'swap',
+  weight: ['400', '600', '700'],
+});
+
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
@@ -164,7 +179,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
+      <body className={`min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased ${inter.variable} ${sourceSerif.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>
