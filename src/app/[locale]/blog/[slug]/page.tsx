@@ -4,7 +4,6 @@ import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
-import EditButton from '@/components/EditButton';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -108,7 +107,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <EditButton slug={slug} locale={locale} />
     </div>
   );
 }
