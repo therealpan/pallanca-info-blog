@@ -118,7 +118,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div>
                     <h3 className="text-sm font-medium text-[var(--color-accent)] uppercase tracking-wider mb-2">
-                      {locale === 'it' ? 'Il problema' : 'The problem'}
+                      {locale === 'it' ? 'Il problema' : 'The issue'}
                     </h3>
                     <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{svc.problem}</p>
                   </div>
