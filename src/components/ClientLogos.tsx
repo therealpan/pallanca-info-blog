@@ -1,5 +1,4 @@
 'use client';
-
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -20,25 +19,26 @@ const clients = [
 
 export default function ClientLogos() {
   const t = useTranslations('home');
-
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h2 className="text-center text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-10">
-        {t('clientsSection')}
-      </h2>
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center justify-items-center">
-        {clients.map((client) => (
-          <div key={client.name} className="hover:scale-105 transition-transform" title={client.name}>
-            <Image
-              src={`/images/clients/${client.file}`}
-              alt={`${client.name} logo`}
-              width={120}
-              height={48}
-              className="h-10 w-auto object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="w-full bg-[#1e293b]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-center text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-10">
+          {t('clientsSection')}
+        </h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center justify-items-center">
+          {clients.map((client) => (
+            <div key={client.name} className="hover:scale-105 transition-transform" title={client.name}>
+              <Image
+                src={`/images/clients/${client.file}`}
+                alt={`${client.name} logo`}
+                width={120}
+                height={48}
+                className="h-10 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
