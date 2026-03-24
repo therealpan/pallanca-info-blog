@@ -4,6 +4,7 @@ import { markdownToHtml } from '@/lib/markdown';
 import HeroSection from '@/components/HeroSection';
 import ClientLogos from '@/components/ClientLogos';
 import ServicesPreview from '@/components/ServicesPreview';
+import BooksSection from '@/components/BooksSection';
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -27,6 +28,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
       <div id="below-fold">
         <ServicesPreview />
+        <BooksSection />
         <ClientLogos />
       </div>
     </>
