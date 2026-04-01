@@ -23,20 +23,20 @@ const books = [
     badge: "Kindle",
   },
   {
-    id: "metodo-pan",
-    image: "/images/books/metodo_pan.webp",
-    titleEn: "The PAN Method",
-    titleIt: "Metodo PAN",
-    subtitleEn: "Energy and Communication: Build your invisible strength every day",
-    subtitleIt: "Energia e Comunicazione: Costruisci la tua forza invisibile ogni giorno",
+    id: "homo-sapiens-premium",
+    image: "/images/books/homo_sapiens_premium.jpeg",
+    titleEn: "Homo Sapiens Premium",
+    titleIt: "Homo Sapiens Premium",
+    subtitleEn: "A semi-serious survival manual in the age of artificial empathy",
+    subtitleIt: "Manuale semiserio di sopravvivenza umana nell'era dell'empatia artificiale",
     descEn:
-      "A daily method to develop personal energy and communication skills that make a difference. The invisible force behind every leader who generates trust, presence and lasting impact.",
+      "A sharp and irreverent guide to navigating the age of artificial intelligence without losing what makes us human. Between irony and insight, a provocative reflection on our identity, our relationships and our future alongside machines.",
     descIt:
-      "Un metodo quotidiano per sviluppare energia personale e capacità comunicative che fanno la differenza. La forza invisibile dietro ogni leader che genera fiducia, presenza e impatto duraturo.",
+      "Una guida tagliente e irriverente per navigare l'era dell'intelligenza artificiale senza perdere ciò che ci rende umani. Tra ironia e lucidità, una riflessione provocatoria sulla nostra identità, le nostre relazioni e il nostro futuro accanto alle macchine.",
     authorEn: "Angelo Pallanca",
     authorIt: "Angelo Pallanca",
-    amazon: "https://www.amazon.com/Metodo-PAN-Comunicazione-Costruisci-invisibile-ebook/dp/B0F6LX4LJ1/",
-    badge: "Libro",
+    amazon: "https://www.amazon.it/dp/B0GHK6MMFL",
+    badge: "Kindle",
   },
 ];
 
