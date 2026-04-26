@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
-import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -28,12 +28,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ],
     statsLabel: 'Anni di esperienza',
     numbersTitle: 'Trent\'anni in cifre',
-    numbers: [
-      { value: '30+', label: 'anni di consulting in innovazione e tecnologia' },
-      { value: '12', label: 'settori, dal luxury al pubblico, dal travel al finance' },
-      { value: '40+', label: 'stati in cui ho lavorato direttamente o tramite partner' },
-      { value: '3', label: 'continenti in cui ho consegnato progetti' },
-    ],
+    numbersIntro: 'I numeri che racconto in CdA, prima dei progetti.',
+    numbers: {
+      hero: { value: '30+', label: 'anni di consulting in innovazione e tecnologia', accent: 'primary' },
+      a: { value: '12', label: 'settori, dal luxury al pubblico, dal travel al finance' },
+      b: { value: '40+', label: 'stati in cui ho lavorato direttamente o tramite partner' },
+      c: { value: '3', label: 'continenti in cui ho consegnato progetti — Europa, Africa, Medio Oriente' },
+    },
     projectsTitle: 'Tre progetti che racconto in CdA',
     projectsIntro: 'Quando un cliente nuovo mi chiede "ma cosa hai fatto davvero", racconto questi tre. Non sono i più grandi né i più recenti — sono quelli che mi hanno insegnato di più.',
     projects: [
@@ -51,16 +52,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       },
     ],
     philosophyTitle: 'Tre cose che non cambio',
+    philosophyIntro: 'Tre principi che guidano tutto. Non sono manifesti, sono regole operative.',
     philosophy: [
       {
+        n: '01',
         title: 'Indipendenza, non collaborazioni occulte',
         desc: 'Non ricevo commissioni da nessun vendor. Quando consiglio un fornitore, è perché serve al cliente — non perché qualcuno mi paga il referral. Per me la credibilità di un consulente è l\'unica risorsa non scalabile, e non sono disposto a spenderla.',
       },
       {
+        n: '02',
         title: 'Senior, non team con junior',
         desc: 'Lavoro io, di persona. Il delivery operativo lo gestisce PiirZ Digital con team adeguati, ma il pensiero strategico è mio e firma con il mio nome. Se cerchi un grande deck con dodici slide bianche e un partner che appare al kickoff, non sono io.',
       },
       {
+        n: '03',
         title: 'Strategy che esegue',
         desc: 'Non scrivo strategie che muoiono in PowerPoint. Ogni roadmap che consegno è eseguibile dal primo giorno, con priorità, owner, tempi e — soprattutto — un partner di delivery pronto a partire. Una strategia non eseguibile non è una strategia. È un saggio.',
       },
@@ -79,12 +84,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ],
     statsLabel: 'Years of experience',
     numbersTitle: 'Thirty years, in numbers',
-    numbers: [
-      { value: '30+', label: 'years of innovation and technology consulting' },
-      { value: '12', label: 'sectors, from luxury to public, from travel to finance' },
-      { value: '40+', label: 'countries worked in directly or through partners' },
-      { value: '3', label: 'continents where I\'ve delivered projects' },
-    ],
+    numbersIntro: 'The numbers I show in the boardroom, before the projects.',
+    numbers: {
+      hero: { value: '30+', label: 'years of innovation and technology consulting', accent: 'primary' },
+      a: { value: '12', label: 'sectors, from luxury to public, from travel to finance' },
+      b: { value: '40+', label: 'countries worked in directly or through partners' },
+      c: { value: '3', label: 'continents where I\'ve delivered projects — Europe, Africa, Middle East' },
+    },
     projectsTitle: 'Three projects I tell in the boardroom',
     projectsIntro: 'When a new client asks "but what have you actually done," I tell these three. They\'re not the biggest or the most recent — they\'re the ones that taught me the most.',
     projects: [
@@ -102,16 +108,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       },
     ],
     philosophyTitle: 'Three things I don\'t change',
+    philosophyIntro: 'Three principles that guide everything. Not manifestos — operational rules.',
     philosophy: [
       {
+        n: '01',
         title: 'Independence, no hidden affiliations',
         desc: 'I take no commission from any vendor. When I recommend a supplier, it\'s because the client needs it — not because someone pays me a referral. To me, a consultant\'s credibility is the only non-scalable asset, and I\'m not willing to spend it.',
       },
       {
+        n: '02',
         title: 'Senior, not junior team',
         desc: 'I work in person. Operational delivery is handled by PiirZ Digital with adequate teams, but the strategic thinking is mine and signs with my name. If you want a big deck with twelve white slides and a partner who shows up at kickoff, I\'m not your guy.',
       },
       {
+        n: '03',
         title: 'Strategy that ships',
         desc: 'I don\'t write strategies that die in PowerPoint. Every roadmap I deliver is executable from day one, with priorities, owners, timelines, and — above all — a delivery partner ready to start. A strategy that can\'t be executed isn\'t a strategy. It\'s an essay.',
       },
@@ -121,23 +131,17 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     ctaButton: 'Request a proposal',
   };
 
-  // JSON-LD Person schema
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Angelo Pallanca',
     alternateName: 'Pan',
-    jobTitle: locale === 'it' ? 'Senior AI Advisor & Innovation Consultant' : 'Senior AI Advisor & Innovation Consultant',
+    jobTitle: 'Senior AI Advisor & Innovation Consultant',
     description: content.subtitle,
     url: 'https://pallanca.info',
     image: 'https://pallanca.info/images/photos/foto_pallanca01.png',
-    sameAs: [
-      'https://www.linkedin.com/in/angelopallanca',
-    ],
-    worksFor: {
-      '@type': 'Organization',
-      name: 'PiirZ Digital Limited',
-    },
+    sameAs: ['https://www.linkedin.com/in/angelopallanca'],
+    worksFor: { '@type': 'Organization', name: 'PiirZ Digital Limited' },
     knowsAbout: [
       'Artificial Intelligence Strategy',
       'EU AI Act Compliance',
@@ -154,32 +158,37 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          <div className="md:col-span-1">
-            <div className="glass-card p-2 inline-block">
-              <Image
-                src="/images/photos/foto_pallanca01.png"
-                alt="Angelo Pallanca"
-                width={400}
-                height={500}
-                className="rounded-xl object-cover"
-                priority
-              />
-            </div>
-            <div className="glass-card p-6 mt-6 text-center">
-              <div className="text-4xl font-bold text-[var(--color-accent)]">30+</div>
-              <div className="text-sm text-[var(--color-text-muted)] mt-1">{content.statsLabel}</div>
+      {/* HERO — asimmetrico 5/7 split, foto a sinistra grande, contenuto a destra editoriale */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="col-span-12 md:col-span-5 lg:col-span-5">
+            <div className="relative">
+              <div className="glass-card p-2 inline-block w-full">
+                <Image
+                  src="/images/photos/foto_pallanca01.png"
+                  alt="Angelo Pallanca"
+                  width={520}
+                  height={650}
+                  className="rounded-xl object-cover w-full h-auto"
+                  priority
+                />
+              </div>
+              <div className="absolute -bottom-5 -right-5 glass-card p-5 hidden md:block">
+                <div className="text-3xl font-semibold text-[var(--color-accent)] tracking-tight">30+</div>
+                <div className="text-xs text-[var(--color-text-subtle)] uppercase tracking-widest mt-1">{content.statsLabel}</div>
+              </div>
             </div>
           </div>
-          <div className="md:col-span-2">
-            <div className="text-xs uppercase tracking-widest text-[var(--color-accent)] mb-3">
+
+          <div className="col-span-12 md:col-span-7 lg:col-span-7">
+            <div className="text-xs uppercase tracking-[0.18em] text-[var(--color-accent)] mb-4 font-medium">
               {content.eyebrow}
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white">{content.title}</h1>
-            <p className="text-xl text-[var(--color-text-muted)] mt-4 leading-relaxed">{content.subtitle}</p>
-            <div className="mt-8 space-y-4">
+            <h1 className="display-xl text-white">{content.title}</h1>
+            <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+              {content.subtitle}
+            </p>
+            <div className="mt-8 space-y-4 max-w-2xl">
               {content.bio.map((p, i) => (
                 <p key={i} className="text-[var(--color-text-muted)] leading-relaxed text-base">{p}</p>
               ))}
@@ -187,65 +196,128 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <div className="mt-10">
               <a
                 href={`/${locale}/proposal`}
-                className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
+                className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-7 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
               >
-                {content.ctaButton}
+                {content.ctaButton} <ArrowRight size={16} />
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Numbers */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold text-white mb-10">{content.numbersTitle}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {content.numbers.map((n, i) => (
-            <div key={i} className="glass-card p-6 text-center">
-              <div className="text-4xl font-bold text-[var(--color-accent)]">{n.value}</div>
-              <div className="text-sm text-[var(--color-text-muted)] mt-3 leading-relaxed">{n.label}</div>
+      {/* NUMBERS — bento asimmetrico */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-2xl mb-12">
+          <h2 className="display-md text-white">{content.numbersTitle}</h2>
+          <p className="mt-4 text-[var(--color-text-muted)] leading-relaxed">{content.numbersIntro}</p>
+        </div>
+
+        <div className="grid grid-cols-12 gap-4 md:gap-5 stagger-grid">
+          {/* Hero number — 30+ */}
+          <div className="col-span-12 md:col-span-7 glass-card p-8 md:p-10 lg:p-12">
+            <div className="text-7xl sm:text-8xl md:text-[10rem] font-semibold text-[var(--color-accent)] leading-none tracking-tighter">
+              {content.numbers.hero.value}
             </div>
-          ))}
+            <div className="mt-5 text-sm sm:text-base text-[var(--color-text-muted)] leading-relaxed max-w-md">
+              {content.numbers.hero.label}
+            </div>
+          </div>
+
+          {/* Tall card — 12 */}
+          <div className="col-span-12 md:col-span-5 grid grid-cols-1 md:grid-rows-2 gap-4 md:gap-5">
+            <div className="glass-card p-7">
+              <div className="text-5xl sm:text-6xl font-semibold text-white leading-none tracking-tighter">
+                {content.numbers.a.value}
+              </div>
+              <div className="mt-4 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                {content.numbers.a.label}
+              </div>
+            </div>
+            <div className="glass-card p-7">
+              <div className="text-5xl sm:text-6xl font-semibold text-white leading-none tracking-tighter">
+                {content.numbers.b.value}
+              </div>
+              <div className="mt-4 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                {content.numbers.b.label}
+              </div>
+            </div>
+          </div>
+
+          {/* Wide bottom — 3 continenti */}
+          <div className="col-span-12 glass-card p-7 md:p-9 flex flex-col md:flex-row md:items-center gap-5 md:gap-10">
+            <div className="text-6xl sm:text-7xl md:text-8xl font-semibold text-white leading-none tracking-tighter md:flex-shrink-0">
+              {content.numbers.c.value}
+            </div>
+            <div className="text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed">
+              {content.numbers.c.label}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Three projects */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold text-white mb-4">{content.projectsTitle}</h2>
-        <p className="text-[var(--color-text-muted)] mb-10 max-w-3xl">{content.projectsIntro}</p>
-        <div className="space-y-6">
+      {/* THREE PROJECTS — vertical stack with editorial spacing */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+        <div className="mb-12">
+          <h2 className="display-md text-white">{content.projectsTitle}</h2>
+          <p className="mt-4 text-[var(--color-text-muted)] leading-relaxed max-w-2xl">{content.projectsIntro}</p>
+        </div>
+        <div className="space-y-8">
           {content.projects.map((p, i) => (
-            <div key={i} className="glass-card p-8">
-              <h3 className="text-lg font-semibold text-white mb-3">{p.title}</h3>
-              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{p.body}</p>
+            <article key={i} className="glass-card p-8 md:p-10">
+              <div className="flex items-baseline gap-4 mb-4">
+                <span className="text-sm font-medium text-[var(--color-accent)] tracking-widest">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="display-sm text-white">{p.title}</h3>
+              </div>
+              <p className="text-[var(--color-text-muted)] leading-relaxed text-base">{p.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* PHILOSOPHY — zigzag layout, alternating alignment */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-2xl mb-16">
+          <h2 className="display-md text-white">{content.philosophyTitle}</h2>
+          <p className="mt-4 text-[var(--color-text-muted)] leading-relaxed">{content.philosophyIntro}</p>
+        </div>
+        <div className="space-y-16 md:space-y-24">
+          {content.philosophy.map((item, i) => (
+            <div
+              key={item.n}
+              className={`grid grid-cols-12 gap-6 md:gap-12 items-start ${
+                i % 2 === 1 ? 'md:flex-row-reverse' : ''
+              }`}
+            >
+              <div className={`col-span-12 md:col-span-3 ${i % 2 === 1 ? 'md:col-start-10' : ''}`}>
+                <div className="text-7xl md:text-8xl font-semibold text-[var(--color-accent)] leading-none tracking-tighter">
+                  {item.n}
+                </div>
+              </div>
+              <div className={`col-span-12 md:col-span-8 ${i % 2 === 1 ? 'md:col-start-1 md:row-start-1' : ''}`}>
+                <h3 className="display-sm text-white mb-4">{item.title}</h3>
+                <p className="text-[var(--color-text-muted)] leading-relaxed text-base sm:text-lg max-w-2xl">
+                  {item.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Philosophy */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold text-white mb-10">{content.philosophyTitle}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {content.philosophy.map((item) => (
-            <div key={item.title} className="glass-card p-6">
-              <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
-              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <div className="glass-card p-12">
-          <h2 className="text-2xl font-bold text-white mb-4">{content.ctaTitle}</h2>
-          <p className="text-[var(--color-text-muted)] mb-8 max-w-lg mx-auto">{content.ctaBody}</p>
+      {/* FINAL CTA */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center">
+        <h2 className="display-lg text-white">{content.ctaTitle}</h2>
+        <p className="mt-6 text-base sm:text-lg text-[var(--color-text-muted)] leading-relaxed max-w-2xl mx-auto">
+          {content.ctaBody}
+        </p>
+        <div className="mt-10">
           <a
             href={`/${locale}/proposal`}
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-7 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
           >
-            {content.ctaButton}
+            {content.ctaButton} <ArrowRight size={16} />
           </a>
         </div>
       </section>
