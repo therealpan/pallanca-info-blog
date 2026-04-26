@@ -61,7 +61,7 @@ function CarouselCard({
       <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 flex-1">
         {displayExcerpt}
       </p>
-      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-all">
+      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-[gap] duration-200">
         {t('readMore')} <ArrowRight size={14} />
       </div>
     </motion.div>
@@ -118,7 +118,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
               href="https://cal.com/panbiz/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
+              className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
             >
               {t('cta')}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,14 +137,14 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => scroll('left')}
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+                className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200 cursor-pointer"
                 aria-label="Previous"
               >
                 <ChevronLeft size={18} />
               </button>
               <button
                 onClick={() => scroll('right')}
-                className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+                className="w-11 h-11 rounded-full border border-white/20 flex items-center justify-center text-[var(--color-text-muted)] hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200 cursor-pointer"
                 aria-label="Next"
               >
                 <ChevronRight size={18} />

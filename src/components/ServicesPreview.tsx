@@ -18,18 +18,18 @@ export default function ServicesPreview() {
         </h2>
         <Link
           href="/services"
-          className="flex items-center gap-1 text-[var(--color-accent)] text-sm hover:gap-2 transition-all"
+          className="flex items-center gap-1 text-[var(--color-accent)] text-sm hover:gap-2 transition-[gap] duration-200"
         >
           {t('allServices')} <ArrowRight size={14} />
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((svc, idx) => (
           <a
             key={svc.slug}
             href={`/${lang}/services/${svc.slug}`}
-            className="glass-card p-6 flex flex-col gap-4 group hover:bg-white/[0.04] transition-all"
+            className="glass-card p-6 flex flex-col gap-4 group"
           >
             <div className="flex items-baseline justify-between">
               <span className="text-xs uppercase tracking-wider text-[var(--color-accent)]">
@@ -37,7 +37,7 @@ export default function ServicesPreview() {
               </span>
               <ArrowRight
                 size={16}
-                className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-all"
+                className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-[transform,color] duration-200"
               />
             </div>
             <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors">

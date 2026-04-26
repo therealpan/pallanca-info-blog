@@ -42,7 +42,7 @@ export default function BlogCard({
       <p className="text-sm text-[var(--color-text-muted)] line-clamp-3 flex-1">
         {displayExcerpt}
       </p>
-      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-all">
+      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-[gap] duration-200">
         {t('readMore')} <ArrowRight size={14} />
       </div>
     </Link>

@@ -64,7 +64,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
             href={`/${lang}/services/${svc.slug}`}
             className="block group"
           >
-            <div className="glass-card p-8 md:p-10 transition-all hover:bg-white/[0.04]">
+            <div className="glass-card p-8 md:p-10">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                 <div className="md:col-span-1">
                   <div className="text-3xl font-bold text-[var(--color-accent)]">
@@ -95,7 +95,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
                 <div className="md:col-span-1 flex md:justify-end items-center">
                   <ArrowRight
                     size={20}
-                    className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-all"
+                    className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-[transform,color] duration-200"
                   />
                 </div>
               </div>

@@ -97,7 +97,7 @@ export default function BooksSection() {
                 href={book.amazon}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-1 self-start glass-card !rounded-full px-4 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
+                className="inline-flex items-center gap-2 mt-1 self-start glass-card !rounded-full px-4 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
               >
                 {ctaLabel}
                 <ExternalLink size={14} />
