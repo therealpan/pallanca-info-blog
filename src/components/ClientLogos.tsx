@@ -1,44 +1,49 @@
 'use client';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
+import { ArrowRight } from 'lucide-react';
 
 const clients = [
-  { name: 'Emirates', file: 'emirates.png' },
-  { name: 'Ferragamo', file: 'ferragamo.png' },
-  { name: 'UNESCO', file: 'Unesco.png' },
-  { name: 'UNICEF', file: 'Unicef.png' },
-  { name: 'Museo Nacional del Prado', file: 'museo nacional prado.png' },
-  { name: 'Gobierno de Canarias', file: 'gobierno_de_canarias.png' },
-  { name: 'Principato di Monaco', file: 'monaco.png' },
-  { name: 'Regione Liguria', file: 'regione_liguria.png' },
-  { name: 'Unione Europea', file: 'unione_europea.png' },
-  { name: 'Interreg Europe', file: 'interreg Europe.png' },
-  { name: 'PiirZ', file: 'piirz.png' },
-  { name: 'Obsidian', file: 'obsidian.png' },
+  'Emirates',
+  'Salvatore Ferragamo',
+  'UNESCO',
+  'UNICEF',
+  'Museo Nacional del Prado',
+  'Principato di Monaco',
+  'Gobierno de Canarias',
+  'Regione Liguria',
+  'Unione Europea',
+  'Interreg Europe',
+  'Obsidian',
+  'PiirZ Digital',
 ];
 
 export default function ClientLogos() {
   const t = useTranslations('home');
+  const locale = useLocale();
+
   return (
-    <div className="w-full bg-[#1e293b]">
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-center text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-10">
-          {t('clientsSection')}
-        </h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 items-center justify-items-center">
-          {clients.map((client) => (
-            <div key={client.name} className="hover:scale-105 transition-transform" title={client.name}>
-              <Image
-                src={`/images/clients/${client.file}`}
-                alt={`${client.name} logo`}
-                width={120}
-                height={48}
-                className="h-10 w-auto object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-    </div>
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <h2 className="text-xs font-medium text-[var(--color-text-subtle)] uppercase tracking-[0.18em] mb-8">
+        {t('clientsSection')}
+      </h2>
+      <p className="text-2xl sm:text-3xl md:text-[2rem] text-white leading-[1.4] font-medium tracking-tight">
+        {clients.map((c, i) => (
+          <span key={c} className="whitespace-nowrap">
+            {c}
+            {i < clients.length - 1 && (
+              <span aria-hidden="true" className="text-[var(--color-text-subtle)] mx-2 sm:mx-3">·</span>
+            )}{' '}
+          </span>
+        ))}
+      </p>
+      <Link
+        href="/clients"
+        className="inline-flex items-center gap-1.5 mt-10 text-[var(--color-accent)] text-sm font-medium hover:gap-2.5 transition-[gap] duration-200"
+      >
+        {locale === 'it' ? 'Vedi tutti i case study' : 'See all case studies'}
+        <ArrowRight size={14} />
+      </Link>
+    </section>
   );
 }
