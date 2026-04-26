@@ -50,8 +50,8 @@ export default async function ClientsPage({ params }: { params: Promise<{ locale
     sectorsBody: 'Banking & financial services · Public administration · Cultura e fondazioni · Turismo & travel · Luxury & retail · Education · Healthcare (early-stage)',
     geographiesBody: 'Europa (Italia, Francia, Spagna, Monaco, UK, Germania) · Africa subsahariana (banche centrali multiple, Mozambico) · Medio Oriente (Emirates) · Istituzioni internazionali (UNESCO, UNICEF, EU)',
     ctaTitle: 'Vuoi essere il prossimo case study?',
-    ctaBody: 'La discovery call di trenta minuti è gratuita e senza vincoli. Ti racconto come ho affrontato problemi simili al tuo, capiamo se possiamo lavorare insieme, decidi tu il passo successivo.',
-    ctaButton: 'Prenota una discovery call',
+    ctaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Discovery call gratuita: ti racconto come ho affrontato problemi simili al tuo, capiamo se possiamo lavorare insieme, decidi tu il passo successivo.',
+    ctaButton: 'Richiedi una proposta',
   } : {
     eyebrow: 'Clients',
     title: 'Thirty years of work, across three continents.',
@@ -70,8 +70,8 @@ export default async function ClientsPage({ params }: { params: Promise<{ locale
     sectorsBody: 'Banking & financial services · Public administration · Culture & foundations · Tourism & travel · Luxury & retail · Education · Healthcare (early-stage)',
     geographiesBody: 'Europe (Italy, France, Spain, Monaco, UK, Germany) · Sub-Saharan Africa (multiple central banks, Mozambique) · Middle East (Emirates) · International institutions (UNESCO, UNICEF, EU)',
     ctaTitle: 'Want to be the next case study?',
-    ctaBody: 'The thirty-minute discovery call is free and unconditional. I\'ll tell you how I\'ve handled problems similar to yours, we figure out if we can work together, you decide the next step.',
-    ctaButton: 'Book a discovery call',
+    ctaBody: 'Fill in the pre-qualification form (5 questions, two minutes). Free discovery call: I\'ll tell you how I\'ve handled problems similar to yours, we figure out if we can work together, you decide the next step.',
+    ctaButton: 'Request a proposal',
   };
 
   const caseStudies = lang === 'it' ? [

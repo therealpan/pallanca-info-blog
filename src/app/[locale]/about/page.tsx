@@ -66,8 +66,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       },
     ],
     ctaTitle: 'Parliamone.',
-    ctaBody: 'Una discovery call di trenta minuti. Mi racconti dove sei e cosa ti serve, ti racconto come affronto il tuo problema specifico. Niente pitch, niente vincoli.',
-    ctaButton: 'Prenota una discovery call',
+    ctaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Una discovery call di trenta minuti: mi racconti dove sei e cosa ti serve, ti racconto come affronto il tuo problema specifico. Niente pitch, niente vincoli.',
+    ctaButton: 'Richiedi una proposta',
   } : {
     eyebrow: 'About',
     title: 'Angelo Pallanca',
@@ -117,8 +117,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       },
     ],
     ctaTitle: 'Let\'s talk.',
-    ctaBody: 'A thirty-minute discovery call. You tell me where you are and what you need, I tell you how I\'d approach your specific problem. No pitch, no commitment.',
-    ctaButton: 'Book a discovery call',
+    ctaBody: 'Fill in the pre-qualification form (5 questions, two minutes). A thirty-minute discovery call: you tell me where you are and what you need, I tell you how I\'d approach your specific problem. No pitch, no commitment.',
+    ctaButton: 'Request a proposal',
   };
 
   // JSON-LD Person schema

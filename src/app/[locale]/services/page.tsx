@@ -28,8 +28,8 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
     pricingLabel: 'Investimento',
     learnMore: 'Scopri il programma',
     notSureTitle: 'Non sai quale ti serve?',
-    notSureBody: 'È un problema comune e — spesso — il sintomo del problema vero. La discovery call di trenta minuti serve esattamente a questo: capire dove sei oggi, cosa ti serve davvero, e quale di questi cinque servizi è la risposta giusta. A volte la risposta è "nessuno di questi cinque" — e in quel caso ti dico cosa fare comunque.',
-    cta: 'Prenota una discovery call',
+    notSureBody: 'È un problema comune e — spesso — il sintomo del problema vero. Compila il form di pre-qualifica (5 domande, due minuti). In discovery call capiamo dove sei, cosa ti serve davvero, e quale di questi cinque servizi è la risposta giusta. A volte la risposta è "nessuno di questi cinque" — e in quel caso ti dico cosa fare comunque.',
+    cta: 'Richiedi una proposta',
   } : {
     eyebrow: 'Services',
     title: 'Five ways to work together.',
@@ -39,8 +39,8 @@ export default async function ServicesPage({ params }: { params: Promise<{ local
     pricingLabel: 'Investment',
     learnMore: 'Learn more',
     notSureTitle: 'Don\'t know which one you need?',
-    notSureBody: 'That\'s a common problem and — often — a symptom of the real one. The thirty-minute discovery call is exactly for this: figure out where you are today, what you really need, and which of these five services is the right answer. Sometimes the answer is "none of these five" — and in that case I\'ll tell you what to do anyway.',
-    cta: 'Book a discovery call',
+    notSureBody: 'That\'s a common problem and — often — a symptom of the real one. Fill in the pre-qualification form (5 questions, two minutes). In the discovery call we figure out where you are, what you really need, and which of these five services is the right answer. Sometimes the answer is "none of these five" — and in that case I\'ll tell you what to do anyway.',
+    cta: 'Request a proposal',
   };
 
   return (
