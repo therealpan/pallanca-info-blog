@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Resend API call
-  const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Pan <hello@pallanca.info>';
+  const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Pan <pan@pallanca.net>';
   const toAddress = process.env.RESEND_TO_ADDRESS || 'pan@piirz.com';
 
   const subject = `[Pan] ${body.name} · ${body.company} · ${body.problems[0] || 'nuova richiesta'}`;
