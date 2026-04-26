@@ -2,14 +2,25 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --color-bg: #0a0e17;
+  --color-bg: #0b0d11;
   --color-bg-card: rgba(255, 255, 255, 0.05);
-  --color-bg-card-hover: rgba(255, 255, 255, 0.1);
-  --color-text: #e8e8e8;
-  --color-text-muted: #9ca3af;
-  --color-accent: #60a5fa;
-  --color-accent-hover: #93c5fd;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-bg-card-hover: rgba(255, 255, 255, 0.08);
+  --color-text: #ececec;
+  --color-text-muted: #b4b9c2;
+  --color-text-subtle: #9ca3af;
+  --color-accent: #f5b041;
+  --color-accent-hover: #f8c477;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* Easing curves */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Spacing tokens */
+  --section-pad-sm: clamp(3rem, 5vw, 4rem);
+  --section-pad-md: clamp(4rem, 7vw, 6rem);
+  --section-pad-lg: clamp(6rem, 10vw, 8rem);
 }
 
 html {
@@ -19,30 +30,51 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-geist), system-ui, -apple-system, sans-serif;
 }
 
 .glass-card {
-  background: var(--color-bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
-  transition: background 0.3s ease;
+  border-radius: 12px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background 200ms var(--ease-out), border-color 200ms var(--ease-out);
 }
 
-.glass-card:hover {
-  background: var(--color-bg-card-hover);
+@media (hover: hover) and (pointer: fine) {
+  .glass-card:hover {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+    border-color: rgba(255, 255, 255, 0.12);
+  }
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Scroll indicator (replaces Tailwind animate-bounce) */
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+.scroll-hint {
+  animation: scroll-hint 2400ms var(--ease-out) infinite;
 }
 
-/* Font assignments */
-body {
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-hint { animation: none; opacity: 0.5; }
 }

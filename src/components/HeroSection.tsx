@@ -91,7 +91,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
 
   return (
     <>
-      <section className="relative min-h-screen flex flex-col overflow-hidden">
+      <section className="relative min-h-[100dvh] flex flex-col overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -171,8 +171,8 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
           </div>
         </div>
 
-        {/* Animated scroll indicator */}
-        <div className="relative z-10 pb-8 flex justify-center animate-bounce">
+        {/* Animated scroll indicator (custom keyframe, no bounce) */}
+        <div className="relative z-10 pb-8 flex justify-center scroll-hint">
           <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
             <span className="text-xs uppercase tracking-widest">{t('scroll')}</span>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
