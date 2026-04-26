@@ -80,10 +80,8 @@ export default async function ServiceDetailPage({
           <p className="mt-6 text-base text-[var(--color-accent)] font-medium">{c.pricingLabel}</p>
           <div className="mt-8">
             <a
-              href="https://cal.com/panbiz/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+              href={`/${lang}/proposal`}
+              className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
             >
               {c.ctaButton}
             </a>
@@ -210,10 +208,8 @@ export default async function ServiceDetailPage({
             {c.finalCtaBody}
           </p>
           <a
-            href="https://cal.com/panbiz/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+            href={`/${lang}/proposal`}
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
           >
             {c.ctaButton}
           </a>

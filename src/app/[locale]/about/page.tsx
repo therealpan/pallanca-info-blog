@@ -186,10 +186,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
             <div className="mt-10">
               <a
-                href="https://cal.com/panbiz/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+                href={`/${locale}/proposal`}
+                className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
               >
                 {content.ctaButton}
               </a>
@@ -244,10 +242,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           <h2 className="text-2xl font-bold text-white mb-4">{content.ctaTitle}</h2>
           <p className="text-[var(--color-text-muted)] mb-8 max-w-lg mx-auto">{content.ctaBody}</p>
           <a
-            href="https://cal.com/panbiz/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+            href={`/${locale}/proposal`}
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
           >
             {content.ctaButton}
           </a>

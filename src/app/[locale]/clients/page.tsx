@@ -273,10 +273,8 @@ export default async function ClientsPage({ params }: { params: Promise<{ locale
             {labels.ctaBody}
           </p>
           <a
-            href="https://cal.com/panbiz/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+            href={`/${lang}/proposal`}
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200"
           >
             {labels.ctaButton}
           </a>

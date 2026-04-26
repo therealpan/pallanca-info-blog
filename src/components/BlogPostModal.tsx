@@ -189,9 +189,7 @@ export default function BlogPostModal({ isOpen, onClose, post }: BlogPostModalPr
                   {t('discussCta')}
                 </p>
                 <a
-                  href="https://cal.com/panbiz/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/${locale}/proposal`}
                   className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
                 >
                   {t('bookCall')}
