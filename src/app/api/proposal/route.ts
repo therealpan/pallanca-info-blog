@@ -77,12 +77,12 @@ function buildEmailHtml(p: ProposalPayload): string {
             ${row('Lingua sito', p.locale || 'unknown')}
           </table>
 
-          <div style="margin-top:24px;padding:14px 16px;background:#fdf6e8;border-left:3px solid #f5b041;border-radius:4px;color:#6b6b6b;font-size:13px;line-height:1.55;">
+          <div style="margin-top:28px;padding-top:20px;border-top:1px solid #e8e4dc;color:#8a8a8a;font-size:12px;line-height:1.65;font-style:italic;">
             Il prospect ha già visto il link Cal.com nella schermata di conferma. Se vuole prenotare, lo farà in autonomia. Tu puoi comunque scrivergli prima per qualificare meglio.
           </div>
 
-          <div style="margin-top:18px;color:#9c9c9c;font-size:12px;">
-            Submitted: ${new Date().toISOString()}
+          <div style="margin-top:14px;color:#b4b4b4;font-size:11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;">
+            Submitted ${new Date().toISOString()}
           </div>
         </td>
       </tr>
