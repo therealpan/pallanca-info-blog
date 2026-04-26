@@ -63,7 +63,7 @@ export const services: ServiceMeta[] = [
     },
     content: {
       it: {
-        eyebrow: 'Servizio 1 di 5 · Programma strutturato',
+        eyebrow: 'Programma strutturato',
         title: 'AI Strategy Sprint',
         tagline: 'Dal board alla roadmap eseguibile, in 4 settimane.',
         pricingLabel: 'Investimento commisurato allo scope · Mini-proposta in 48 ore dopo la discovery call · 4-6 settimane',
@@ -150,7 +150,7 @@ export const services: ServiceMeta[] = [
         finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Se il fit è chiaro, fissiamo una discovery call di trenta minuti e poi ti mando una mini-proposta scritta entro 48 ore. Niente pitch, niente vincoli.',
       },
       en: {
-        eyebrow: 'Service 1 of 5 · Structured program',
+        eyebrow: 'Structured program',
         title: 'AI Strategy Sprint',
         tagline: 'From boardroom mandate to executable roadmap, in 4 weeks.',
         pricingLabel: 'Investment scaled to scope · Custom mini-proposal in 48 hours after the discovery call · 4-6 weeks',
@@ -231,7 +231,7 @@ export const services: ServiceMeta[] = [
     },
     content: {
       it: {
-        eyebrow: 'Servizio 2 di 5 · Programma strutturato · Urgenza alta',
+        eyebrow: 'Programma strutturato · Urgenza alta',
         title: 'EU AI Act Readiness Audit',
         tagline: 'Pronto per il 2 agosto 2026? In tre settimane lo sai con certezza.',
         pricingLabel: 'Investimento commisurato al numero di sistemi AI in scope · Mini-proposta in 48 ore · 3 settimane',
@@ -295,7 +295,7 @@ export const services: ServiceMeta[] = [
         finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Se sei in scope dell\'AI Act, fissiamo discovery call e ti mando mini-proposta in 48 ore. Se non sei in scope, te lo dirò esplicitamente — senza vendere un audit che non ti serve.',
       },
       en: {
-        eyebrow: 'Service 2 of 5 · Structured program · Urgency: high',
+        eyebrow: 'Structured program · Urgency: high',
         title: 'EU AI Act Readiness Audit',
         tagline: 'Ready for August 2, 2026? In three weeks you\'ll know for sure.',
         pricingLabel: 'Investment scaled to number of AI systems in scope · Custom mini-proposal in 48 hours · 3 weeks',
@@ -377,7 +377,7 @@ export const services: ServiceMeta[] = [
     },
     content: {
       it: {
-        eyebrow: 'Servizio 3 di 5 · Programma strutturato',
+        eyebrow: 'Programma strutturato · Sovereignty',
         title: 'Sovereign AI Blueprint',
         tagline: 'AI in Europa, non in affitto. La tua, non a Las Vegas.',
         pricingLabel: 'Investimento commisurato alla complessità · Mini-proposta in 48 ore · 4 settimane · Per organizzazioni con vincoli di sovranità',
@@ -438,7 +438,7 @@ export const services: ServiceMeta[] = [
         finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). In discovery call capiamo se il tuo caso ha davvero bisogno di un blueprint completo o di un assessment più leggero. Se il tuo setup è già in regola, te lo dico — e non vendo un servizio che non ti serve.',
       },
       en: {
-        eyebrow: 'Service 3 of 5 · Structured program',
+        eyebrow: 'Structured program · Sovereignty',
         title: 'Sovereign AI Blueprint',
         tagline: 'AI in Europe, not on a Nevada server. Yours, not rented.',
         pricingLabel: 'Investment scaled to complexity · Custom mini-proposal in 48 hours · 4 weeks · For organizations with sovereignty constraints',
@@ -517,7 +517,7 @@ export const services: ServiceMeta[] = [
     },
     content: {
       it: {
-        eyebrow: 'Servizio 4 di 5 · Retainer mensile · Co-brand Pan + PiirZ Digital',
+        eyebrow: 'Retainer mensile · Co-brand Pan + PiirZ Digital',
         title: 'Fractional Chief AI Officer',
         tagline: 'Un CAIO senior 4 giorni al mese. Senza assumerlo full-time.',
         pricingLabel: 'Retainer mensile commisurato al setup richiesto · Capacity limitata · Mini-proposta in 48 ore',
@@ -582,7 +582,7 @@ export const services: ServiceMeta[] = [
         finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Una call di sessanta minuti per capire se il fractional è davvero la struttura giusta, se siamo allineati culturalmente, e se nei prossimi 60 giorni ho uno slot disponibile.',
       },
       en: {
-        eyebrow: 'Service 4 of 5 · Monthly retainer · Co-brand Pan + PiirZ Digital',
+        eyebrow: 'Monthly retainer · Co-brand Pan + PiirZ Digital',
         title: 'Fractional Chief AI Officer',
         tagline: 'A senior CAIO four days a month. Without the full-time hire.',
         pricingLabel: 'Monthly retainer scaled to required setup · Limited capacity · Custom mini-proposal in 48 hours',
@@ -665,7 +665,7 @@ export const services: ServiceMeta[] = [
     },
     content: {
       it: {
-        eyebrow: 'Servizio 5 di 5 · Programma strutturato · Per VC e founder',
+        eyebrow: 'Programma strutturato · Per VC e founder',
         title: 'AI Due Diligence',
         tagline: 'Un advisor senior che legge davvero il codice. E parla davvero col founder.',
         pricingLabel: 'Investimento commisurato alla complessità tecnica · Mini-proposta in 24 ore (VC) o 48 ore (founder) · 1-2 settimane',
@@ -725,7 +725,7 @@ export const services: ServiceMeta[] = [
         finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Trenta minuti di scoping per capire variante (VC o founder), scope tecnico, calendario realistico. La call non costa nulla — e se la DD non si concretizza, ti dico cosa cercare comunque prima di chiudere il deal.',
       },
       en: {
-        eyebrow: 'Service 5 of 5 · Structured program · For VCs and founders',
+        eyebrow: 'Structured program · For VCs and founders',
         title: 'AI Due Diligence',
         tagline: 'A senior advisor who actually reads the code. And actually talks to the founder.',
         pricingLabel: 'Investment scaled to technical complexity · Custom mini-proposal in 24h (VC) or 48h (founder) · 1-2 weeks',

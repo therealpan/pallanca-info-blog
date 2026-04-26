@@ -1,9 +1,9 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { Inter, Source_Serif_4 } from 'next/font/google';
+import { Geist, Source_Serif_4 } from 'next/font/google';
 
-const inter = Inter({
+const geist = Geist({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-geist',
   display: 'swap',
 });
 
@@ -179,7 +179,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased ${inter.variable} ${sourceSerif.variable}`}>
+      <body className={`min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased ${geist.variable} ${sourceSerif.variable}`}>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>
