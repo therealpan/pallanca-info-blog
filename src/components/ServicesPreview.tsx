@@ -2,46 +2,17 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { Brain, Search, FolderKanban, UserCog, ArrowRight } from 'lucide-react';
-
-const services = [
-  {
-    icon: Brain,
-    titleEn: 'Knowledge Consulting',
-    titleIt: 'Consulenza Strategica',
-    descEn: 'Deep analysis of your workflows to find where AI and innovation can make a real difference.',
-    descIt: 'Analisi approfondita dei tuoi processi per trovare dove AI e innovazione possono fare la differenza.',
-  },
-  {
-    icon: Search,
-    titleEn: 'Solution Scouting',
-    titleIt: 'Solution Scouting',
-    descEn: 'I shortlist the 3 technologies that actually fit your stack and budget. No vendor lock-in.',
-    descIt: 'Seleziono le 3 tecnologie che si adattano al tuo stack e budget. Nessun vendor lock-in.',
-  },
-  {
-    icon: FolderKanban,
-    titleEn: 'Project Management',
-    titleIt: 'Project Management',
-    descEn: 'From scouting to delivery. I manage timelines, teams and resources to ship on time.',
-    descIt: 'Dallo scouting alla consegna. Gestisco timeline, team e risorse per consegnare nei tempi.',
-  },
-  {
-    icon: UserCog,
-    titleEn: 'Interim Management',
-    titleIt: 'Interim Management',
-    descEn: 'I join your team as Innovation Director. Full ownership, from strategy to execution.',
-    descIt: 'Entro nel tuo team come Innovation Director. Piena responsabilita, dalla strategia all\'esecuzione.',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import { services } from '@/lib/services-data';
 
 export default function ServicesPreview() {
   const locale = useLocale();
   const t = useTranslations('home');
+  const lang = locale === 'it' ? 'it' : 'en';
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="flex items-center justify-between mb-10">
+      <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
         <h2 className="text-2xl font-bold text-white">
           {t('servicesSection')}
         </h2>
@@ -52,17 +23,34 @@ export default function ServicesPreview() {
           {t('allServices')} <ArrowRight size={14} />
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.map((svc) => (
-          <div key={svc.titleEn} className="glass-card p-6 flex flex-col gap-4">
-            <svc.icon size={28} className="text-[var(--color-accent)]" />
-            <h3 className="text-lg font-semibold text-white">
-              {locale === 'it' ? svc.titleIt : svc.titleEn}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((svc, idx) => (
+          <a
+            key={svc.slug}
+            href={`/${lang}/services/${svc.slug}`}
+            className="glass-card p-6 flex flex-col gap-4 group hover:bg-white/[0.04] transition-all"
+          >
+            <div className="flex items-baseline justify-between">
+              <span className="text-xs uppercase tracking-wider text-[var(--color-accent)]">
+                {String(idx + 1).padStart(2, '0')} / 05
+              </span>
+              <ArrowRight
+                size={16}
+                className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-all"
+              />
+            </div>
+            <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors">
+              {svc.shortTitle[lang]}
             </h3>
-            <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
-              {locale === 'it' ? svc.descIt : svc.descEn}
+            <p className="text-sm text-[var(--color-text-muted)] leading-relaxed flex-1">
+              {svc.shortTagline[lang]}
             </p>
-          </div>
+            <div className="pt-3 border-t border-white/5 text-xs text-[var(--color-text-muted)] flex items-center justify-between">
+              <span>{svc.shortDuration[lang]}</span>
+              <span className="text-white/80">{svc.shortPricing[lang]}</span>
+            </div>
+          </a>
         ))}
       </div>
     </section>

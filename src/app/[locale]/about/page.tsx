@@ -1,14 +1,15 @@
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return {
-    title: locale === 'it' ? 'Chi sono' : 'About',
+    title: locale === 'it' ? 'Chi sono — Angelo Pallanca' : 'About — Angelo Pallanca',
     description:
       locale === 'it'
-        ? 'Angelo Pallanca - Consulente innovazione e AI con 30 anni di esperienza nel settore tech.'
-        : 'Angelo Pallanca - Innovation and AI consultant with 30 years of experience in tech.',
+        ? 'Angelo Pallanca, senior advisor AI per leadership team europei. 30 anni di innovazione cross-industry, indipendente per scelta. Pan firma, PiirZ Digital esegue.'
+        : 'Angelo Pallanca, senior AI advisor to European leadership teams. 30 years of cross-industry innovation, independent by choice. Pan signs, PiirZ Digital ships.',
   };
 }
 
@@ -17,41 +18,142 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   setRequestLocale(locale);
 
   const content = locale === 'it' ? {
+    eyebrow: 'About',
     title: 'Angelo Pallanca',
-    subtitle: 'Consulente Innovazione & AI',
+    subtitle: 'Senior advisor AI per leadership team europei. 30 anni cross-industry, indipendente per scelta. Pan è il mio nome editoriale; PiirZ Digital la mia società di delivery.',
     bio: [
-      'Lavoro nel settore tech e innovazione da circa 30 anni. Ho guidato progetti di trasformazione digitale per brand internazionali, istituzioni pubbliche e organizzazioni europee.',
-      'Il mio approccio e pratico: non vendo visioni, consegno soluzioni. Quando un\'organizzazione ha bisogno di portare un progetto AI dalla sperimentazione alla produzione, entro nel team e mi assicuro che succeda.',
-      'Ho lavorato con Emirates, Ferragamo, UNESCO, UNICEF, il Museo del Prado, il Principato di Monaco e diverse amministrazioni europee. Ogni progetto mi ha insegnato che la tecnologia funziona solo quando e al servizio di un obiettivo chiaro.',
-      'Oggi mi concentro su AI enterprise, innovation strategy e interim management. Se hai un progetto ambizioso che non riesce a decollare, probabilmente possiamo lavorarci insieme.',
+      'Sono nato come tecnologo e cresciuto come consulente. Per trent\'anni ho lavorato nei punti dove la tecnologia incontra le decisioni — board, ministeri, fondazioni, sale C-level — e dove la maggior parte delle innovazioni vengono o accettate o ignorate.',
+      'Ho cominciato negli anni \'90, quando "innovazione tecnologica" voleva dire portare un\'azienda dal fax all\'email aziendale. Ho lavorato sul web prima che esistesse Google, sull\'e-commerce prima che esistesse Amazon Italia, sul mobile prima che il primo iPhone arrivasse in Europa, sull\'AI prima che diventasse il tema di ogni board del 2024. Non perché abbia fiutato il futuro — ma perché ho imparato presto che ogni innovazione passa per due fasi: prima viene rifiutata come "non maturità", poi viene assorbita come "ovvia". Il mio lavoro è da sempre stato in mezzo, dove le decisioni costano.',
+      'Oggi aiuto leadership team europei — aziende mid-large, istituzioni pubbliche, fondi VC, founder di scale-up — a portare l\'intelligenza artificiale dal board alla produzione, e a farlo nel modo che regge un audit europeo. Non ho vendor da spingere. Non vendo licenze. Firmo personalmente la strategia, e il mio team operativo (PiirZ Digital) la esegue.',
     ],
-    experience: 'Anni di esperienza',
-    focus: 'Il mio approccio',
-    focusItems: [
-      { title: 'Pragmatico', desc: 'Aspettative realistiche, risultati misurabili. Niente buzzword, niente promesse vuote.' },
-      { title: 'Integrato', desc: 'Non resto in consulenza esterna. Entro nel team, capisco il contesto, consegno.' },
-      { title: 'Indipendente', desc: 'Nessun legame con vendor. Le soluzioni che raccomando sono quelle giuste per te, non per me.' },
+    statsLabel: 'Anni di esperienza',
+    numbersTitle: 'Trent\'anni in cifre',
+    numbers: [
+      { value: '30+', label: 'anni di consulting in innovazione e tecnologia' },
+      { value: '12', label: 'settori, dal luxury al pubblico, dal travel al finance' },
+      { value: '40+', label: 'stati in cui ho lavorato direttamente o tramite partner' },
+      { value: '3', label: 'continenti in cui ho consegnato progetti' },
     ],
+    projectsTitle: 'Tre progetti che racconto in CdA',
+    projectsIntro: 'Quando un cliente nuovo mi chiede "ma cosa hai fatto davvero", racconto questi tre. Non sono i più grandi né i più recenti — sono quelli che mi hanno insegnato di più.',
+    projects: [
+      {
+        title: 'Banche centrali africane — Compliance AML con AI',
+        body: 'La sfida non era costruire un algoritmo migliore. Era convincere investigatori esperti che un sistema di machine learning poteva aiutarli a vedere meglio, non sostituirli. Abbiamo lavorato sui falsi positivi — la metrica che li frustrava ogni giorno — e ridotto il rumore del 40%. La velocità di investigazione è salita del 60%. La lezione: l\'AI in regolamentati funziona quando riduce il lavoro inutile, non quando promette automazione totale.',
+      },
+      {
+        title: 'Gobierno de Canarias — Tourism intelligence regionale',
+        body: 'Sette milioni di turisti l\'anno generano dati ovunque: prenotazioni, flussi aeroportuali, sentiment social, indicatori economici. Quando arrivi, trovi quaranta dashboard diverse, e nessuno che le legga davvero tutte. Il progetto è stato di tagliare: una dashboard sola con algoritmi predittivi sulle stagionalità e sulle crisi settoriali. Il governo regionale ha aumentato l\'efficacia delle campagne del 15% e ridotto i tempi di risposta del 25%. La lezione: a volte il valore di un sistema AI è quello che taglia, non quello che aggiunge.',
+      },
+      {
+        title: 'Principato di Monaco — Governance AI nel settore pubblico',
+        body: 'Adottare AI e blockchain in un servizio pubblico richiede una cosa prima della tecnologia: un framework di governance che bilanci innovazione e diritti dei cittadini, e che sopravviva al ciclo politico. È quello che abbiamo costruito — e che ha posizionato Monaco come riferimento europeo per l\'adozione responsabile di tecnologie emergenti nella PA. La lezione: la governance non è un freno all\'innovazione, è la sua condizione di sopravvivenza in un\'organizzazione pubblica.',
+      },
+    ],
+    philosophyTitle: 'Tre cose che non cambio',
+    philosophy: [
+      {
+        title: 'Indipendenza, non collaborazioni occulte',
+        desc: 'Non ricevo commissioni da nessun vendor. Quando consiglio un fornitore, è perché serve al cliente — non perché qualcuno mi paga il referral. Per me la credibilità di un consulente è l\'unica risorsa non scalabile, e non sono disposto a spenderla.',
+      },
+      {
+        title: 'Senior, non team con junior',
+        desc: 'Lavoro io, di persona. Il delivery operativo lo gestisce PiirZ Digital con team adeguati, ma il pensiero strategico è mio e firma con il mio nome. Se cerchi un grande deck con dodici slide bianche e un partner che appare al kickoff, non sono io.',
+      },
+      {
+        title: 'Strategy che esegue',
+        desc: 'Non scrivo strategie che muoiono in PowerPoint. Ogni roadmap che consegno è eseguibile dal primo giorno, con priorità, owner, tempi e — soprattutto — un partner di delivery pronto a partire. Una strategia non eseguibile non è una strategia. È un saggio.',
+      },
+    ],
+    ctaTitle: 'Parliamone.',
+    ctaBody: 'Una discovery call di trenta minuti. Mi racconti dove sei e cosa ti serve, ti racconto come affronto il tuo problema specifico. Niente pitch, niente vincoli.',
+    ctaButton: 'Prenota una discovery call',
   } : {
+    eyebrow: 'About',
     title: 'Angelo Pallanca',
-    subtitle: 'Digital Transformation & AI Governance',
+    subtitle: 'Senior AI advisor to European leadership teams. 30 years cross-industry, independent by choice. Pan is my editorial name; PiirZ Digital is my delivery firm.',
     bio: [
-      'I have been working in tech and innovation for about 30 years. I have led digital transformation projects for international brands, public institutions, and European organizations.',
-      'My approach is hands-on: I don\'t sell visions, I deliver solutions. When an organization needs to move an AI project from experimentation to production, I join the team and make sure it happens.',
-      'I have worked with Emirates, Ferragamo, UNESCO, UNICEF, the Museo del Prado, the Principality of Monaco, and several European administrations. Every project has taught me that technology only works when it serves a clear objective.',
-      'Today I focus on enterprise AI, innovation strategy, and interim management. If you have an ambitious project that can\'t seem to get off the ground, we should talk.',
+      'I started as a technologist and grew up as a consultant. For thirty years I\'ve worked at the points where technology meets decisions — boardrooms, ministries, foundations, C-level offices — and where most innovations are either accepted or ignored.',
+      'I started in the \'90s, when "technological innovation" meant moving a company from fax to corporate email. I worked on the web before Google existed, on e-commerce before Amazon Italy, on mobile before the first iPhone reached Europe, on AI before it became every board\'s 2024 theme. Not because I had a nose for the future — but because I learned early that every innovation passes through two phases: first it\'s rejected as "not mature," then it\'s absorbed as "obvious." My work has always been in between, where decisions cost.',
+      'Today I help European leadership teams — mid-large companies, public institutions, VC funds, scale-up founders — take artificial intelligence from the boardroom to production, in a way that survives a European audit. I have no vendor to push. I sell no licenses. I sign the strategy personally, and my delivery team (PiirZ Digital) ships it.',
     ],
-    experience: 'Years of experience',
-    focus: 'My approach',
-    focusItems: [
-      { title: 'Pragmatic', desc: 'Realistic expectations, measurable results. No buzzwords, no empty promises.' },
-      { title: 'Embedded', desc: 'I don\'t stay on the sidelines. I join your team, understand the context, and deliver.' },
-      { title: 'Independent', desc: 'No vendor ties. The solutions I recommend are right for you, not for me.' },
+    statsLabel: 'Years of experience',
+    numbersTitle: 'Thirty years, in numbers',
+    numbers: [
+      { value: '30+', label: 'years of innovation and technology consulting' },
+      { value: '12', label: 'sectors, from luxury to public, from travel to finance' },
+      { value: '40+', label: 'countries worked in directly or through partners' },
+      { value: '3', label: 'continents where I\'ve delivered projects' },
+    ],
+    projectsTitle: 'Three projects I tell in the boardroom',
+    projectsIntro: 'When a new client asks "but what have you actually done," I tell these three. They\'re not the biggest or the most recent — they\'re the ones that taught me the most.',
+    projects: [
+      {
+        title: 'African central banks — AML compliance with AI',
+        body: 'The challenge wasn\'t building a better algorithm. It was convincing experienced investigators that a machine learning system could help them see better, not replace them. We worked on false positives — the metric that frustrated them daily — and reduced noise by 40%. Investigation speed rose by 60%. The lesson: AI in regulated environments works when it reduces unnecessary work, not when it promises full automation.',
+      },
+      {
+        title: 'Government of the Canary Islands — Regional tourism intelligence',
+        body: 'Fourteen million tourists per year generate data everywhere: bookings, airport flows, social sentiment, economic indicators. When you arrive, you find forty different dashboards and nobody who actually reads them all. The project was about cutting: a single dashboard with predictive algorithms on seasonality and sectoral crises. The regional government raised campaign effectiveness by 15% and cut response times by 25%. The lesson: sometimes the value of an AI system is what it cuts, not what it adds.',
+      },
+      {
+        title: 'Principality of Monaco — AI governance in the public sector',
+        body: 'Adopting AI and blockchain in a public service requires one thing before the technology: a governance framework that balances innovation and citizen rights, and survives the political cycle. That\'s what we built — and what positioned Monaco as a European reference point for responsible adoption of emerging technologies in public administration. The lesson: in public institutions governance isn\'t a brake on innovation — it\'s the condition of its survival.',
+      },
+    ],
+    philosophyTitle: 'Three things I don\'t change',
+    philosophy: [
+      {
+        title: 'Independence, no hidden affiliations',
+        desc: 'I take no commission from any vendor. When I recommend a supplier, it\'s because the client needs it — not because someone pays me a referral. To me, a consultant\'s credibility is the only non-scalable asset, and I\'m not willing to spend it.',
+      },
+      {
+        title: 'Senior, not junior team',
+        desc: 'I work in person. Operational delivery is handled by PiirZ Digital with adequate teams, but the strategic thinking is mine and signs with my name. If you want a big deck with twelve white slides and a partner who shows up at kickoff, I\'m not your guy.',
+      },
+      {
+        title: 'Strategy that ships',
+        desc: 'I don\'t write strategies that die in PowerPoint. Every roadmap I deliver is executable from day one, with priorities, owners, timelines, and — above all — a delivery partner ready to start. A strategy that can\'t be executed isn\'t a strategy. It\'s an essay.',
+      },
+    ],
+    ctaTitle: 'Let\'s talk.',
+    ctaBody: 'A thirty-minute discovery call. You tell me where you are and what you need, I tell you how I\'d approach your specific problem. No pitch, no commitment.',
+    ctaButton: 'Book a discovery call',
+  };
+
+  // JSON-LD Person schema
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Angelo Pallanca',
+    alternateName: 'Pan',
+    jobTitle: locale === 'it' ? 'Senior AI Advisor & Innovation Consultant' : 'Senior AI Advisor & Innovation Consultant',
+    description: content.subtitle,
+    url: 'https://pallanca.info',
+    image: 'https://pallanca.info/images/photos/foto_pallanca01.png',
+    sameAs: [
+      'https://www.linkedin.com/in/angelopallanca',
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'PiirZ Digital Limited',
+    },
+    knowsAbout: [
+      'Artificial Intelligence Strategy',
+      'EU AI Act Compliance',
+      'Sovereign AI',
+      'Digital Transformation',
+      'Innovation Management',
     ],
   };
 
   return (
     <div className="pt-24 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Hero section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
@@ -63,16 +165,20 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 width={400}
                 height={500}
                 className="rounded-xl object-cover"
+                priority
               />
             </div>
             <div className="glass-card p-6 mt-6 text-center">
-              <div className="text-4xl font-bold text-[var(--color-accent)]">~30</div>
-              <div className="text-sm text-[var(--color-text-muted)] mt-1">{content.experience}</div>
+              <div className="text-4xl font-bold text-[var(--color-accent)]">30+</div>
+              <div className="text-sm text-[var(--color-text-muted)] mt-1">{content.statsLabel}</div>
             </div>
           </div>
           <div className="md:col-span-2">
+            <div className="text-xs uppercase tracking-widest text-[var(--color-accent)] mb-3">
+              {content.eyebrow}
+            </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white">{content.title}</h1>
-            <p className="text-xl text-[var(--color-accent)] mt-2">{content.subtitle}</p>
+            <p className="text-xl text-[var(--color-text-muted)] mt-4 leading-relaxed">{content.subtitle}</p>
             <div className="mt-8 space-y-4">
               {content.bio.map((p, i) => (
                 <p key={i} className="text-[var(--color-text-muted)] leading-relaxed text-base">{p}</p>
@@ -85,23 +191,66 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
               >
-                {locale === 'it' ? 'Prenota una discovery call' : 'Book a discovery call'}
+                {content.ctaButton}
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Approach */}
+      {/* Numbers */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold text-white mb-10">{content.focus}</h2>
+        <h2 className="text-2xl font-bold text-white mb-10">{content.numbersTitle}</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {content.numbers.map((n, i) => (
+            <div key={i} className="glass-card p-6 text-center">
+              <div className="text-4xl font-bold text-[var(--color-accent)]">{n.value}</div>
+              <div className="text-sm text-[var(--color-text-muted)] mt-3 leading-relaxed">{n.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Three projects */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-2xl font-bold text-white mb-4">{content.projectsTitle}</h2>
+        <p className="text-[var(--color-text-muted)] mb-10 max-w-3xl">{content.projectsIntro}</p>
+        <div className="space-y-6">
+          {content.projects.map((p, i) => (
+            <div key={i} className="glass-card p-8">
+              <h3 className="text-lg font-semibold text-white mb-3">{p.title}</h3>
+              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Philosophy */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 className="text-2xl font-bold text-white mb-10">{content.philosophyTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {content.focusItems.map((item) => (
+          {content.philosophy.map((item) => (
             <div key={item.title} className="glass-card p-6">
               <h3 className="text-lg font-semibold text-white mb-3">{item.title}</h3>
               <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{item.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <div className="glass-card p-12">
+          <h2 className="text-2xl font-bold text-white mb-4">{content.ctaTitle}</h2>
+          <p className="text-[var(--color-text-muted)] mb-8 max-w-lg mx-auto">{content.ctaBody}</p>
+          <a
+            href="https://cal.com/panbiz/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-8 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+          >
+            {content.ctaButton}
+          </a>
         </div>
       </section>
     </div>

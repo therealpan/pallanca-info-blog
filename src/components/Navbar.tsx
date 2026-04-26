@@ -37,6 +37,7 @@ export default function Navbar() {
     { href: '/' as const, label: t('home') },
     { href: '/about' as const, label: t('about') },
     { href: '/services' as const, label: t('services') },
+    { href: '/clients' as const, label: t('clients') },
     { href: '/blog' as const, label: t('blog') },
     { href: '/contact' as const, label: t('contact') },
   ];
