@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
-import { Linkedin, Mail, MapPin } from 'lucide-react';
+import { Linkedin, Mail, MapPin, ArrowRight } from 'lucide-react';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -7,8 +7,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: locale === 'it' ? 'Contatti' : 'Contact',
     description:
       locale === 'it'
-        ? 'Prenota una discovery call con Angelo Pallanca.'
-        : 'Book a discovery call with Angelo Pallanca.',
+        ? 'Compila il form di pre-qualifica o scrivimi direttamente.'
+        : 'Fill the pre-qualification form or email me directly.',
   };
 }
 
@@ -22,16 +22,16 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left side */}
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">
               {locale === 'it' ? 'Parliamone.' : "Let's talk."}
             </h1>
             <p className="mt-6 text-lg text-[var(--color-text-muted)] leading-relaxed">
               {locale === 'it'
-                ? 'Prenota una discovery call gratuita di 30 minuti. Nessun impegno, nessuna presentazione da 50 pagine. Solo una conversazione per capire come posso aiutarti.'
-                : 'Book a free 30-minute discovery call. No commitment, no 50-page pitch decks. Just a conversation to explore how I can help.'}
+                ? 'Cinque domande, due minuti. Mi servono per dimensionare bene la mini-proposta che ti mando entro 24 ore lavorative. Niente CRM, niente automazioni: leggo io e rispondo io.'
+                : 'Five questions, two minutes. I need them to properly size the mini-proposal I send you within 24 working hours. No CRM, no automations: I read it personally, I reply personally.'}
             </p>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-10 space-y-4">
               <a
                 href="mailto:angelo@pallanca.info"
                 className="glass-card p-4 flex items-center gap-4 group"
@@ -72,16 +72,26 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </div>
           </div>
 
-          {/* Right side - Cal.com embed */}
-          <div className="glass-card p-2 overflow-hidden">
-            <iframe
-              src="https://cal.com/panbiz/30min?embed=true&theme=dark"
-              width="100%"
-              height="650"
-              frameBorder="0"
-              className="rounded-xl"
-              title={locale === 'it' ? 'Prenota una call' : 'Book a call'}
-            />
+          {/* Right side — proposal form CTA */}
+          <div className="glass-card p-10 md:p-12 flex flex-col justify-center">
+            <div className="text-xs uppercase tracking-widest text-[var(--color-accent)] mb-4">
+              {locale === 'it' ? 'Modo principale' : 'Primary path'}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4 tracking-tight">
+              {locale === 'it' ? 'Richiedi una proposta scritta' : 'Request a written proposal'}
+            </h2>
+            <p className="text-[var(--color-text-muted)] leading-relaxed mb-8">
+              {locale === 'it'
+                ? 'Cinque domande, due minuti. Ti rispondo personalmente entro 24 ore lavorative con una mini-proposta scritta calibrata sul tuo caso. Se in linea, fissiamo scoping call e ti mando lo SOW.'
+                : 'Five questions, two minutes. I personally reply within 24 working hours with a written mini-proposal calibrated to your case. If aligned, we book scoping call and I send the SOW.'}
+            </p>
+            <a
+              href={`/${locale}/proposal`}
+              className="inline-flex items-center gap-2 bg-white text-[var(--color-bg)] px-7 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-[background,color,transform] duration-200 self-start"
+            >
+              {locale === 'it' ? 'Compila il form' : 'Fill the form'}
+              <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>

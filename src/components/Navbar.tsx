@@ -94,14 +94,12 @@ export default function Navbar() {
             >
               {locale === 'en' ? 'IT' : 'EN'}
             </button>
-            <a
-              href="https://cal.com/panbiz/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/proposal"
               className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200 cursor-pointer"
             >
               {t('cta')}
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -131,14 +129,13 @@ export default function Navbar() {
             <button onClick={switchLocale} className="text-sm text-[var(--color-text-muted)]">
               {locale === 'en' ? 'Italiano' : 'English'}
             </button>
-            <a
-              href="https://cal.com/panbiz/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/proposal"
+              onClick={() => setMobileOpen(false)}
               className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
             >
               {t('cta')}
-            </a>
+            </Link>
           </div>
         </div>
       )}
