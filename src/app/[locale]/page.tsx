@@ -2,7 +2,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { getAllPosts } from '@/lib/blog';
 import { markdownToHtml } from '@/lib/markdown';
 import HeroSection from '@/components/HeroSection';
-import ClientLogos from '@/components/ClientLogos';
+import HomeClosingCTA from '@/components/HomeClosingCTA';
 import ServicesPreview from '@/components/ServicesPreview';
 import BooksSection from '@/components/BooksSection';
 
@@ -29,7 +29,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <div id="below-fold">
         <ServicesPreview />
         <BooksSection />
-        <ClientLogos />
+        <HomeClosingCTA />
       </div>
     </>
   );
