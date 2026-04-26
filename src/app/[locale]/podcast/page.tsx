@@ -43,11 +43,11 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
   const intro = isIt ? {
     eyebrow: 'Podcast',
     title: 'Conversazioni audio su AI, regolamentazione, futuro del lavoro.',
-    sub: 'Episodi generati dai contenuti di Pan via NotebookLM. Due voci AI dialogano sui materiali pubblicati sul sito — checklist, articoli, position paper. Stesso angolo editoriale, formato diverso.',
+    sub: 'Estensione audio dei materiali editoriali pubblicati su pallanca.info. Riassunti densi e dibattiti, per chi preferisce ascoltare invece di leggere — in viaggio, in palestra, mentre cammina.',
   } : {
     eyebrow: 'Podcast',
     title: 'Audio conversations on AI, regulation, future of work.',
-    sub: 'Episodes generated from Pan content via NotebookLM. Two AI voices dialogue over the materials published on the site — checklists, articles, position papers. Same editorial angle, different format.',
+    sub: 'Audio extension of the editorial materials published on pallanca.info. Dense summaries and debates, for those who prefer listening to reading — on the go, at the gym, while walking.',
   };
 
   const episodes: Episode[] = isIt ? [
@@ -56,7 +56,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       slug: 'eu-ai-act-deep-dive',
       title: 'EU AI Act, in trenta domande',
       format: 'Deep dive',
-      formatBadge: 'Riassunto narrativo · 2 voci',
+      formatBadge: 'Riassunto narrativo',
       duration: '21 min',
       date: '26 aprile 2026',
       description: 'Due voci accompagnano l\'ascoltatore attraverso le 30 domande del checklist EU AI Act, raggruppate nelle sei sezioni tematiche. Scoring framework, cosa fare per ogni livello, deadline 2 agosto 2026. Per chi vuole un riassunto strutturato in viaggio.',
@@ -79,7 +79,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       slug: 'eu-ai-act-debate',
       title: 'EU AI Act: peso burocratico o vantaggio competitivo?',
       format: 'Debate',
-      formatBadge: 'Dibattito · 2 voci contrapposte',
+      formatBadge: 'Dibattito',
       duration: '27 min',
       date: '26 aprile 2026',
       description: 'Due voci esperte si sfidano sulla domanda che divide i CdA europei. Chi sostiene che il Regolamento soffoca l\'innovazione contro chi vede compliance come acceleratore strategico. Punti di scontro: scoring framework, casi reali, sanzioni vs costi-opportunità.',
@@ -102,7 +102,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       slug: 'eu-ai-act-deep-dive',
       title: 'EU AI Act, in thirty questions',
       format: 'Deep dive',
-      formatBadge: 'Narrative summary · 2 voices',
+      formatBadge: 'Narrative summary',
       duration: '21 min',
       date: 'April 26, 2026',
       description: 'Two voices walk you through the 30 questions of the EU AI Act checklist, grouped into six thematic sections. Scoring framework, what to do at each level, the August 2, 2026 deadline. For those who want a structured summary while commuting.',
@@ -125,7 +125,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       slug: 'eu-ai-act-debate',
       title: 'EU AI Act: bureaucratic burden or competitive edge?',
       format: 'Debate',
-      formatBadge: 'Debate · 2 opposing voices',
+      formatBadge: 'Debate',
       duration: '27 min',
       date: 'April 26, 2026',
       description: 'Two expert voices clash on the question that divides European boardrooms. Those arguing the Regulation stifles innovation against those seeing compliance as a strategic accelerator. Conflict points: scoring framework, real cases, fines vs opportunity cost.',
@@ -236,13 +236,13 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
           </h2>
           <p className="text-[var(--color-text-muted)] leading-relaxed mb-3">
             {isIt
-              ? 'Gli episodi sono generati con NotebookLM di Google a partire dai materiali pubblicati su pallanca.info — checklist EU AI Act, articoli del blog, position paper. Le voci sono AI ma il framing editoriale, le domande, e il punto di vista sono di Pan.'
-              : 'Episodes are generated with Google NotebookLM from materials published on pallanca.info — EU AI Act checklist, blog articles, position papers. The voices are AI but the editorial framing, questions, and viewpoint are Pan\'s.'}
+              ? 'Ogni episodio nasce da un materiale editoriale pubblicato su pallanca.info — un checklist, un position paper, una serie di articoli. L\'audio è il formato giusto quando il contenuto è denso e merita di essere assorbito senza schermo davanti.'
+              : 'Each episode starts from an editorial piece published on pallanca.info — a checklist, a position paper, a series of articles. Audio is the right format when content is dense and deserves to be absorbed without a screen in front of you.'}
           </p>
           <p className="text-[var(--color-text-muted)] leading-relaxed">
             {isIt
-              ? 'Pubblicheremo episodi nuovi quando il materiale di base lo giustifica — non con cadenza fissa. Se vuoi suggerire un tema, scrivi a angelo@pallanca.info.'
-              : 'New episodes when the underlying material justifies them — no fixed cadence. To suggest a topic, email angelo@pallanca.info.'}
+              ? 'Cadenza non fissa. Pubblichiamo quando il materiale di base lo giustifica. Per suggerire un tema: angelo@pallanca.info.'
+              : 'No fixed cadence. We publish when the underlying material warrants it. To suggest a topic: angelo@pallanca.info.'}
           </p>
         </div>
       </section>
