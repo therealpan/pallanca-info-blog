@@ -57,7 +57,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       title: 'EU AI Act, in trenta domande',
       format: 'Deep dive',
       formatBadge: 'Riassunto narrativo · 2 voci',
-      duration: '~15 min',
+      duration: '21 min',
       date: '26 aprile 2026',
       description: 'Due voci accompagnano l\'ascoltatore attraverso le 30 domande del checklist EU AI Act, raggruppate nelle sei sezioni tematiche. Scoring framework, cosa fare per ogni livello, deadline 2 agosto 2026. Per chi vuole un riassunto strutturato in viaggio.',
       notes: [
@@ -68,7 +68,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
         'Human oversight, accuracy & robustness (5 domande)',
         'Governance interna & compliance organizzativa (5 domande)',
       ],
-      audioUrl: '/podcast/01-eu-ai-act-deep-dive-it.mp3',
+      audioUrl: '/podcast/01-eu-ai-act-deep-dive-it.m4a',
       relatedLinks: [
         { label: 'Scarica il checklist (PDF)', href: '/eu-ai-act-checklist-it.pdf' },
         { label: 'Vai al servizio AI Act Audit', href: `/${locale}/services/eu-ai-act-audit` },
@@ -80,7 +80,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       title: 'EU AI Act: peso burocratico o vantaggio competitivo?',
       format: 'Debate',
       formatBadge: 'Dibattito · 2 voci contrapposte',
-      duration: '~18 min',
+      duration: '27 min',
       date: '26 aprile 2026',
       description: 'Due voci esperte si sfidano sulla domanda che divide i CdA europei. Chi sostiene che il Regolamento soffoca l\'innovazione contro chi vede compliance come acceleratore strategico. Punti di scontro: scoring framework, casi reali, sanzioni vs costi-opportunità.',
       notes: [
@@ -90,7 +90,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
         'Sanzioni concrete vs costo della non-azione',
         'Cosa significa "essere pronti" davvero',
       ],
-      audioUrl: '/podcast/02-eu-ai-act-debate-it.mp3',
+      audioUrl: '/podcast/02-eu-ai-act-debate-it.m4a',
       relatedLinks: [
         { label: 'Scarica il checklist (PDF)', href: '/eu-ai-act-checklist-it.pdf' },
         { label: 'Richiedi una proposta', href: `/${locale}/proposal` },
@@ -103,7 +103,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       title: 'EU AI Act, in thirty questions',
       format: 'Deep dive',
       formatBadge: 'Narrative summary · 2 voices',
-      duration: '~15 min',
+      duration: '21 min',
       date: 'April 26, 2026',
       description: 'Two voices walk you through the 30 questions of the EU AI Act checklist, grouped into six thematic sections. Scoring framework, what to do at each level, the August 2, 2026 deadline. For those who want a structured summary while commuting.',
       notes: [
@@ -114,7 +114,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
         'Human oversight, accuracy & robustness (5 questions)',
         'Internal governance & compliance (5 questions)',
       ],
-      audioUrl: '/podcast/01-eu-ai-act-deep-dive-it.mp3',
+      audioUrl: '/podcast/01-eu-ai-act-deep-dive-it.m4a',
       relatedLinks: [
         { label: 'Download the checklist (PDF)', href: '/eu-ai-act-checklist-en.pdf' },
         { label: 'See the AI Act Audit service', href: `/${locale}/services/eu-ai-act-audit` },
@@ -126,7 +126,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
       title: 'EU AI Act: bureaucratic burden or competitive edge?',
       format: 'Debate',
       formatBadge: 'Debate · 2 opposing voices',
-      duration: '~18 min',
+      duration: '27 min',
       date: 'April 26, 2026',
       description: 'Two expert voices clash on the question that divides European boardrooms. Those arguing the Regulation stifles innovation against those seeing compliance as a strategic accelerator. Conflict points: scoring framework, real cases, fines vs opportunity cost.',
       notes: [
@@ -136,7 +136,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
         'Concrete sanctions vs the cost of inaction',
         'What "being ready" really means',
       ],
-      audioUrl: '/podcast/02-eu-ai-act-debate-it.mp3',
+      audioUrl: '/podcast/02-eu-ai-act-debate-it.m4a',
       relatedLinks: [
         { label: 'Download the checklist (PDF)', href: '/eu-ai-act-checklist-en.pdf' },
         { label: 'Request a proposal', href: `/${locale}/proposal` },
@@ -209,7 +209,7 @@ export default async function PodcastPage({ params }: { params: Promise<{ locale
                     className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-white transition-colors duration-200"
                   >
                     <Download size={14} />
-                    {isIt ? 'Scarica MP3' : 'Download MP3'}
+                    {isIt ? 'Scarica audio' : 'Download audio'}
                   </a>
                   {ep.relatedLinks.map((l) => (
                     <a
