@@ -37,7 +37,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-1 text-[var(--color-accent)] text-sm mb-8 hover:gap-2 transition-all"
+          className="inline-flex items-center gap-1 text-[var(--color-accent)] text-sm mb-8 hover:gap-2 transition-[gap] duration-200"
         >
           <ArrowLeft size={14} /> {locale === 'it' ? 'Torna al blog' : 'Back to blog'}
         </Link>

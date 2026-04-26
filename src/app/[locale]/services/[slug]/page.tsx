@@ -230,7 +230,7 @@ export default async function ServiceDetailPage({
             <a
               key={s.slug}
               href={`/${lang}/services/${s.slug}`}
-              className="glass-card p-5 hover:bg-white/[0.04] transition-all group"
+              className="glass-card p-5 group"
             >
               <h4 className="text-sm font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors mb-2">
                 {s.shortTitle[lang]}

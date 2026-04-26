@@ -98,7 +98,7 @@ export default function Navbar() {
               href="https://cal.com/panbiz/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all cursor-pointer"
+              className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200 cursor-pointer"
             >
               {t('cta')}
             </a>
@@ -135,7 +135,7 @@ export default function Navbar() {
               href="https://cal.com/panbiz/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-all"
+              className="glass-card !rounded-full px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
             >
               {t('cta')}
             </a>
