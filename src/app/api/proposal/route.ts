@@ -23,6 +23,8 @@ interface ProposalPayload {
   notes?: string;
   // Locale (for replying in the right language)
   locale?: string;
+  // GDPR consent (must be true for processing)
+  consent?: boolean;
 }
 
 function escapeHtml(s: string): string {
@@ -137,14 +139,15 @@ export async function POST(req: NextRequest) {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error('Missing RESEND_API_KEY env var');
+  const fromAddress = process.env.RESEND_FROM_ADDRESS;
+  const toAddress = process.env.RESEND_TO_ADDRESS;
+  if (!apiKey || !fromAddress || !toAddress) {
+    console.error('Missing required Resend env vars (API_KEY / FROM / TO)');
     return NextResponse.json({ error: 'Server email config missing' }, { status: 500 });
   }
-
-  // Resend API call
-  const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Pan <pan@pallanca.net>';
-  const toAddress = process.env.RESEND_TO_ADDRESS || 'pan@piirz.com';
+  if (!body.consent) {
+    return NextResponse.json({ error: 'Privacy consent is required' }, { status: 400 });
+  }
 
   const subject = `[Pan] ${body.name} · ${body.company} · ${body.problems[0] || 'nuova richiesta'}`;
 

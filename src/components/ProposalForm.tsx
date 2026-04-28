@@ -19,6 +19,7 @@ interface FormState {
   urgency: string;
   budget: string;
   notes: string;
+  consent: boolean;
 }
 
 const initialState: FormState = {
@@ -34,6 +35,7 @@ const initialState: FormState = {
   urgency: '',
   budget: '',
   notes: '',
+  consent: false,
 };
 
 const COPY: Record<Lang, {
@@ -48,6 +50,9 @@ const COPY: Record<Lang, {
   errorRequired: string;
   errorEmail: string;
   errorProblems: string;
+  errorConsent: string;
+  consentLabel: string;
+  consentLink: string;
   successTitle: string;
   successBody: string;
   successCalLabel: string;
@@ -145,6 +150,9 @@ const COPY: Record<Lang, {
     errorRequired: 'Compila tutti i campi richiesti.',
     errorEmail: 'Inserisci un\'email valida.',
     errorProblems: 'Scegli almeno un\'opzione.',
+    errorConsent: 'Per procedere è necessario accettare la privacy policy.',
+    consentLabel: 'Ho letto e accetto la Privacy Policy. Acconsento al trattamento dei miei dati personali per essere ricontattato da Angelo Pallanca in relazione a questa richiesta.',
+    consentLink: 'Privacy Policy',
     successTitle: 'Grazie. La richiesta è arrivata.',
     successBody: 'Ti risponderò personalmente entro 24 ore lavorative con una mini-proposta scritta o, se serve qualche dettaglio in più, un breve approfondimento via email. Nel frattempo, se vuoi, puoi prenotare direttamente la discovery call.',
     successCalLabel: 'Prenota la discovery call',
@@ -242,6 +250,9 @@ const COPY: Record<Lang, {
     errorRequired: 'Please fill in all required fields.',
     errorEmail: 'Please enter a valid email.',
     errorProblems: 'Pick at least one option.',
+    errorConsent: 'You must accept the privacy policy to proceed.',
+    consentLabel: 'I have read and accept the Privacy Policy. I consent to the processing of my personal data to be contacted by Angelo Pallanca regarding this request.',
+    consentLink: 'Privacy Policy',
     successTitle: 'Thanks. The request is in.',
     successBody: 'I\'ll personally reply within 24 working hours with a written mini-proposal, or — if I need more context — a short follow-up email. In the meantime, if you want, you can book the discovery call directly.',
     successCalLabel: 'Book the discovery call',
@@ -292,6 +303,11 @@ export default function ProposalForm() {
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
       setErrorMsg(c.errorEmail);
+      setStatus('error');
+      return;
+    }
+    if (!state.consent) {
+      setErrorMsg(c.errorConsent);
       setStatus('error');
       return;
     }
@@ -486,6 +502,39 @@ export default function ProposalForm() {
           />
         </Field>
       </Section>
+
+      {/* GDPR consent */}
+      <div className="pt-2">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            required
+            checked={state.consent}
+            onChange={(e) => update('consent', e.target.checked)}
+            className="mt-1 accent-[var(--color-accent)] flex-shrink-0"
+          />
+          <span className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+            {c.consentLabel.split('Privacy Policy').map((part, i, arr) =>
+              i < arr.length - 1 ? (
+                <span key={i}>
+                  {part}
+                  <a
+                    href={`/${lang}/privacy-policy`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-accent)] underline hover:text-[var(--color-accent-hover)]"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {c.consentLink}
+                  </a>
+                </span>
+              ) : (
+                <span key={i}>{part}</span>
+              )
+            )}
+          </span>
+        </label>
+      </div>
 
       {/* Submit */}
       <div className="pt-4">

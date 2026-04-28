@@ -9,9 +9,10 @@ interface FormState {
   email: string;
   role: string;
   company: string;
+  consent: boolean;
 }
 
-const initialState: FormState = { name: '', email: '', role: '', company: '' };
+const initialState: FormState = { name: '', email: '', role: '', company: '', consent: false };
 
 const COPY = {
   it: {
@@ -30,9 +31,12 @@ const COPY = {
     submit: 'Scarica il PDF',
     submitting: 'Invio in corso...',
     privacyHint: 'Niente CRM, niente sequenze automatiche. Ti scriverò solo se rispondi.',
+    consentLabel: 'Ho letto e accetto la Privacy Policy. Acconsento al trattamento dei miei dati personali per ricevere il PDF richiesto.',
+    consentLink: 'Privacy Policy',
     errorGeneric: 'Qualcosa è andato storto. Riprova tra qualche istante o scrivi a angelo@pallanca.info.',
     errorRequired: 'Compila tutti i campi.',
     errorEmail: "Inserisci un'email valida.",
+    errorConsent: 'Per procedere è necessario accettare la privacy policy.',
     successTitle: 'Pronto. Controlla la mailbox.',
     successBody: 'Ti ho mandato il link al PDF. Se non lo trovi entro un minuto, controlla anche spam o promotional.',
     successPdfLabel: 'Scarica il PDF adesso',
@@ -53,9 +57,12 @@ const COPY = {
     submit: 'Download the PDF',
     submitting: 'Sending...',
     privacyHint: 'No CRM, no automated sequences. I only write back if you reply.',
+    consentLabel: 'I have read and accept the Privacy Policy. I consent to the processing of my personal data to receive the requested PDF.',
+    consentLink: 'Privacy Policy',
     errorGeneric: 'Something went wrong. Please try again or email angelo@pallanca.info.',
     errorRequired: 'Please fill all fields.',
     errorEmail: 'Please enter a valid email.',
+    errorConsent: 'You must accept the privacy policy to proceed.',
     successTitle: 'Done. Check your inbox.',
     successBody: "I just emailed you the PDF link. If it doesn't show up within a minute, check spam or promotional too.",
     successPdfLabel: 'Download the PDF now',
@@ -80,8 +87,10 @@ export default function ChecklistDownloadForm() {
     e.preventDefault();
     setErrorMsg('');
 
-    for (const f of Object.keys(state) as (keyof FormState)[]) {
-      if (!state[f].trim()) {
+    const textFields: (keyof FormState)[] = ['name', 'email', 'role', 'company'];
+    for (const f of textFields) {
+      const v = state[f];
+      if (typeof v === 'string' && !v.trim()) {
         setErrorMsg(c.errorRequired);
         setStatus('error');
         return;
@@ -89,6 +98,11 @@ export default function ChecklistDownloadForm() {
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
       setErrorMsg(c.errorEmail);
+      setStatus('error');
+      return;
+    }
+    if (!state.consent) {
+      setErrorMsg(c.errorConsent);
       setStatus('error');
       return;
     }
@@ -188,6 +202,36 @@ export default function ChecklistDownloadForm() {
           />
         </label>
       </div>
+
+      <label className="flex items-start gap-3 cursor-pointer group">
+        <input
+          type="checkbox"
+          required
+          checked={state.consent}
+          onChange={(e) => update('consent', e.target.checked)}
+          className="mt-1 accent-[var(--color-accent)] flex-shrink-0"
+        />
+        <span className="text-xs text-[var(--color-text-muted)] leading-relaxed">
+          {c.consentLabel.split('Privacy Policy').map((part, i, arr) =>
+            i < arr.length - 1 ? (
+              <span key={i}>
+                {part}
+                <a
+                  href={`/${lang}/privacy-policy`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-accent)] underline hover:text-[var(--color-accent-hover)]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {c.consentLink}
+                </a>
+              </span>
+            ) : (
+              <span key={i}>{part}</span>
+            )
+          )}
+        </span>
+      </label>
 
       {status === 'error' && errorMsg && (
         <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-sm">

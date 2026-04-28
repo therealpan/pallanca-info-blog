@@ -8,6 +8,7 @@ interface ChecklistPayload {
   role: string;
   company: string;
   locale?: 'it' | 'en';
+  consent?: boolean;
 }
 
 function escapeHtml(s: string): string {
@@ -137,13 +138,15 @@ export async function POST(req: NextRequest) {
   body.locale = locale;
 
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.error('Missing RESEND_API_KEY env var');
+  const fromAddress = process.env.RESEND_FROM_ADDRESS;
+  const notifyTo = process.env.RESEND_TO_ADDRESS;
+  if (!apiKey || !fromAddress || !notifyTo) {
+    console.error('Missing required Resend env vars (API_KEY / FROM / TO)');
     return NextResponse.json({ error: 'Server email config missing' }, { status: 500 });
   }
-
-  const fromAddress = process.env.RESEND_FROM_ADDRESS || 'Pan <pan@pallanca.net>';
-  const notifyTo = process.env.RESEND_TO_ADDRESS || 'pan@piirz.com';
+  if (!body.consent) {
+    return NextResponse.json({ error: 'Privacy consent is required' }, { status: 400 });
+  }
 
   const subjectLead =
     locale === 'it'

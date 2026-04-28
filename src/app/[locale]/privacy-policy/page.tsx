@@ -3,11 +3,12 @@ import { setRequestLocale } from 'next-intl/server';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   return {
-    title: locale === 'it' ? 'Privacy Policy' : 'Privacy Policy',
+    title: locale === 'it' ? 'Privacy Policy — Pan' : 'Privacy Policy — Pan',
     description:
       locale === 'it'
-        ? 'Informativa sulla privacy del sito di Angelo Pallanca.'
-        : 'Privacy Policy for Angelo Pallanca\'s website.',
+        ? 'Privacy policy del sito pallanca.info. Dati raccolti, finalità, base giuridica, diritti dell\'interessato (GDPR).'
+        : 'Privacy policy for pallanca.info. Data collected, purposes, legal basis, data subject rights (GDPR).',
+    robots: { index: true, follow: true },
   };
 }
 
@@ -15,91 +16,198 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const content = locale === 'it' ? {
-    title: 'Privacy Policy',
-    lastUpdated: 'Ultimo aggiornamento: 05/04/2024',
-    intro: 'Benvenuto nel sito ufficiale di Angelo Pallanca ("noi" o "nostro"). Questa Privacy Policy descrive le nostre pratiche relative alla raccolta, uso e divulgazione delle informazioni quando utilizzi il nostro sito. Ci impegniamo a rispettare la tua privacy e a proteggere le informazioni che possiamo raccogliere.',
-    sections: [
-      {
-        title: '1. Raccolta e utilizzo delle informazioni',
-        text: 'Per migliorare la tua esperienza utente, raccogliamo dati analitici anonimi di base su come utilizzi il nostro sito. Questi dati possono includere informazioni come l\'indirizzo IP del tuo computer (in forma anonimizzata), tipo di browser, versione del browser, le pagine del nostro sito che visiti, data e ora della visita, tempo trascorso sulle pagine e altri dati diagnostici. Queste informazioni non ti identificano personalmente.',
-      },
-      {
-        title: '2. Utilizzo dei dati',
-        text: 'I dati anonimi raccolti vengono utilizzati esclusivamente per analizzare il traffico web e migliorare i contenuti e le funzionalita del nostro sito. Questo ci aiuta a comprendere e servire meglio le esigenze dei nostri utenti.',
-      },
-      {
-        title: '3. Cookie',
-        text: 'Utilizziamo cookie e tecnologie di tracciamento simili per monitorare l\'attivita sul nostro sito. Un cookie e un file con una piccola quantita di dati che puo includere un identificatore unico anonimo. I cookie vengono inviati al tuo browser dal sito web e memorizzati sul tuo dispositivo. Puoi rifiutare tutti i cookie o indicare quando un cookie viene inviato. Tuttavia, se non accetti i cookie, potresti non essere in grado di utilizzare alcune parti del nostro sito.',
-      },
-      {
-        title: '4. Analisi',
-        text: 'Possiamo utilizzare fornitori di servizi terzi per monitorare e analizzare l\'uso del nostro sito. Questi servizi di terze parti utilizzano cookie per raccogliere informazioni in forma anonima su come i visitatori utilizzano il nostro sito.',
-      },
-      {
-        title: '5. Link ad altri siti',
-        text: 'Il nostro sito puo contenere link ad altri siti non gestiti da noi. Cliccando su un link di terze parti, verrai indirizzato al sito di tale terza parte. Ti consigliamo vivamente di consultare la Privacy Policy di ogni sito che visiti. Non abbiamo alcun controllo e non ci assumiamo alcuna responsabilita per i contenuti, le politiche sulla privacy o le pratiche di siti o servizi di terze parti.',
-      },
-      {
-        title: '6. Modifiche alla Privacy Policy',
-        text: 'Possiamo aggiornare la nostra Privacy Policy di tanto in tanto. Ti informeremo di eventuali modifiche pubblicando la nuova Privacy Policy su questa pagina. Ti consigliamo di consultare periodicamente questa Privacy Policy per eventuali cambiamenti.',
-      },
-      {
-        title: '7. Contattaci',
-        text: 'Per qualsiasi domanda su questa Privacy Policy, contattaci via email a angelo@pallanca.info.',
-      },
-    ],
-  } : {
-    title: 'Privacy Policy',
-    lastUpdated: 'Last Updated: 05/04/2024',
-    intro: 'Welcome to the official website of Angelo Pallanca (referred to as "we," "us," or "our"). This Privacy Policy is designed to inform you about our practices regarding the collection, use, and disclosure of information when you use our website. We are committed to respecting your privacy and safeguarding any information we may collect.',
-    sections: [
-      {
-        title: '1. Information Collection and Use',
-        text: 'For the purpose of enhancing your user experience, we collect basic anonymous analytics about how you use our website. This data may include information such as your computer\'s Internet Protocol (IP) address (in anonymized form), browser type, browser version, the pages of our website that you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data. This information does not personally identify you.',
-      },
-      {
-        title: '2. Use of Data',
-        text: 'The anonymous data we collect is used solely for the purpose of analyzing web traffic and improving the content and functionality of our website. This helps us to better understand and serve our users\' needs.',
-      },
-      {
-        title: '3. Cookies',
-        text: 'We use cookies and similar tracking technologies to track activity on our website. A cookie is a file with a small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. You have the option to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our website.',
-      },
-      {
-        title: '4. Analytics',
-        text: 'We may use third-party Service Providers to monitor and analyze the use of our website. These third-party services use cookies to collect information in an anonymous form about how visitors use our website.',
-      },
-      {
-        title: '5. Links to Other Sites',
-        text: 'Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party\'s site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.',
-      },
-      {
-        title: '6. Changes to This Privacy Policy',
-        text: 'We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.',
-      },
-      {
-        title: '7. Contact Us',
-        text: 'If you have any questions about this Privacy Policy, please contact us by email at angelo@pallanca.info.',
-      },
-    ],
-  };
+  const isIt = locale === 'it';
 
   return (
     <div className="pt-24 pb-16">
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">{content.title}</h1>
-        <p className="text-sm text-[var(--color-text-muted)] mb-8">{content.lastUpdated}</p>
-        <p className="text-[var(--color-text-muted)] leading-relaxed mb-10">{content.intro}</p>
-        <div className="space-y-8">
-          {content.sections.map((section) => (
-            <div key={section.title}>
-              <h2 className="text-xl font-semibold text-white mb-3">{section.title}</h2>
-              <p className="text-[var(--color-text-muted)] leading-relaxed">{section.text}</p>
-            </div>
-          ))}
+      <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 prose prose-invert prose-headings:text-white prose-headings:tracking-tight prose-p:text-[var(--color-text-muted)] prose-li:text-[var(--color-text-muted)] prose-strong:text-white prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:underline">
+        <div className="text-xs uppercase tracking-[0.18em] text-[var(--color-accent)] mb-3 font-medium not-prose">
+          {isIt ? 'Informativa privacy' : 'Privacy notice'}
         </div>
-      </section>
+        <h1 className="display-md">Privacy Policy</h1>
+        <p className="text-sm text-[var(--color-text-subtle)] not-prose">
+          {isIt ? 'Ultima modifica: 27 aprile 2026' : 'Last updated: April 27, 2026'}
+        </p>
+
+        {isIt ? (
+          <>
+            <h2>1. Titolare del trattamento</h2>
+            <p>
+              Il titolare del trattamento dei dati personali raccolti tramite il sito <strong>pallanca.info</strong> è
+              <strong> Angelo Pallanca</strong> (&ldquo;Pan&rdquo;), contattabile all&apos;indirizzo email{' '}
+              <a href="mailto:angelo@pallanca.info">angelo@pallanca.info</a>. Per la delivery operativa di alcuni servizi
+              il titolare opera anche tramite <strong>PiirZ Digital Limited</strong>; in tali casi viene attivato un
+              accordo specifico di trattamento dati.
+            </p>
+
+            <h2>2. Dati raccolti e finalità</h2>
+            <p>I dati raccolti sul sito sono limitati a quanto strettamente necessario per i servizi offerti:</p>
+            <ul>
+              <li>
+                <strong>Form di richiesta proposta</strong> (<code>/proposal</code>): nome e cognome, email aziendale,
+                ruolo, azienda, sito web (opzionale), settore, fatturato indicativo, dipendenti, problema da risolvere,
+                tempistica, budget orientativo, eventuali note libere. Finalità: rispondere alla richiesta con una
+                mini-proposta scritta entro 24 ore lavorative.
+              </li>
+              <li>
+                <strong>Form di download checklist EU AI Act</strong> (<code>/eu-ai-act-checklist</code>): nome e
+                cognome, email aziendale, ruolo, azienda. Finalità: invio del PDF richiesto e, occasionalmente,
+                eventuali aggiornamenti correlati al tema specifico, solo se l&apos;utente risponde manualmente
+                all&apos;email iniziale.
+              </li>
+              <li>
+                <strong>Log tecnici di server</strong>: indirizzo IP, user agent, timestamp delle richieste. Finalità:
+                sicurezza, prevenzione abusi, diagnosi tecnica. Conservazione: 30 giorni.
+              </li>
+            </ul>
+            <p>
+              Il sito <strong>non utilizza cookie di profilazione né strumenti di analytics</strong> di terze parti. Non
+              vengono usate piattaforme pubblicitarie. I dati raccolti tramite i form non vengono ceduti a terzi né
+              utilizzati per scopi di marketing automatizzato.
+            </p>
+
+            <h2>3. Base giuridica del trattamento</h2>
+            <p>
+              Il trattamento si basa sul <strong>consenso esplicito</strong> dell&apos;interessato (Art. 6.1.a GDPR),
+              espresso al momento della compilazione del form. In assenza di consenso il dato non viene processato.
+              Per i log tecnici si applica il <strong>legittimo interesse</strong> del titolare alla sicurezza del sito
+              (Art. 6.1.f GDPR).
+            </p>
+
+            <h2>4. Conservazione dei dati</h2>
+            <p>
+              I dati raccolti tramite form vengono conservati esclusivamente nella mailbox personale del titolare
+              (<code>pan@piirz.com</code>) e nel servizio di invio email <strong>Resend</strong> (provider con server
+              nell&apos;UE). Vengono cancellati dopo <strong>24 mesi</strong> di inattività della relazione, oppure
+              prima su richiesta dell&apos;interessato.
+            </p>
+
+            <h2>5. Trasferimenti extra-UE</h2>
+            <p>
+              I dati sono trattati su infrastrutture europee (server UE di Resend e di Vercel). In caso di
+              trasferimenti extra-UE necessari per il funzionamento dei servizi, si applicano le clausole contrattuali
+              standard approvate dalla Commissione Europea (Decisione 2021/914).
+            </p>
+
+            <h2>6. Diritti dell&apos;interessato</h2>
+            <p>L&apos;interessato ha il diritto di:</p>
+            <ul>
+              <li>accedere ai dati che lo riguardano (Art. 15 GDPR);</li>
+              <li>chiedere rettifica o cancellazione (Art. 16-17 GDPR);</li>
+              <li>chiedere limitazione del trattamento (Art. 18 GDPR);</li>
+              <li>portabilità dei dati (Art. 20 GDPR);</li>
+              <li>opporsi al trattamento basato sul legittimo interesse (Art. 21 GDPR);</li>
+              <li>revocare il consenso in qualsiasi momento.</li>
+            </ul>
+            <p>
+              Per esercitare questi diritti scrivere a{' '}
+              <a href="mailto:angelo@pallanca.info">angelo@pallanca.info</a>. Risposta garantita entro 30 giorni.
+            </p>
+
+            <h2>7. Reclamo all&apos;autorità di controllo</h2>
+            <p>
+              In caso di violazione del GDPR è possibile presentare reclamo al{' '}
+              <strong>Garante per la protezione dei dati personali</strong> (
+              <a href="https://www.garanteprivacy.it/" rel="noopener noreferrer" target="_blank">
+                garanteprivacy.it
+              </a>
+              ) o all&apos;autorità di controllo dello Stato membro UE in cui l&apos;interessato risiede abitualmente.
+            </p>
+
+            <h2>8. Modifiche</h2>
+            <p>
+              La presente informativa può essere aggiornata in caso di modifiche al trattamento. La data di ultima
+              modifica è indicata in alto in questa pagina. Si consiglia di verificare periodicamente.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2>1. Data Controller</h2>
+            <p>
+              The data controller for personal data collected via <strong>pallanca.info</strong> is{' '}
+              <strong>Angelo Pallanca</strong> (&ldquo;Pan&rdquo;), reachable at{' '}
+              <a href="mailto:angelo@pallanca.info">angelo@pallanca.info</a>. For operational delivery of some
+              services the controller also operates through <strong>PiirZ Digital Limited</strong>; in such cases a
+              specific data processing agreement is activated.
+            </p>
+
+            <h2>2. Data Collected and Purposes</h2>
+            <p>Data collected on the site is limited to what is strictly necessary for the services offered:</p>
+            <ul>
+              <li>
+                <strong>Proposal request form</strong> (<code>/proposal</code>): full name, work email, role, company,
+                website (optional), sector, indicative revenue, employees, problem, timing, indicative budget, free
+                notes. Purpose: respond to the request with a written mini-proposal within 24 working hours.
+              </li>
+              <li>
+                <strong>EU AI Act checklist download form</strong> (<code>/eu-ai-act-checklist</code>): full name, work
+                email, role, company. Purpose: send the requested PDF and, occasionally, related updates on the
+                specific topic, only if the user manually responds to the initial email.
+              </li>
+              <li>
+                <strong>Server technical logs</strong>: IP address, user agent, request timestamps. Purpose: security,
+                abuse prevention, technical diagnosis. Retention: 30 days.
+              </li>
+            </ul>
+            <p>
+              The site does <strong>not use profiling cookies or third-party analytics</strong>. No advertising
+              platforms are used. Data collected via forms is not shared with third parties or used for automated
+              marketing.
+            </p>
+
+            <h2>3. Legal Basis for Processing</h2>
+            <p>
+              Processing is based on the <strong>explicit consent</strong> of the data subject (Art. 6.1.a GDPR),
+              given at the time of form submission. Without consent, data is not processed. For technical logs the{' '}
+              <strong>legitimate interest</strong> of the controller in site security applies (Art. 6.1.f GDPR).
+            </p>
+
+            <h2>4. Data Retention</h2>
+            <p>
+              Form data is stored exclusively in the controller&apos;s personal mailbox (<code>pan@piirz.com</code>)
+              and in the email delivery service <strong>Resend</strong> (provider with EU servers). Data is deleted
+              after <strong>24 months</strong> of inactivity, or earlier upon request of the data subject.
+            </p>
+
+            <h2>5. Extra-EU Transfers</h2>
+            <p>
+              Data is processed on European infrastructure (Resend EU servers, Vercel). In case of extra-EU transfers
+              necessary for service operation, EU Commission Standard Contractual Clauses apply (Decision 2021/914).
+            </p>
+
+            <h2>6. Data Subject Rights</h2>
+            <p>The data subject has the right to:</p>
+            <ul>
+              <li>access their data (Art. 15 GDPR);</li>
+              <li>request rectification or erasure (Art. 16-17 GDPR);</li>
+              <li>request restriction of processing (Art. 18 GDPR);</li>
+              <li>data portability (Art. 20 GDPR);</li>
+              <li>object to processing based on legitimate interest (Art. 21 GDPR);</li>
+              <li>withdraw consent at any time.</li>
+            </ul>
+            <p>
+              To exercise these rights, write to{' '}
+              <a href="mailto:angelo@pallanca.info">angelo@pallanca.info</a>. Response guaranteed within 30 days.
+            </p>
+
+            <h2>7. Complaint to Supervisory Authority</h2>
+            <p>
+              In case of GDPR violation, you can lodge a complaint with the Italian{' '}
+              <strong>Garante per la protezione dei dati personali</strong> (
+              <a href="https://www.garanteprivacy.it/" rel="noopener noreferrer" target="_blank">
+                garanteprivacy.it
+              </a>
+              ) or with the supervisory authority of the EU Member State where the data subject habitually resides.
+            </p>
+
+            <h2>8. Changes</h2>
+            <p>
+              This notice may be updated in case of changes to data processing. The date of last modification is shown
+              at the top of this page. Periodic verification is recommended.
+            </p>
+          </>
+        )}
+      </article>
     </div>
   );
 }
