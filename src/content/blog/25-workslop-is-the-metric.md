@@ -6,6 +6,7 @@ date: "2026-04-28"
 topic: "Enterprise AI"
 excerpt: "Companies pay people to burn tokens, then complain the work is mediocre. Workslop is not a failure of AI. It's what the metric pays for."
 excerptIt: "Le aziende pagano i dipendenti per bruciare token, poi si lamentano del risultato mediocre. Il workslop non è un fallimento. È ciò che la metrica paga."
+image: "/images/blog/workslop-is-the-metric.jpg"
 ---
 
 In April, a Meta employee built a leaderboard. It ranked 85,000 colleagues by how many tokens they fed into Anthropic's Claude. The top user burned 281 billion tokens in thirty days. Cost to Meta: roughly $1.4 million for one person's prompt habit.
