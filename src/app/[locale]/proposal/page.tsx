@@ -1,19 +1,20 @@
 import { setRequestLocale } from 'next-intl/server';
 import ProposalForm from '@/components/ProposalForm';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title:
-      locale === 'it'
-        ? 'Richiedi una proposta — Angelo Pallanca'
-        : 'Request a proposal — Angelo Pallanca',
-    description:
-      locale === 'it'
-        ? 'Cinque domande, due minuti. Ti rispondo entro 24 ore lavorative con una mini-proposta scritta.'
-        : 'Five questions, two minutes. I reply within 24 working hours with a written mini-proposal.',
-    robots: { index: false, follow: false },
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/proposal',
+    title: isIt ? 'Richiedi una proposta — Angelo Pallanca' : 'Request a proposal — Angelo Pallanca',
+    description: isIt
+      ? 'Cinque domande, due minuti. Ti rispondo entro 24 ore lavorative con una mini-proposta scritta.'
+      : 'Five questions, two minutes. I reply within 24 working hours with a written mini-proposal.',
+    noIndex: true,
+  });
 }
 
 export default async function ProposalPage({ params }: { params: Promise<{ locale: string }> }) {

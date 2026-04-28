@@ -5,6 +5,21 @@ import HeroSection from '@/components/HeroSection';
 import HomeClosingCTA from '@/components/HomeClosingCTA';
 import ServicesPreview from '@/components/ServicesPreview';
 import BooksSection from '@/components/BooksSection';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/',
+    title: 'Angelo Pallanca | Digital Transformation & AI Governance',
+    description: isIt
+      ? 'Consulente innovazione e AI con 30 anni di esperienza. Aiuto organizzazioni a portare progetti AI in produzione.'
+      : 'Innovation and AI consultant with 30 years of experience. I help organizations ship AI projects to production.',
+  });
+}
 
 export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -1,16 +1,20 @@
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Chi sono — Angelo Pallanca' : 'About — Angelo Pallanca',
-    description:
-      locale === 'it'
-        ? 'Angelo Pallanca, senior advisor AI per leadership team europei. 30 anni di innovazione cross-industry, indipendente per scelta. Pan firma, PiirZ Digital esegue.'
-        : 'Angelo Pallanca, senior AI advisor to European leadership teams. 30 years of cross-industry innovation, independent by choice. Pan signs, PiirZ Digital ships.',
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/about',
+    title: isIt ? 'Chi sono — Angelo Pallanca' : 'About — Angelo Pallanca',
+    description: isIt
+      ? 'Angelo Pallanca, senior advisor AI per leadership team europei. 30 anni di innovazione cross-industry, indipendente per scelta. Pan firma, PiirZ Digital esegue.'
+      : 'Angelo Pallanca, senior AI advisor to European leadership teams. 30 years of cross-industry innovation, independent by choice. Pan signs, PiirZ Digital ships.',
+  });
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {

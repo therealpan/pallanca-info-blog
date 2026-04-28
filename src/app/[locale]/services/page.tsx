@@ -2,16 +2,20 @@ import { setRequestLocale } from 'next-intl/server';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { services } from '@/lib/services-data';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Servizi — Angelo Pallanca' : 'Services — Angelo Pallanca',
-    description:
-      locale === 'it'
-        ? 'Cinque servizi AI per leadership team europei: Strategy Sprint, EU AI Act Audit, Sovereign AI Blueprint, Fractional CAIO, AI Due Diligence.'
-        : 'Five AI services for European leadership teams: Strategy Sprint, EU AI Act Audit, Sovereign AI Blueprint, Fractional CAIO, AI Due Diligence.',
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/services',
+    title: isIt ? 'Servizi — Angelo Pallanca' : 'Services — Angelo Pallanca',
+    description: isIt
+      ? 'Cinque servizi AI per leadership team europei: Strategy Sprint, EU AI Act Audit, Sovereign AI Blueprint, Fractional CAIO, AI Due Diligence.'
+      : 'Five AI services for European leadership teams: Strategy Sprint, EU AI Act Audit, Sovereign AI Blueprint, Fractional CAIO, AI Due Diligence.',
+  });
 }
 
 export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {

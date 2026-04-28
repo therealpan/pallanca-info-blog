@@ -1,16 +1,20 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getAllPosts } from '@/lib/blog';
 import BlogCard from '@/components/BlogCard';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: 'Blog',
-    description:
-      locale === 'it'
-        ? 'Riflessioni su AI, innovazione e consulenza tecnologica.'
-        : 'Thoughts on AI, innovation, and technology consulting.',
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/blog',
+    title: isIt ? 'Blog — Angelo Pallanca' : 'Blog — Angelo Pallanca',
+    description: isIt
+      ? 'Riflessioni su AI, innovazione e consulenza tecnologica.'
+      : 'Thoughts on AI, innovation, and technology consulting.',
+  });
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {

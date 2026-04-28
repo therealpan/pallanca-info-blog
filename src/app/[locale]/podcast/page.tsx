@@ -1,23 +1,19 @@
 import { setRequestLocale } from 'next-intl/server';
 import { Headphones, Mic, Download, FileText } from 'lucide-react';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Podcast — Pan' : 'Podcast — Pan',
-    description:
-      locale === 'it'
-        ? 'Conversazioni audio su AI, regolamentazione, e il futuro del lavoro. Generati con NotebookLM dai contenuti di Pan.'
-        : 'Audio conversations on AI, regulation, and the future of work. Generated with NotebookLM from Pan content.',
-    openGraph: {
-      type: 'website',
-      title: 'Pan Podcast',
-      description:
-        locale === 'it'
-          ? 'Conversazioni audio su AI, regolamentazione, futuro del lavoro.'
-          : 'Audio conversations on AI, regulation, future of work.',
-    },
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/podcast',
+    title: 'Podcast — Pan',
+    description: isIt
+      ? 'Conversazioni audio su AI, regolamentazione, e il futuro del lavoro. Generati con NotebookLM dai contenuti di Pan.'
+      : 'Audio conversations on AI, regulation, and the future of work. Generated with NotebookLM from Pan content.',
+  });
 }
 
 interface Episode {

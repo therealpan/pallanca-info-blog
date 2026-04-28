@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -19,48 +20,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const isIt = locale === 'it';
   const title = isIt && post.titleIt ? post.titleIt : post.title;
   const description = isIt && post.excerptIt ? post.excerptIt : post.excerpt;
-  const url = `https://pallanca.info/${locale}/blog/${slug}`;
-  const ogImage = post.image || '/images/photos/og-image.jpg';
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: `/blog/${slug}`,
     title,
     description,
-    alternates: {
-      canonical: url,
-      languages: {
-        en: `https://pallanca.info/en/blog/${slug}`,
-        it: `https://pallanca.info/it/blog/${slug}`,
-      },
-    },
-    openGraph: {
-      type: 'article',
-      title,
-      description,
-      url,
-      siteName: 'Angelo Pallanca',
-      locale: isIt ? 'it_IT' : 'en_US',
-      alternateLocale: isIt ? 'en_US' : 'it_IT',
-      publishedTime: post.date,
-      authors: ['Angelo Pallanca'],
-      tags: [post.topic],
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: title,
-          type: 'image/jpeg',
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-      creator: '@angelopallanca',
-    },
-  };
+    type: 'article',
+    publishedTime: post.date,
+    authors: ['Angelo Pallanca'],
+    tags: [post.topic],
+    image: post.image,
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {

@@ -2,6 +2,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Check, ArrowRight, AlertTriangle } from 'lucide-react';
 import { getServiceBySlug, getAllServiceSlugs, services } from '@/lib/services-data';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   return getAllServiceSlugs().flatMap((slug) =>
@@ -13,7 +15,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale, slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
@@ -21,10 +23,12 @@ export async function generateMetadata({
   const lang = locale === 'it' ? 'it' : 'en';
   const c = service.content[lang];
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: `/services/${slug}`,
     title: `${c.title} — Angelo Pallanca`,
     description: c.tagline,
-  };
+  });
 }
 
 export default async function ServiceDetailPage({

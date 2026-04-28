@@ -1,15 +1,19 @@
 import { setRequestLocale } from 'next-intl/server';
 import { Linkedin, Mail, MapPin, ArrowRight } from 'lucide-react';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Contatti' : 'Contact',
-    description:
-      locale === 'it'
-        ? 'Compila il form di pre-qualifica o scrivimi direttamente.'
-        : 'Fill the pre-qualification form or email me directly.',
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/contact',
+    title: isIt ? 'Contatti — Angelo Pallanca' : 'Contact — Angelo Pallanca',
+    description: isIt
+      ? 'Compila il form di pre-qualifica o scrivimi direttamente.'
+      : 'Fill the pre-qualification form or email me directly.',
+  });
 }
 
 export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {

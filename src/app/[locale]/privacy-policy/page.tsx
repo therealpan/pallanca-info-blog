@@ -1,15 +1,18 @@
 import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Privacy Policy — Pan' : 'Privacy Policy — Pan',
-    description:
-      locale === 'it'
-        ? 'Privacy policy del sito pallanca.info. Dati raccolti, finalità, base giuridica, diritti dell\'interessato (GDPR).'
-        : 'Privacy policy for pallanca.info. Data collected, purposes, legal basis, data subject rights (GDPR).',
-    robots: { index: true, follow: true },
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/privacy-policy',
+    title: 'Privacy Policy — Pan',
+    description: isIt
+      ? 'Privacy policy del sito pallanca.info. Dati raccolti, finalità, base giuridica, diritti dell\'interessato (GDPR).'
+      : 'Privacy policy for pallanca.info. Data collected, purposes, legal basis, data subject rights (GDPR).',
+  });
 }
 
 export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: string }> }) {

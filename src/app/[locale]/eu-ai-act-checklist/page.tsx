@@ -1,22 +1,20 @@
 import { setRequestLocale } from 'next-intl/server';
 import { FileText, Check, ListChecks, BookOpen, Calendar } from 'lucide-react';
 import ChecklistDownloadForm from '@/components/ChecklistDownloadForm';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title:
-      locale === 'it'
-        ? 'EU AI Act Readiness Checklist — Pan'
-        : 'EU AI Act Readiness Checklist — Pan',
-    description:
-      locale === 'it'
-        ? 'Trenta domande in 15 minuti per scoprire se la tua azienda è in regola con l\'EU AI Act prima della deadline 2 agosto 2026. PDF gratuito.'
-        : 'Thirty questions in 15 minutes to find out if your company is compliant with the EU AI Act before the August 2, 2026 deadline. Free PDF.',
-    alternates: {
-      canonical: `/${locale}/eu-ai-act-checklist`,
-    },
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/eu-ai-act-checklist',
+    title: 'EU AI Act Readiness Checklist — Pan',
+    description: isIt
+      ? 'Trenta domande in 15 minuti per scoprire se la tua azienda è in regola con l\'EU AI Act prima della deadline 2 agosto 2026. PDF gratuito.'
+      : 'Thirty questions in 15 minutes to find out if your company is compliant with the EU AI Act before the August 2, 2026 deadline. Free PDF.',
+  });
 }
 
 export default async function ChecklistPage({ params }: { params: Promise<{ locale: string }> }) {

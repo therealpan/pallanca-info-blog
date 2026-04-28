@@ -1,14 +1,18 @@
 import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
-    title: locale === 'it' ? 'Termini di Servizio' : 'Terms of Service',
-    description:
-      locale === 'it'
-        ? 'Termini di servizio del sito di Angelo Pallanca.'
-        : 'Terms of Service for Angelo Pallanca\'s website.',
-  };
+  const isIt = locale === 'it';
+  return buildPageMetadata({
+    locale,
+    path: '/terms-of-service',
+    title: isIt ? 'Termini di Servizio — Angelo Pallanca' : 'Terms of Service — Angelo Pallanca',
+    description: isIt
+      ? 'Termini di servizio del sito di Angelo Pallanca.'
+      : 'Terms of Service for Angelo Pallanca\'s website.',
+  });
 }
 
 export default async function TermsOfServicePage({ params }: { params: Promise<{ locale: string }> }) {
