@@ -4,20 +4,62 @@ import { markdownToHtml } from '@/lib/markdown';
 import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
+import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }): Promise<Metadata> {
   const { slug, locale } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
-  const title = locale === 'it' && post.titleIt ? post.titleIt : post.title;
+
+  const isIt = locale === 'it';
+  const title = isIt && post.titleIt ? post.titleIt : post.title;
+  const description = isIt && post.excerptIt ? post.excerptIt : post.excerpt;
+  const url = `https://pallanca.info/${locale}/blog/${slug}`;
+  const ogImage = post.image || '/images/photos/og-image.jpg';
+
   return {
     title,
-    description: locale === 'it' && post.excerptIt ? post.excerptIt : post.excerpt,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: `https://pallanca.info/en/blog/${slug}`,
+        it: `https://pallanca.info/it/blog/${slug}`,
+      },
+    },
+    openGraph: {
+      type: 'article',
+      title,
+      description,
+      url,
+      siteName: 'Angelo Pallanca',
+      locale: isIt ? 'it_IT' : 'en_US',
+      alternateLocale: isIt ? 'en_US' : 'it_IT',
+      publishedTime: post.date,
+      authors: ['Angelo Pallanca'],
+      tags: [post.topic],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+          type: 'image/jpeg',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+      creator: '@angelopallanca',
+    },
   };
 }
 
