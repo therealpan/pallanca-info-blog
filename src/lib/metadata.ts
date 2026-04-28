@@ -5,6 +5,14 @@ const SITE_NAME = 'Angelo Pallanca';
 const TWITTER_HANDLE = '@angelopallanca';
 const DEFAULT_OG_IMAGE = '/images/photos/og-image.jpg';
 
+function inferImageMime(path: string): string {
+  const lower = path.toLowerCase();
+  if (lower.endsWith('.png')) return 'image/png';
+  if (lower.endsWith('.webp')) return 'image/webp';
+  if (lower.endsWith('.gif')) return 'image/gif';
+  return 'image/jpeg';
+}
+
 interface BuildPageMetadataInput {
   locale: string;
   /**
@@ -81,7 +89,7 @@ export function buildPageMetadata({
           width: 1200,
           height: 630,
           alt: title,
-          type: 'image/jpeg',
+          type: inferImageMime(ogImage),
         },
       ],
     },
