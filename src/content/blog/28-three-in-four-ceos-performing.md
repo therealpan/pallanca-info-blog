@@ -2,7 +2,7 @@
 title: "Three in Four CEOs Are Performing"
 titleIt: "Tre CEO su quattro stanno recitando"
 slug: three-in-four-ceos-performing
-date: "2026-05-14"
+date: "2026-05-18"
 topic: "AI Strategy"
 excerpt: "75% of executives admit their AI strategy is 'for show.' That is not dishonesty. It is what happens when adoption runs on decades and markets run on quarters."
 excerptIt: "Il 75% dei manager ammette che la strategia AI è 'di facciata'. Non è disonestà, è ciò che accade quando tecnologia e mercati hanno orologi diversi."
