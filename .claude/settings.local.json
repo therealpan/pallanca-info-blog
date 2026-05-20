@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.amazon.it)",
+      "WebSearch",
+      "Bash(git -C /Users/angelopallanca/Progetti/Claude/pallanca-info/pallanca-info-blog status --porcelain)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(vercel link:*)",
+      "Bash(vercel:*)"
+    ]
+  }
+}

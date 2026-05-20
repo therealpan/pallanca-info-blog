@@ -4,6 +4,7 @@ titleIt: "Un'azienda di AI si valuta dalla sua noia"
 slug: evaluate-ai-company-by-its-boredom
 date: "2026-05-18"
 topic: "AI Strategy"
+cardImage: "/images/blog/cards/evaluate-ai-company-by-its-boredom.webp"
 excerpt: "You can't evaluate an AI company by its AI. The model is a commodity and the demo is the easy part. You evaluate it by its boredom."
 excerptIt: "Un'azienda di AI non la valuti dalla sua AI. Il modello è una commodity, la demo è la parte facile. La valuti dalla sua noia."
 ---
