@@ -84,6 +84,70 @@ body {
   }
 }
 
+/* Flip cards (blog carousel) — front = cover image + CSS title overlay, back = post meta */
+.flip-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 560ms var(--ease-out);
+  will-change: transform;
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-front {
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.flip-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 8, 11, 0.92) 0%, rgba(7, 8, 11, 0.5) 34%, rgba(7, 8, 11, 0) 62%);
+}
+.flip-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .flip-inner { transform: rotateY(180deg); }
+}
+.flip-card:focus-within .flip-inner { transform: rotateY(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { transform: none !important; transition: none; }
+  .flip-face { backface-visibility: visible; -webkit-backface-visibility: visible; transition: opacity 220ms ease; }
+  .flip-back { transform: none; opacity: 0; pointer-events: none; }
+  .group:hover .flip-back, .flip-card:focus-within .flip-back { opacity: 1; pointer-events: auto; }
+  .group:hover .flip-front, .flip-card:focus-within .flip-front { opacity: 0; }
+}
+
 /* Scroll indicator (replaces Tailwind animate-bounce) */
 @keyframes scroll-hint {
   0%, 100% { transform: translateY(0); opacity: 0.5; }

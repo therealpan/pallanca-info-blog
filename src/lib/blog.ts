@@ -16,6 +16,7 @@ export interface BlogPost {
   topic: string;
   readTime: number;
   image?: string;
+  cardImage: string;
   content: string;
   contentEn: string;
   contentIt?: string;
@@ -51,6 +52,7 @@ export function getAllPosts(): BlogPost[] {
         topic: data.topic || 'AI',
         readTime,
         image: data.image,
+        cardImage: data.cardImage || '/images/blog/cards/_placeholder.webp',
         content: contentEn,
         contentEn,
         contentIt,

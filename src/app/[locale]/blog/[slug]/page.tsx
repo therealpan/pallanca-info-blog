@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     publishedTime: post.date,
     authors: ['Angelo Pallanca'],
     tags: [post.topic],
-    image: post.image,
+    image: post.image || post.cardImage,
   });
 }
 

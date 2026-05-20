@@ -16,6 +16,7 @@ interface HeroPost {
   date: string;
   topic: string;
   readTime: number;
+  cardImage: string;
   content: string;
   htmlContent?: string;
 }
@@ -37,32 +38,53 @@ function CarouselCard({
     <motion.div
       layoutId={`blog-card-${post.slug}`}
       onClick={onClick}
-      className="glass-card p-5 flex flex-col gap-3 cursor-pointer group"
+      className="flip-card group cursor-pointer"
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
     >
-      <div className="flex flex-col gap-1.5">
-        <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs self-start">
-          {post.topic}
-        </span>
-        <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
-          <span>{new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
-          <span className="flex items-center gap-1">
-            <Clock size={12} /> {post.readTime} min
+      <div className="flip-inner">
+        {/* Front — cover image with CSS title overlay */}
+        <div className="flip-face flip-front">
+          <Image
+            src={post.cardImage}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 60vw, 20vw"
+            className="object-cover"
+          />
+          <div className="flip-scrim" />
+          <span className="absolute top-3 left-3 bg-[var(--color-accent)]/15 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs backdrop-blur-sm">
+            {post.topic}
           </span>
+          <div className="flip-title">{displayTitle}</div>
         </div>
-      </div>
-      <motion.h3
-        layoutId={`blog-title-${post.slug}`}
-        className="text-base font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors line-clamp-2"
-      >
-        {displayTitle}
-      </motion.h3>
-      <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 flex-1">
-        {displayExcerpt}
-      </p>
-      <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-[gap] duration-200">
-        {t('readMore')} <ArrowRight size={14} />
+
+        {/* Back — post meta (matches the previous card content) */}
+        <div className="flip-face flip-back glass-card p-5 flex flex-col gap-3">
+          <div className="flex flex-col gap-1.5">
+            <span className="bg-[var(--color-accent)]/10 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs self-start">
+              {post.topic}
+            </span>
+            <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)]">
+              <span>{new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+              <span className="flex items-center gap-1">
+                <Clock size={12} /> {post.readTime} min
+              </span>
+            </div>
+          </div>
+          <motion.h3
+            layoutId={`blog-title-${post.slug}`}
+            className="text-base font-semibold text-white line-clamp-2"
+          >
+            {displayTitle}
+          </motion.h3>
+          <p className="text-sm text-[var(--color-text-muted)] line-clamp-2 flex-1">
+            {displayExcerpt}
+          </p>
+          <div className="flex items-center gap-1 text-[var(--color-accent)] text-sm font-medium group-hover:gap-2 transition-[gap] duration-200">
+            {t('readMore')} <ArrowRight size={14} />
+          </div>
+        </div>
       </div>
     </motion.div>
   );
