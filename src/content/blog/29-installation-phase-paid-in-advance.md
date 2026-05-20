@@ -2,7 +2,7 @@
 title: "The Installation Phase Is Always Paid in Advance"
 titleIt: "La fase di installazione si paga sempre in anticipo"
 slug: installation-phase-paid-in-advance
-date: "2026-05-18"
+date: "2026-05-16"
 topic: "AI Strategy"
 excerpt: "Everyone is quoting Carlota Perez to wait out the AI bubble. They are misreading her. The installation phase doesn't refund. It transfers."
 excerptIt: "Tutti citano Carlota Perez per giustificare la bolla AI. Stanno leggendo male. La fase di installazione non rimborsa: trasferisce, e basta."
