@@ -4,6 +4,7 @@ titleIt: "Il verme che firma i suoi crimini"
 slug: the-worm-that-signs-its-crimes
 date: "2026-05-13"
 topic: "AI Security"
+cardImage: "/images/blog/cards/the-worm-that-signs-its-crimes.webp"
 excerpt: "TeamPCP signed malware with a valid SLSA certificate. A signature no longer proves the code is clean, only that the right pipeline built it."
 excerptIt: "TeamPCP ha firmato malware con SLSA valido. La firma non garantisce più codice pulito, solo che viene dalla pipeline giusta."
 ---

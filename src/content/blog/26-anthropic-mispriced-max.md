@@ -4,6 +4,7 @@ titleIt: "Anthropic ha sbagliato i conti"
 slug: anthropic-mispriced-max
 date: "2026-04-29"
 topic: "AI Strategy"
+cardImage: "/images/blog/cards/anthropic-mispriced-max.webp"
 excerpt: "A partner ran Claude Opus 24/7 for 43 days. 72 billion tokens. At API rates, 180,000 euros. To replicate by hand, 23 million. The math isn't about cost. It's about output a human cannot reach."
 excerptIt: "Un partner ha tenuto Claude Opus acceso 24/7 per 43 giorni. 72 miliardi di token. A tariffe API: 180.000 euro. A mano: 23 milioni. La matematica non parla di costo. Parla di volumi che un umano non può raggiungere."
 ---
