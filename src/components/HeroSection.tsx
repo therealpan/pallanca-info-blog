@@ -149,8 +149,8 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         </div>
 
         {/* Blog cards carousel */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-0 pb-6">
-          <div className="flex items-center justify-between mb-5">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-4 md:pt-0 pb-3">
+          <div className="flex items-center justify-between mb-3">
             <h2 className="text-sm font-medium text-[var(--color-text-muted)] uppercase tracking-wider">
               {tHome('blogSection')}
             </h2>
@@ -192,9 +192,8 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         </div>
 
         {/* Animated scroll indicator (custom keyframe, no bounce) */}
-        <div className="relative z-10 pb-8 flex justify-center scroll-hint">
-          <a href="#below-fold" className="flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-white transition-colors">
-            <span className="text-xs uppercase tracking-widest">{t('scroll')}</span>
+        <div className="relative z-10 pb-4 flex justify-center scroll-hint">
+          <a href="#below-fold" aria-label={t('scroll')} className="flex flex-col items-center text-[var(--color-text-muted)] hover:text-white transition-colors">
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
