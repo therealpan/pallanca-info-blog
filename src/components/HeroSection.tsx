@@ -131,7 +131,7 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
             {t('headline')}
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed whitespace-pre-line">
             {t('subheadline')}
           </p>
         </div>
