@@ -127,11 +127,11 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         </div>
 
         {/* Main hero content */}
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center pt-24">
+        <div className="relative z-10 text-left max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-start justify-center pt-24 pb-[14vh]">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight whitespace-pre-line">
             {t('headline')}
           </h1>
-          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
             {t('subheadline')}
           </p>
         </div>
