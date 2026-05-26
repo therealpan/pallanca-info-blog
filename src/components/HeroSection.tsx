@@ -93,7 +93,6 @@ function CarouselCard({
 export default function HeroSection({ posts }: { posts: HeroPost[] }) {
   const t = useTranslations('hero');
   const tHome = useTranslations('home');
-  const locale = useLocale();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedPost, setSelectedPost] = useState<HeroPost | null>(null);
 
@@ -135,17 +134,6 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
           <p className="mt-6 text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
             {t('subheadline')}
           </p>
-          <div className="mt-10">
-            <a
-              href={`/${locale}/proposal`}
-              className="inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 text-base font-medium text-white hover:bg-white hover:text-[var(--color-bg)] transition-[background,color,transform] duration-200"
-            >
-              {t('cta')}
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
         </div>
 
         {/* Blog cards carousel */}
