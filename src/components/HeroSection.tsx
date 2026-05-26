@@ -117,10 +117,10 @@ export default function HeroSection({ posts }: { posts: HeroPost[] }) {
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/photos/pallanca_info_bg03.webp"
+            src="/images/photos/pallanca_info_bg04.webp"
             alt=""
             fill
-            className="object-cover object-left md:object-center"
+            className="object-cover object-center"
             priority
             quality={90}
           />
