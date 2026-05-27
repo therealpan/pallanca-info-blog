@@ -53,7 +53,7 @@ function CarouselCard({
             className="object-cover"
           />
           <div className="flip-scrim" />
-          <span className="absolute top-3 left-3 bg-[var(--color-accent)]/15 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs backdrop-blur-sm">
+          <span className="absolute top-3 left-3 bg-black/55 text-[var(--color-accent)] px-2.5 py-1 rounded-full font-medium text-xs backdrop-blur-md border border-white/10">
             {post.topic}
           </span>
           <div className="flip-title">{displayTitle}</div>
