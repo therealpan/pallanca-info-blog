@@ -13,6 +13,8 @@ excerptIt: "Stesso modello. Claude Code: 77%. Cursor: 93%. Sedici punti vivono n
 
 ---
 
+![The Harness — agentic AI iceberg diagram](/images/blog/harness.webp)
+
 There is a common comparison in the AI debate, the model is the brain. It is not wrong. It is also incomplete, in a way that costs millions every quarter.
 
 The thing that holds the brain, gives it tools, decides what it can do and when it stops, is called the harness. The industry mentions it almost in a whisper. This series puts it at the center, where it belongs.
@@ -54,6 +56,8 @@ So when you next evaluate an agentic deployment, do not ask which model it uses.
 *Serie **La Harness** · 1 di 5*
 
 ---
+
+![La Harness — diagramma a iceberg dell'AI agentic](/images/blog/harness.webp)
 
 Esiste un paragone comune nel discorso AI, il modello è il cervello. Non è sbagliato. È anche incompleto, in un modo che costa milioni a trimestre.
 
