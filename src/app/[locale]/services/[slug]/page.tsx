@@ -28,6 +28,7 @@ export async function generateMetadata({
     path: `/services/${slug}`,
     title: `${c.title} — Angelo Pallanca`,
     description: c.tagline,
+    image: service.ogImage,
   });
 }
 

@@ -42,11 +42,212 @@ export interface ServiceMeta {
   shortPricing: { it: string; en: string };
   shortDuration: { it: string; en: string };
   shortFor: { it: string; en: string };
+  /** Optional per-service OG/social card image (1200x630). Falls back to site default. */
+  ogImage?: string;
   // Full page content per locale
   content: { it: ServiceContent; en: ServiceContent };
 }
 
 export const services: ServiceMeta[] = [
+  // 0. DIGITAL FOUNDATION (step zero della catena del valore)
+  {
+    slug: 'digital-foundation',
+    shortTitle: { it: 'Digital Foundation', en: 'Digital Foundation' },
+    shortTagline: {
+      it: 'La presenza digitale, prima dell\'AI. Il pavimento su cui poggia tutto quello che viene dopo.',
+      en: 'Digital presence first, AI second. The floor everything else stands on.',
+    },
+    shortPricing: { it: 'Da €40.000', en: 'From €40,000' },
+    shortDuration: { it: '6-10 settimane', en: '6-10 weeks' },
+    shortFor: {
+      it: 'CEO e direzione di imprese mid-large B2B con eccellenza operativa e presenza digitale ferma a oltre cinque anni fa.',
+      en: 'CEO and leadership of mid-large B2B companies with operational excellence and a digital presence frozen five-plus years ago.',
+    },
+    ogImage: '/images/services/digital-foundation-og.jpg',
+    content: {
+      it: {
+        eyebrow: 'Step zero · Catena del valore',
+        title: 'Digital Foundation',
+        tagline: 'La presenza digitale, prima dell\'AI. Il pavimento su cui poggia tutto quello che viene dopo.',
+        pricingLabel: 'Investimento da €40.000 · Mini-proposta in 48 ore · 6-10 settimane · Orchestrazione rete partner',
+        ctaButton: 'Richiedi una proposta',
+        problemTitle: 'Perché esiste questo servizio',
+        problemBody: [
+          'Un produttore italiano di strumenti chirurgici di precisione, 55 milioni di fatturato, fornitore di tre sistemi sanitari nazionali europei e di due reti ospedaliere universitarie americane. Decide finalmente di portare in produzione il primo modulo AI per la previsione della domanda strumenti nelle sale operatorie. Sei mesi di lavoro, deploy pulito, modello solido. Risultato commerciale: zero nuovi contratti.',
+          'Quando il direttore acquisti di una rete tedesca apre la review annuale dei fornitori, trova un sito fermo a sette anni fa, certificazioni MDR linkate dentro un PDF su Drive, knowledge panel di Google vuoto, LinkedIn aziendale con 84 follower e l\'ultima notizia datata 2019. La proposta esce dalla short-list nella prima ora del meeting. L\'AI funzionava. Nessuno è arrivato al punto in cui poteva accorgersene.',
+          'Per molte aziende italiane B2B di eccellenza, la presenza digitale è il primo collo di bottiglia. Prima di proporre un agente, una piattaforma o una strategia AI, va sistemato lo step zero. Da qui nasce questo servizio.',
+        ],
+        outputTitle: 'Sei aree, una sola coerenza',
+        outputItems: [
+          'Architettura del sito: information architecture, gerarchia delle pagine, percorsi di conversione misurabili. Niente template generici.',
+          'Sistema di brand coerente con il posizionamento reale dell\'azienda, tipografia, palette, voce, micro-elementi visivi.',
+          'Content baseline: pagine portanti riscritte (about, servizi, case-study, contatti) senza buzzword e senza filler.',
+          'SEO tecnica e schema markup: structured data JSON-LD, OpenGraph, core web vitals, sitemap, robots, link interni. Quello che Google legge prima di leggere te.',
+          'Presence map: LinkedIn aziendale, directory di settore, Google Business, knowledge panel, eventuali profili istituzionali. Un\'unica voce, sei superfici.',
+          'Setup dominio e identità email: DNS, SPF/DKIM/DMARC, deliverability, sender identity. La presenza che parte dalla casella in uscita.',
+        ],
+        outputClosing: 'Tutto orchestrato da Pan con una rete codificata di partner top-tier, mappati e nominati in contratto. Niente subcontracting opaco, niente vendor lock-in.',
+        processTitle: 'Come si svolgono le sei-dieci settimane',
+        processSteps: [
+          {
+            week: 'Settimana 1-2 — Discovery & audit',
+            body: 'Tre giorni in azienda con CEO, marketing, commerciale, IT. Audit della presenza attuale: sito, social, presence di settore, deliverability, percezione del mercato. Allineamento sul posizionamento reale dell\'azienda, che spesso non coincide con quello che il sito comunica.',
+          },
+          {
+            week: 'Settimana 3-4 — Strategy & blueprint',
+            body: 'Definizione della nuova architettura: information design, sistema di brand, content map, technical SEO plan, presence map. Workshop di review con il committente, le decisioni difficili si prendono qui prima di partire con l\'esecuzione.',
+          },
+          {
+            week: 'Settimana 5-8 — Esecuzione orchestrata',
+            body: 'Implementazione coordinata attraverso la rete partner. Pan presiede e firma ogni gradino: brand system, content, sviluppo, SEO tecnica, presence setup. Review settimanali interne, milestone visibili al cliente, responsabilità tracciabile per ogni area.',
+          },
+          {
+            week: 'Settimana 9-10 — Handover & monitoring',
+            body: 'Consegna formale, training del team interno, setup degli strumenti di monitoraggio (Search Console, GA4, monitoring SERP). Il cliente esce con asset operativi e con i contatti diretti della rete partner, accessibili in autonomia.',
+          },
+        ],
+        forYouTitle: 'Questo servizio fa per te se',
+        forYouItems: [
+          'Sei CEO, direzione generale o azionista di un\'azienda mid-large B2B italiana (€30-300M) con clienti internazionali',
+          'Il tuo prodotto o servizio è eccellente, ma il mercato globale fatica a trovarti o a verificarti durante una review fornitori',
+          'Stai pianificando un\'iniziativa AI nei prossimi 12 mesi e vuoi che ritorni valore commerciale, non solo efficienza interna',
+          'Hai bisogno di un advisor senior che orchestri una rete di esperti, non di un\'agenzia che ti esegue il sito sotto il proprio brand',
+        ],
+        notForYouTitle: 'Per chi non è',
+        notForYouItems: [
+          'Aziende B2C consumer (questo servizio è calibrato su buyer journey B2B e procurement enterprise)',
+          'Aziende con presenza digitale già moderna e coerente, fai un audit più leggero e investi direttamente sul gradino successivo della catena',
+          'Chi cerca un rifacimento sito a basso costo, qui si paga la coerenza strategica, non il numero di pagine',
+          'Chi vuole nascondere il subcontracting al cliente finale, la trasparenza sulla rete partner è un asset, non un dettaglio',
+        ],
+        pricingTitle: 'Come funziona l\'investimento',
+        pricingBody: [
+          'Discovery call (30 minuti, gratuita): capiamo dove sei nella catena, qual è la priorità reale, se serve Foundation o se possiamo saltare diretti al gradino successivo.',
+          'Mini-proposta scritta in 48 ore: scope, calendario, investimento puntuale calibrato sull\'ampiezza del perimetro (singolo brand, multi-BU, multi-mercato).',
+          'Scoping call (60 minuti, se la mini-proposta è in linea): definiamo i partner che entrano in scope, gli stakeholder interni, le milestone misurabili.',
+          'SOW + contratto: firma e kickoff entro 7 giorni lavorativi. Pagamento in tre tranche, 40% al kickoff, 40% al milestone intermedio, 20% all\'handover.',
+          'Il ticket parte da €40.000 per perimetro singolo (un brand, un mercato), cresce per multi-brand o multi-mercato. Il numero dei partner attivi si decide in scoping, mai sotto il prezzo, sempre per la qualità del risultato.',
+          'Niente retainer obbligatori dopo il progetto, niente clausole di esclusiva, niente lock-in sui partner della rete: la rete resta accessibile al cliente.',
+        ],
+        faqTitle: 'Domande frequenti',
+        faq: [
+          {
+            q: 'È un rifacimento sito mascherato?',
+            a: 'No. Il sito è uno dei sei deliverable, non l\'intera consegna. Senza presence map coerente, senza brand system, senza setup tecnico di base, un nuovo sito è solo una vetrina migliore su una strada vuota. Qui si interviene sull\'intero pavimento, non su una finestra.',
+          },
+          {
+            q: 'Lavorate sotto vostro brand o sotto il mio?',
+            a: 'Sotto il tuo. Pan firma la strategia e coordina, i partner eseguono attribuiti per area, il cliente possiede il risultato. La rete resta accessibile al cliente anche dopo il progetto, e i partner sono nominati in contratto. Niente subcontracting opaco.',
+          },
+          {
+            q: 'E se la mia azienda è già su LinkedIn e ha un sito moderno?',
+            a: 'Lo verifichiamo in discovery call. Se la base è già solida, non vendo un Foundation che non serve: passiamo direttamente al gradino successivo della catena (AI Strategy Sprint, EU AI Act Readiness, Sovereign AI Blueprint). Te lo dico senza fatturare.',
+          },
+          {
+            q: 'Quanto vale rispetto a un\'agenzia digitale full-service?',
+            a: 'Tipicamente meno per il senior advisory e per l\'assenza di lock-in. Più per la coerenza strategica e per la qualità della rete partner. Il calcolo dovrebbe includere il costo di gestire 4-5 fornitori scollegati internamente: per molti committenti, il ROI di Foundation arriva proprio da lì.',
+          },
+          {
+            q: 'Posso ingaggiarvi solo per la parte strategica e poi eseguire io?',
+            a: 'Sì. Esiste una versione lighter (3-4 settimane, strategy-only, investimento da €18.000) in cui Pan produce blueprint, brand brief, content map e contratti-tipo per la rete partner, e il cliente esegue con i propri fornitori. Si decide in scoping call.',
+          },
+        ],
+        finalCtaTitle: 'Si parte dalla base.',
+        finalCtaBody: 'Compila il form di pre-qualifica (5 domande, due minuti). Se Foundation è la risposta giusta per te, fissiamo una discovery call e ti mando una mini-proposta scritta in 48 ore. Se invece sei già pronto per il gradino successivo della catena, te lo dico e passiamo al servizio giusto, senza vendere un Foundation che non ti serve.',
+      },
+      en: {
+        eyebrow: 'Step zero · Value chain',
+        title: 'Digital Foundation',
+        tagline: 'Digital presence first, AI second. The floor everything else stands on.',
+        pricingLabel: 'Investment from €40,000 · Custom mini-proposal in 48 hours · 6-10 weeks · Partner network orchestration',
+        ctaButton: 'Request a proposal',
+        problemTitle: 'Why this service exists',
+        problemBody: [
+          'An Italian manufacturer of precision surgical instruments, 55 million in revenue, supplier to three European national health systems and to two American university hospital networks. They finally decide to bring into production their first AI module for predicting instrument demand in operating rooms. Six months of work, clean deploy, solid model. Commercial result: zero new contracts.',
+          'When the procurement director at a German network opens the annual supplier review, they find a website frozen seven years ago, MDR certifications linked inside a Drive PDF, an empty Google knowledge panel, a corporate LinkedIn with 84 followers and the last news dated 2019. The proposal drops out of the shortlist in the first hour of the meeting. The AI was working. Nobody got to the point where they could notice.',
+          'For many Italian B2B companies of operational excellence, digital presence is the first bottleneck. Before proposing an agent, a platform or an AI strategy, step zero needs to be in place. This service was born for exactly that reason.',
+        ],
+        outputTitle: 'Six areas, one coherence',
+        outputItems: [
+          'Site architecture: information architecture, page hierarchy, measurable conversion paths. No generic templates.',
+          'Brand system coherent with the company\'s actual positioning, typography, palette, voice, micro visual elements.',
+          'Content baseline: core pages rewritten (about, services, case studies, contacts) without buzzwords and filler.',
+          'Technical SEO and schema markup: JSON-LD structured data, OpenGraph, core web vitals, sitemap, robots, internal linking. What Google reads before reading you.',
+          'Presence map: corporate LinkedIn, sector directories, Google Business, knowledge panel, institutional profiles where relevant. One voice, six surfaces.',
+          'Domain and email identity setup: DNS, SPF/DKIM/DMARC, deliverability, sender identity. Presence that starts from the outbound mailbox.',
+        ],
+        outputClosing: 'All orchestrated by Pan through a codified network of top-tier partners, mapped and named in the contract. No opaque subcontracting, no vendor lock-in.',
+        processTitle: 'How the six-to-ten weeks unfold',
+        processSteps: [
+          {
+            week: 'Week 1-2 — Discovery & audit',
+            body: 'Three days on-site with CEO, marketing, commercial, IT. Audit of the current presence: site, social, sector visibility, deliverability, market perception. Alignment on the company\'s real positioning, which often does not match what the website communicates.',
+          },
+          {
+            week: 'Week 3-4 — Strategy & blueprint',
+            body: 'Definition of the new architecture: information design, brand system, content map, technical SEO plan, presence map. Review workshop with the client. The hard decisions get made here, before execution starts.',
+          },
+          {
+            week: 'Week 5-8 — Orchestrated execution',
+            body: 'Coordinated implementation through the partner network. Pan chairs and signs every step: brand system, content, development, technical SEO, presence setup. Weekly internal reviews, milestones visible to the client, traceable responsibility for each area.',
+          },
+          {
+            week: 'Week 9-10 — Handover & monitoring',
+            body: 'Formal delivery, internal team training, monitoring setup (Search Console, GA4, SERP monitoring). The client walks out with operational assets and direct access to the partner network, usable in autonomy.',
+          },
+        ],
+        forYouTitle: 'This service is for you if',
+        forYouItems: [
+          'You\'re CEO, managing director or shareholder of an Italian or European mid-large B2B company (€30-300M) with international clients',
+          'Your product or service is excellent, but the global market struggles to find or verify you during a supplier review',
+          'You\'re planning an AI initiative in the next 12 months and you want it to return commercial value, not just internal efficiency',
+          'You need a senior advisor who orchestrates a network of experts, not an agency that executes the site under their own brand',
+        ],
+        notForYouTitle: 'Who it\'s not for',
+        notForYouItems: [
+          'B2C consumer companies (this service is calibrated for B2B buyer journeys and enterprise procurement)',
+          'Companies with an already modern, coherent digital presence, run a lighter audit and invest directly in the next chain step',
+          'Anyone looking for a low-cost site rebuild, what you pay for here is strategic coherence, not page count',
+          'Anyone who wants to hide subcontracting from the end client, transparency on the partner network is an asset, not a detail',
+        ],
+        pricingTitle: 'How the investment works',
+        pricingBody: [
+          'Discovery call (30 minutes, free): we figure out where you are in the chain, what the real priority is, whether you need Foundation or can skip straight to the next step.',
+          'Written mini-proposal in 48 hours: scope, calendar, exact investment calibrated to your perimeter (single brand, multi-BU, multi-market).',
+          'Scoping call (60 minutes, if the mini-proposal lands well): we define which partners enter the scope, internal stakeholders, measurable milestones.',
+          'SOW + contract: signature and kickoff within 7 working days. Payment in three tranches, 40% at kickoff, 40% at intermediate milestone, 20% at handover.',
+          'The ticket starts at €40,000 for a single perimeter (one brand, one market) and scales for multi-brand or multi-market. The number of active partners is decided in scoping, never below price, always for the quality of the outcome.',
+          'No mandatory retainer after the project, no exclusivity clauses, no lock-in on network partners: the network stays accessible to the client.',
+        ],
+        faqTitle: 'Frequently asked questions',
+        faq: [
+          {
+            q: 'Is this a website rebuild in disguise?',
+            a: 'No. The site is one of six deliverables, not the whole delivery. Without a coherent presence map, without a brand system, without basic technical setup, a new site is just a better-looking window on an empty street. This intervenes on the whole floor.',
+          },
+          {
+            q: 'Do you work under your brand or ours?',
+            a: 'Under yours. Pan signs the strategy and coordinates, partners execute named by area, the client owns the result. The network stays accessible to the client after the project, and partners are named in the contract. No opaque subcontracting.',
+          },
+          {
+            q: 'What if my company is already on LinkedIn and has a modern site?',
+            a: 'We verify it in the discovery call. If the base is already solid, I won\'t sell a Foundation that isn\'t needed: we move straight to the next chain step (AI Strategy Sprint, EU AI Act Readiness, Sovereign AI Blueprint). I\'ll tell you without billing.',
+          },
+          {
+            q: 'How does the cost compare to a full-service digital agency?',
+            a: 'Typically less for the senior advisory and the absence of lock-in. More for the strategic coherence and the quality of the partner network. The right comparison includes the internal cost of managing 4-5 disconnected suppliers, for many clients Foundation\'s ROI shows up exactly there.',
+          },
+          {
+            q: 'Can I engage you only for the strategic part and execute myself?',
+            a: 'Yes. There\'s a lighter version (3-4 weeks, strategy-only, investment from €18,000) in which Pan produces blueprint, brand brief, content map and template contracts for the partner network, and the client executes with their own suppliers. Decided in scoping call.',
+          },
+        ],
+        finalCtaTitle: 'You start from the floor.',
+        finalCtaBody: 'Fill in the pre-qualification form (5 questions, two minutes). If Foundation is the right answer, we book a discovery call and I send a written mini-proposal in 48 hours. If you\'re already ready for the next step in the chain, I\'ll tell you and we move to the right service, without selling a Foundation you don\'t need.',
+      },
+    },
+  },
+
   // 1. AI STRATEGY SPRINT
   {
     slug: 'ai-strategy-sprint',

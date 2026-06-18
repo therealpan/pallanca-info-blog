@@ -25,33 +25,40 @@ export default function ServicesPreview() {
       </div>
 
       <div className="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((svc, idx) => (
-          <a
-            key={svc.slug}
-            href={`/${lang}/services/${svc.slug}`}
-            className="glass-card p-6 flex flex-col gap-4 group"
-          >
-            <div className="flex items-baseline justify-between">
-              <span className="text-xs uppercase tracking-wider text-[var(--color-accent)]">
-                {String(idx + 1).padStart(2, '0')} / 05
-              </span>
-              <ArrowRight
-                size={16}
-                className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-[transform,color] duration-200"
-              />
-            </div>
-            <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors">
-              {svc.shortTitle[lang]}
-            </h3>
-            <p className="text-sm text-[var(--color-text-muted)] leading-relaxed flex-1">
-              {svc.shortTagline[lang]}
-            </p>
-            <div className="pt-3 border-t border-white/5 text-xs text-[var(--color-text-muted)] flex items-center justify-between">
-              <span>{svc.shortDuration[lang]}</span>
-              <span className="text-white/80">{svc.shortPricing[lang]}</span>
-            </div>
-          </a>
-        ))}
+        {services.map((svc, idx) => {
+          const isStepZero = idx === 0;
+          return (
+            <a
+              key={svc.slug}
+              href={`/${lang}/services/${svc.slug}`}
+              className={`glass-card p-6 flex flex-col gap-4 group ${
+                isStepZero ? 'ring-1 ring-[var(--color-accent)]/35' : ''
+              }`}
+            >
+              <div className="flex items-baseline justify-between">
+                <span className="text-xs uppercase tracking-wider text-[var(--color-accent)]">
+                  {isStepZero
+                    ? (lang === 'it' ? 'Step 00 · Base' : 'Step 00 · Floor')
+                    : `${String(idx).padStart(2, '0')} / 05`}
+                </span>
+                <ArrowRight
+                  size={16}
+                  className="text-[var(--color-text-muted)] group-hover:text-[var(--color-accent)] group-hover:translate-x-1 transition-[transform,color] duration-200"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-white group-hover:text-[var(--color-accent)] transition-colors">
+                {svc.shortTitle[lang]}
+              </h3>
+              <p className="text-sm text-[var(--color-text-muted)] leading-relaxed flex-1">
+                {svc.shortTagline[lang]}
+              </p>
+              <div className="pt-3 border-t border-white/5 text-xs text-[var(--color-text-muted)] flex items-center justify-between">
+                <span>{svc.shortDuration[lang]}</span>
+                <span className="text-white/80">{svc.shortPricing[lang]}</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
