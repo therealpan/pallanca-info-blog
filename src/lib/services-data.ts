@@ -57,7 +57,7 @@ export const services: ServiceMeta[] = [
       it: 'La presenza digitale, prima dell\'AI. Il pavimento su cui poggia tutto quello che viene dopo.',
       en: 'Digital presence first, AI second. The floor everything else stands on.',
     },
-    shortPricing: { it: 'Da €40.000', en: 'From €40,000' },
+    shortPricing: { it: 'Proposta in 48h', en: 'Proposal in 48h' },
     shortDuration: { it: '6-10 settimane', en: '6-10 weeks' },
     shortFor: {
       it: 'CEO e direzione di imprese mid-large B2B con eccellenza operativa e presenza digitale ferma a oltre cinque anni fa.',
@@ -69,7 +69,7 @@ export const services: ServiceMeta[] = [
         eyebrow: 'Step zero · Catena del valore',
         title: 'Digital Foundation',
         tagline: 'La presenza digitale, prima dell\'AI. Il pavimento su cui poggia tutto quello che viene dopo.',
-        pricingLabel: 'Investimento da €40.000 · Mini-proposta in 48 ore · 6-10 settimane · Orchestrazione rete partner',
+        pricingLabel: 'Investimento commisurato al perimetro · Mini-proposta in 48 ore · 6-10 settimane · Orchestrazione rete partner',
         ctaButton: 'Richiedi una proposta',
         problemTitle: 'Perché esiste questo servizio',
         problemBody: [
@@ -126,7 +126,7 @@ export const services: ServiceMeta[] = [
           'Mini-proposta scritta in 48 ore: scope, calendario, investimento puntuale calibrato sull\'ampiezza del perimetro (singolo brand, multi-BU, multi-mercato).',
           'Scoping call (60 minuti, se la mini-proposta è in linea): definiamo i partner che entrano in scope, gli stakeholder interni, le milestone misurabili.',
           'SOW + contratto: firma e kickoff entro 7 giorni lavorativi. Pagamento in tre tranche, 40% al kickoff, 40% al milestone intermedio, 20% all\'handover.',
-          'Il ticket parte da €40.000 per perimetro singolo (un brand, un mercato), cresce per multi-brand o multi-mercato. Il numero dei partner attivi si decide in scoping, mai sotto il prezzo, sempre per la qualità del risultato.',
+          'L\'investimento si calibra sull\'ampiezza del perimetro (singolo brand, multi-BU, multi-mercato) e sul numero di partner della rete attivati. Una boutique manifatturiera con un solo mercato e una holding multi-BU multi-paese hanno scope radicalmente diversi. Per questo l\'investimento si definisce nella mini-proposta, non sul sito.',
           'Niente retainer obbligatori dopo il progetto, niente clausole di esclusiva, niente lock-in sui partner della rete: la rete resta accessibile al cliente.',
         ],
         faqTitle: 'Domande frequenti',
@@ -149,7 +149,7 @@ export const services: ServiceMeta[] = [
           },
           {
             q: 'Posso ingaggiarvi solo per la parte strategica e poi eseguire io?',
-            a: 'Sì. Esiste una versione lighter (3-4 settimane, strategy-only, investimento da €18.000) in cui Pan produce blueprint, brand brief, content map e contratti-tipo per la rete partner, e il cliente esegue con i propri fornitori. Si decide in scoping call.',
+            a: 'Sì. Esiste una versione lighter (3-4 settimane, strategy-only, investimento ridotto rispetto alla versione completa) in cui Pan produce blueprint, brand brief, content map e contratti-tipo per la rete partner, e il cliente esegue con i propri fornitori. Si decide in scoping call e la mini-proposta riflette lo scope ridotto.',
           },
         ],
         finalCtaTitle: 'Si parte dalla base.',
@@ -159,7 +159,7 @@ export const services: ServiceMeta[] = [
         eyebrow: 'Step zero · Value chain',
         title: 'Digital Foundation',
         tagline: 'Digital presence first, AI second. The floor everything else stands on.',
-        pricingLabel: 'Investment from €40,000 · Custom mini-proposal in 48 hours · 6-10 weeks · Partner network orchestration',
+        pricingLabel: 'Investment scaled to scope · Custom mini-proposal in 48 hours · 6-10 weeks · Partner network orchestration',
         ctaButton: 'Request a proposal',
         problemTitle: 'Why this service exists',
         problemBody: [
@@ -216,7 +216,7 @@ export const services: ServiceMeta[] = [
           'Written mini-proposal in 48 hours: scope, calendar, exact investment calibrated to your perimeter (single brand, multi-BU, multi-market).',
           'Scoping call (60 minutes, if the mini-proposal lands well): we define which partners enter the scope, internal stakeholders, measurable milestones.',
           'SOW + contract: signature and kickoff within 7 working days. Payment in three tranches, 40% at kickoff, 40% at intermediate milestone, 20% at handover.',
-          'The ticket starts at €40,000 for a single perimeter (one brand, one market) and scales for multi-brand or multi-market. The number of active partners is decided in scoping, never below price, always for the quality of the outcome.',
+          'Investment scales with the breadth of the perimeter (single brand, multi-BU, multi-market) and with the number of active network partners. A manufacturing boutique with a single market and a multi-BU multi-country holding have radically different scope. That\'s why investment is defined in the mini-proposal, not on the site.',
           'No mandatory retainer after the project, no exclusivity clauses, no lock-in on network partners: the network stays accessible to the client.',
         ],
         faqTitle: 'Frequently asked questions',
@@ -239,7 +239,7 @@ export const services: ServiceMeta[] = [
           },
           {
             q: 'Can I engage you only for the strategic part and execute myself?',
-            a: 'Yes. There\'s a lighter version (3-4 weeks, strategy-only, investment from €18,000) in which Pan produces blueprint, brand brief, content map and template contracts for the partner network, and the client executes with their own suppliers. Decided in scoping call.',
+            a: 'Yes. There\'s a lighter version (3-4 weeks, strategy-only, lower investment than the full version) in which Pan produces blueprint, brand brief, content map and template contracts for the partner network, and the client executes with their own suppliers. Decided in scoping call, the mini-proposal reflects the reduced scope.',
           },
         ],
         finalCtaTitle: 'You start from the floor.',
