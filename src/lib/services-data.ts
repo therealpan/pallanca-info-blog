@@ -77,13 +77,14 @@ export const services: ServiceMeta[] = [
           'Quando il direttore acquisti di una rete tedesca apre la review annuale dei fornitori, trova un sito fermo a sette anni fa, certificazioni MDR linkate dentro un PDF su Drive, knowledge panel di Google vuoto, LinkedIn aziendale con 84 follower e l\'ultima notizia datata 2019. La proposta esce dalla short-list nella prima ora del meeting. L\'AI funzionava. Nessuno è arrivato al punto in cui poteva accorgersene.',
           'Per molte aziende italiane B2B di eccellenza, la presenza digitale è il primo collo di bottiglia. Prima di proporre un agente, una piattaforma o una strategia AI, va sistemato lo step zero. Da qui nasce questo servizio.',
         ],
-        outputTitle: 'Sei aree, una sola coerenza',
+        outputTitle: 'Sette aree, una sola coerenza',
         outputItems: [
           'Architettura del sito: information architecture, gerarchia delle pagine, percorsi di conversione misurabili. Niente template generici.',
           'Sistema di brand coerente con il posizionamento reale dell\'azienda, tipografia, palette, voce, micro-elementi visivi.',
           'Content baseline: pagine portanti riscritte (about, servizi, case-study, contatti) senza buzzword e senza filler.',
           'SEO tecnica e schema markup: structured data JSON-LD, OpenGraph, core web vitals, sitemap, robots, link interni. Quello che Google legge prima di leggere te.',
-          'Presence map: LinkedIn aziendale, directory di settore, Google Business, knowledge panel, eventuali profili istituzionali. Un\'unica voce, sei superfici.',
+          'GEO, Generative Engine Optimization: come il tuo sito viene letto dagli agent AI di procurement, citato dai modelli LLM quando un buyer chiede "chi è il miglior fornitore di X", e rappresentato nel knowledge panel di Google e in Wikidata. llms.txt, content shape per retrieval AI, citation building, knowledge graph grounding.',
+          'Presence map: LinkedIn aziendale, directory di settore, Google Business, knowledge panel, eventuali profili istituzionali. Un\'unica voce, sette superfici.',
           'Setup dominio e identità email: DNS, SPF/DKIM/DMARC, deliverability, sender identity. La presenza che parte dalla casella in uscita.',
         ],
         outputClosing: 'Tutto orchestrato da Pan con una rete codificata di partner top-tier, mappati e nominati in contratto. Niente subcontracting opaco, niente vendor lock-in.',
@@ -133,7 +134,7 @@ export const services: ServiceMeta[] = [
         faq: [
           {
             q: 'È un rifacimento sito mascherato?',
-            a: 'No. Il sito è uno dei sei deliverable, non l\'intera consegna. Senza presence map coerente, senza brand system, senza setup tecnico di base, un nuovo sito è solo una vetrina migliore su una strada vuota. Qui si interviene sull\'intero pavimento, non su una finestra.',
+            a: 'No. Il sito è uno dei sette deliverable, non l\'intera consegna. Senza presence map coerente, senza brand system, senza GEO per gli agent AI di procurement, senza setup tecnico di base, un nuovo sito è solo una vetrina migliore su una strada vuota. Qui si interviene sull\'intero pavimento, non su una finestra.',
           },
           {
             q: 'Lavorate sotto vostro brand o sotto il mio?',
@@ -167,13 +168,14 @@ export const services: ServiceMeta[] = [
           'When the procurement director at a German network opens the annual supplier review, they find a website frozen seven years ago, MDR certifications linked inside a Drive PDF, an empty Google knowledge panel, a corporate LinkedIn with 84 followers and the last news dated 2019. The proposal drops out of the shortlist in the first hour of the meeting. The AI was working. Nobody got to the point where they could notice.',
           'For many Italian B2B companies of operational excellence, digital presence is the first bottleneck. Before proposing an agent, a platform or an AI strategy, step zero needs to be in place. This service was born for exactly that reason.',
         ],
-        outputTitle: 'Six areas, one coherence',
+        outputTitle: 'Seven areas, one coherence',
         outputItems: [
           'Site architecture: information architecture, page hierarchy, measurable conversion paths. No generic templates.',
           'Brand system coherent with the company\'s actual positioning, typography, palette, voice, micro visual elements.',
           'Content baseline: core pages rewritten (about, services, case studies, contacts) without buzzwords and filler.',
           'Technical SEO and schema markup: JSON-LD structured data, OpenGraph, core web vitals, sitemap, robots, internal linking. What Google reads before reading you.',
-          'Presence map: corporate LinkedIn, sector directories, Google Business, knowledge panel, institutional profiles where relevant. One voice, six surfaces.',
+          'GEO, Generative Engine Optimization: how your site is read by procurement AI agents, cited by LLMs when a buyer asks "who is the best supplier of X", and represented in Google\'s knowledge panel and Wikidata. llms.txt, content shape for AI retrieval, citation building, knowledge graph grounding.',
+          'Presence map: corporate LinkedIn, sector directories, Google Business, knowledge panel, institutional profiles where relevant. One voice, seven surfaces.',
           'Domain and email identity setup: DNS, SPF/DKIM/DMARC, deliverability, sender identity. Presence that starts from the outbound mailbox.',
         ],
         outputClosing: 'All orchestrated by Pan through a codified network of top-tier partners, mapped and named in the contract. No opaque subcontracting, no vendor lock-in.',
@@ -223,7 +225,7 @@ export const services: ServiceMeta[] = [
         faq: [
           {
             q: 'Is this a website rebuild in disguise?',
-            a: 'No. The site is one of six deliverables, not the whole delivery. Without a coherent presence map, without a brand system, without basic technical setup, a new site is just a better-looking window on an empty street. This intervenes on the whole floor.',
+            a: 'No. The site is one of seven deliverables, not the whole delivery. Without a coherent presence map, without a brand system, without GEO for procurement AI agents, without basic technical setup, a new site is just a better-looking window on an empty street. This intervenes on the whole floor.',
           },
           {
             q: 'Do you work under your brand or ours?',

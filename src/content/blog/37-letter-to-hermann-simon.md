@@ -3,7 +3,7 @@ title: "A Letter to Hermann Simon"
 titleIt: "Una lettera a Hermann Simon"
 slug: letter-to-hermann-simon
 date: "2026-06-13"
-topic: "AI Strategy"
+topic: "Digital Foundation"
 cardImage: "/images/blog/cards/letter-to-hermann-simon.webp"
 excerpt: "Hermann Simon coined hidden champions in 1990. Today he's 'increasingly skeptical.' The category cracked where it was strongest, Italy pays the highest price."
 excerptIt: "Hermann Simon ha coniato hidden champions nel 1990. Oggi è 'sempre più scettico'. La categoria si è rotta dove era più solida, l'Italia paga di più."

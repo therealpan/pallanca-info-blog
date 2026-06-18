@@ -3,7 +3,7 @@ title: "Step Zero"
 titleIt: "Step zero"
 slug: step-zero
 date: "2026-06-18"
-topic: "AI Strategy"
+topic: "Digital Foundation"
 cardImage: "/images/blog/cards/step-zero.webp"
 excerpt: "80% of B2B buyers research alone. AI agents do the scoring. The AI industry is selling step three to companies that never did step zero."
 excerptIt: "L'80% dei buyer B2B fa ricerca in autonomia. Agent AI fanno lo scoring. L'industria AI vende lo step tre ad aziende che non hanno fatto lo step zero."
