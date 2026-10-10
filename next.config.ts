@@ -38,7 +38,10 @@ const nextConfig: NextConfig = {
   },
   // Demo statiche in public/: l'indirizzo senza /index.html punta al file.
   async rewrites() {
-    return [{ source: '/demo/risto', destination: '/demo/risto/index.html' }];
+    return [
+      { source: '/demo/risto', destination: '/demo/risto/index.html' },
+      { source: '/demo/citybrain', destination: '/demo/citybrain/index.html' },
+    ];
   },
   async headers() {
     return [
