@@ -42,6 +42,7 @@ const nextConfig: NextConfig = {
       { source: '/demo/risto', destination: '/demo/risto/index.html' },
       { source: '/demo/citybrain', destination: '/demo/citybrain/index.html' },
       { source: '/demo/mirarsa', destination: '/demo/mirarsa/index.html' },
+      { source: '/demo/companybrain', destination: '/demo/companybrain/index.html' },
     ];
   },
   async headers() {
