@@ -36,6 +36,10 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'] as const,
   },
+  // Demo statiche in public/: l'indirizzo senza /index.html punta al file.
+  async rewrites() {
+    return [{ source: '/demo/risto', destination: '/demo/risto/index.html' }];
+  },
   async headers() {
     return [
       {
