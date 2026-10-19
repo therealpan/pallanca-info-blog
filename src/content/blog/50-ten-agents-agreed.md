@@ -4,7 +4,7 @@ titleIt: "Dieci agenti d'accordo. La risposta giusta era gia' nella stanza."
 slug: ten-agents-agreed
 date: "2026-10-14"
 topic: "Enterprise AI"
-cardImage: "/images/blog/cards/_placeholder.webp"
+cardImage: "/images/blog/cards/ten-agents-agreed.webp"
 excerpt: "Multi-agent debate is sold as quality control. New research shows the vote throws away correct answers the agents had already produced."
 excerptIt: "Il dibattito fra agenti viene venduto come controllo qualita'. Nuovi studi mostrano che il voto butta via risposte corrette gia' prodotte."
 ---
