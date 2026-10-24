@@ -423,8 +423,8 @@ export const services: ServiceMeta[] = [
     slug: 'eu-ai-act-audit',
     shortTitle: { it: 'EU AI Act Readiness Audit', en: 'EU AI Act Readiness Audit' },
     shortTagline: {
-      it: 'Alto rischio dal 2 dicembre 2027. In 3 settimane sai dove sei e cosa manca.',
-      en: 'High-risk rules apply from December 2, 2027. In 3 weeks you\'ll know where you stand.',
+      it: 'Sei in regola con l\'AI Act? In 3 settimane lo sai con certezza.',
+      en: 'Are you compliant with the EU AI Act? In 3 weeks you\'ll know for sure.',
     },
     shortPricing: { it: 'Proposta in 48h', en: 'Proposal in 48h' },
     shortDuration: { it: '3 settimane', en: '3 weeks' },
@@ -436,7 +436,7 @@ export const services: ServiceMeta[] = [
       it: {
         eyebrow: 'Programma strutturato · Urgenza alta',
         title: 'EU AI Act Readiness Audit',
-        tagline: 'Alto rischio dal 2 dicembre 2027. In tre settimane sai dove sei e cosa manca.',
+        tagline: 'Sei in regola con l\'AI Act? In tre settimane lo sai con certezza.',
         pricingLabel: 'Investimento commisurato al numero di sistemi AI in scope · Mini-proposta in 48 ore · 3 settimane',
         ctaButton: 'Richiedi una proposta',
         urgencyBanner: 'Il 2 agosto 2026 entrano in vigore gli obblighi sui sistemi AI ad alto rischio. Sanzioni fino a €35M o 7% del fatturato globale.',
@@ -500,7 +500,7 @@ export const services: ServiceMeta[] = [
       en: {
         eyebrow: 'Structured program · Urgency: high',
         title: 'EU AI Act Readiness Audit',
-        tagline: 'High-risk rules apply from December 2, 2027. In three weeks you\'ll know where you stand.',
+        tagline: 'Are you compliant with the EU AI Act? In three weeks you\'ll know for sure.',
         pricingLabel: 'Investment scaled to number of AI systems in scope · Custom mini-proposal in 48 hours · 3 weeks',
         ctaButton: 'Request a proposal',
         urgencyBanner: 'On August 2, 2026, obligations for high-risk AI systems take effect. Penalties up to €35M or 7% of global turnover.',
