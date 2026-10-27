@@ -4,7 +4,7 @@ titleIt: "Il 62% dei trial ha testato un modello che non puoi piu' comprare."
 slug: sixty-two-percent-retired-model
 date: "2026-11-10"
 topic: "AI Strategy"
-cardImage: "/images/blog/cards/_placeholder.webp"
+cardImage: "/images/blog/cards/sixty-two-percent-retired-model.webp"
 excerpt: "The best evidence on medical AI describes models that have been switched off. Six quarters to produce a trial, sixty days of notice to lose its subject."
 excerptIt: "Le prove migliori sull'AI medica riguardano modelli spenti. Sei trimestri per produrre un trial, sessanta giorni di preavviso per perderne l'oggetto."
 ---
