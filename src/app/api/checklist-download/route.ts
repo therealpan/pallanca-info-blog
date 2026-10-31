@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { guardRequest, limited } from '@/lib/formGuard';
 
 export const runtime = 'nodejs';
 
@@ -124,15 +125,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
+  // Anti-bot guard. This endpoint mails a user-supplied address, so it must
+  // never be callable by scripts: otherwise it becomes a spam cannon on our domain.
+  const g = await guardRequest(req, body as unknown as Record<string, unknown>, {
+    action: 'checklist',
+    nameish: [body.name, body.role, body.company].map((v) => String(v ?? '')),
+    freeText: [],
+  });
+  if (g.kind === 'fake') return NextResponse.json({ ok: true });
+  if (g.kind === 'error') return NextResponse.json({ error: g.error }, { status: g.status });
+
   // Validation
   for (const f of ['name', 'email', 'role', 'company'] as const) {
     const v = body[f];
-    if (typeof v !== 'string' || !v.trim()) {
-      return NextResponse.json({ error: `Missing field: ${f}` }, { status: 400 });
+    if (typeof v !== 'string' || !v.trim() || v.length > 200) {
+      return NextResponse.json({ error: `Missing or invalid field: ${f}` }, { status: 400 });
     }
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
     return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
+  }
+  // Same recipient at most twice a day: nobody needs the checklist five times.
+  if (limited(`checklist-to:${body.email.trim().toLowerCase()}`, 2, 24 * 60 * 60 * 1000)) {
+    return NextResponse.json({ ok: true });
   }
   const locale = body.locale === 'en' ? 'en' : 'it';
   body.locale = locale;

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Check, Loader2, ArrowRight } from 'lucide-react';
+import { useFormGuard } from './useFormGuard';
 
 type Lang = 'it' | 'en';
 
@@ -270,6 +271,7 @@ export default function ProposalForm() {
   const [state, setState] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const guard = useFormGuard('proposal');
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setState((s) => ({ ...s, [key]: value }));
@@ -312,6 +314,12 @@ export default function ProposalForm() {
       return;
     }
 
+    if (guard.pending) {
+      setErrorMsg(lang === 'it' ? 'Verifica anti-bot in corso, riprova tra qualche secondo.' : 'Bot check in progress, try again in a few seconds.');
+      setStatus('error');
+      return;
+    }
+
     setStatus('submitting');
     setErrorMsg('');
 
@@ -319,17 +327,19 @@ export default function ProposalForm() {
       const res = await fetch('/api/proposal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...state, locale: lang }),
+        body: JSON.stringify({ ...state, locale: lang, ...guard.payload() }),
       });
       if (!res.ok) {
         setErrorMsg(c.errorGeneric);
         setStatus('error');
+        guard.reset();
         return;
       }
       setStatus('success');
     } catch {
       setErrorMsg(c.errorGeneric);
       setStatus('error');
+      guard.reset();
     }
   };
 
@@ -535,6 +545,8 @@ export default function ProposalForm() {
           </span>
         </label>
       </div>
+
+      {guard.fields}
 
       {/* Submit */}
       <div className="pt-4">

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { guardRequest, limited } from '@/lib/formGuard';
 
 export const runtime = 'nodejs';
 
@@ -64,7 +65,7 @@ function buildEmailHtml(p: ProposalPayload): string {
           </h1>
           <div style="color:#6b6b6b;font-size:14px;margin-bottom:18px;">
             ${escapeHtml(p.role)} · ${escapeHtml(p.company)}
-            ${p.website ? ` · <a href="${escapeHtml(p.website)}" style="color:#1c1c1c;">${escapeHtml(p.website)}</a>` : ''}
+            ${p.website ? (/^https?:\/\//i.test(p.website) ? ` · <a href="${escapeHtml(p.website)}" style="color:#1c1c1c;">${escapeHtml(p.website)}</a>` : ` · ${escapeHtml(p.website)}`) : ''}
           </div>
 
           <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border:1px solid #e8e4dc;border-radius:8px;overflow:hidden;">
@@ -123,16 +124,31 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
+  // Anti-bot guard (honeypot, origin, signed token, rate limit, heuristics, Turnstile)
+  const g = await guardRequest(req, body as unknown as Record<string, unknown>, {
+    action: 'proposal',
+    nameish: [body.name, body.role, body.company].map((v) => String(v ?? '')),
+    freeText: [String(body.notes ?? '')],
+  });
+  if (g.kind === 'fake') return NextResponse.json({ ok: true });
+  if (g.kind === 'error') return NextResponse.json({ error: g.error }, { status: g.status });
+
   // Server-side validation
   const required = ['name', 'email', 'role', 'company', 'sector', 'revenue', 'employees', 'urgency', 'budget'];
   for (const field of required) {
     const value = body[field as keyof ProposalPayload];
-    if (typeof value === 'string' && !value.trim()) {
-      return NextResponse.json({ error: `Missing field: ${field}` }, { status: 400 });
+    if (typeof value !== 'string' || !value.trim() || value.length > 200) {
+      return NextResponse.json({ error: `Missing or invalid field: ${field}` }, { status: 400 });
     }
   }
-  if (!Array.isArray(body.problems) || body.problems.length === 0) {
+  if (
+    !Array.isArray(body.problems) || body.problems.length === 0 || body.problems.length > 2 ||
+    body.problems.some((p) => typeof p !== 'string' || p.length > 200)
+  ) {
     return NextResponse.json({ error: 'Select at least one problem' }, { status: 400 });
+  }
+  if ((body.website && String(body.website).length > 300) || (body.notes && String(body.notes).length > 5000)) {
+    return NextResponse.json({ error: 'Field too long' }, { status: 400 });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
     return NextResponse.json({ error: 'Invalid email' }, { status: 400 });

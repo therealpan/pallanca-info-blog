@@ -9,13 +9,13 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 // open.spotify.com kept in frame-src to allow future embed of episode players.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://vercel.live",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://vercel.live https://challenges.cloudflare.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
   "media-src 'self' blob:",
-  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com",
-  "frame-src 'self' https://open.spotify.com https://cal.com",
+  "connect-src 'self' https://vercel.live wss://ws-us3.pusher.com https://challenges.cloudflare.com",
+  "frame-src 'self' https://open.spotify.com https://cal.com https://challenges.cloudflare.com",
   "frame-ancestors 'none'",
   "object-src 'none'",
   "base-uri 'self'",

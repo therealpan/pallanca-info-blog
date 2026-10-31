@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { Loader2, ArrowRight, Check, Download } from 'lucide-react';
+import { useFormGuard } from './useFormGuard';
 
 interface FormState {
   name: string;
@@ -78,6 +79,7 @@ export default function ChecklistDownloadForm() {
   const [state, setState] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const guard = useFormGuard('checklist');
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setState((s) => ({ ...s, [key]: value }));
@@ -107,22 +109,30 @@ export default function ChecklistDownloadForm() {
       return;
     }
 
+    if (guard.pending) {
+      setErrorMsg(lang === 'it' ? 'Verifica anti-bot in corso, riprova tra qualche secondo.' : 'Bot check in progress, try again in a few seconds.');
+      setStatus('error');
+      return;
+    }
+
     setStatus('submitting');
     try {
       const res = await fetch('/api/checklist-download', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...state, locale: lang }),
+        body: JSON.stringify({ ...state, locale: lang, ...guard.payload() }),
       });
       if (!res.ok) {
         setErrorMsg(c.errorGeneric);
         setStatus('error');
+        guard.reset();
         return;
       }
       setStatus('success');
     } catch {
       setErrorMsg(c.errorGeneric);
       setStatus('error');
+      guard.reset();
     }
   };
 
@@ -232,6 +242,8 @@ export default function ChecklistDownloadForm() {
           )}
         </span>
       </label>
+
+      {guard.fields}
 
       {status === 'error' && errorMsg && (
         <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-sm">
