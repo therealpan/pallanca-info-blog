@@ -132,7 +132,9 @@ export async function guardRequest(
   if (typeof hp !== 'string' || hp.trim() !== '') return { kind: 'fake' };
   if (!sameSite(req)) return { kind: 'fake' };
 
-  const tk = checkToken(body.formToken);
+  // Token layer is active only when a signing key exists: never drop real leads
+  // because of a missing env var.
+  const tk = key() ? checkToken(body.formToken) : 'ok';
   if (tk === 'bad' || tk === 'too-fast') return { kind: 'fake' };
   if (tk === 'expired') return { kind: 'error', status: 400, error: 'Form expired, reload the page' };
 
