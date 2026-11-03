@@ -1,10 +1,10 @@
 ---
-title: "The Brain Downloads. The Eyes Don't."
-titleIt: "Il cervello si scarica. Gli occhi no."
-slug: brain-downloads-eyes-dont
+title: "Europe Is Getting the Export Edition of AI"
+titleIt: "All'Europa arriva l'AI in edizione export"
+slug: europe-export-edition-ai
 date: "2026-11-03"
 topic: "AI Strategy"
-cardImage: "/images/blog/cards/brain-downloads-eyes-dont.webp"
+cardImage: "/images/blog/cards/europe-export-edition-ai.webp"
 excerpt: "Hunyuan, multimodal Llama, openPangu, the new Siri: Europe can still download the brain of AI. The eyes come with a line in capitals that leaves it out."
 excerptIt: "Hunyuan, Llama multimodale, openPangu, la nuova Siri: l'Europa scarica ancora il cervello dell'AI. Gli occhi arrivano con una riga che la lascia fuori."
 ---
