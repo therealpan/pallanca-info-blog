@@ -4,7 +4,7 @@ titleIt: "Metà delle esecuzioni non è stata valutata. L'altro agente sembrava 
 slug: half-the-runs-never-graded
 date: "2026-11-04"
 topic: "AI Strategy"
-cardImage: "/images/blog/cards/_placeholder.webp"
+cardImage: "/images/blog/cards/half-the-runs-never-graded.webp"
 excerpt: "A researcher audited two public agent leaderboards and found four errors in the measuring software. Half the runs were never graded."
 excerptIt: "Un ricercatore ha controllato due classifiche pubbliche di agenti e ha trovato quattro errori nel software di misura. Metà delle esecuzioni non era valutata."
 ---
