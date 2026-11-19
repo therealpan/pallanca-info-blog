@@ -6,6 +6,7 @@ import { Link } from '@/i18n/navigation';
 import { ArrowLeft, Clock, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
 import { buildPageMetadata } from '@/lib/metadata';
+import NewsletterCTA from '@/components/NewsletterCTA';
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -102,6 +103,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </article>
+
+      <NewsletterCTA locale={locale} />
 
       {/* CTA bottom */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
