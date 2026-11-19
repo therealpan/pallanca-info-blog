@@ -1,6 +1,7 @@
 import { setRequestLocale } from 'next-intl/server';
 import { getAllPosts } from '@/lib/blog';
 import BlogCard from '@/components/BlogCard';
+import NewsletterCTA from '@/components/NewsletterCTA';
 import type { Metadata } from 'next';
 import { buildPageMetadata } from '@/lib/metadata';
 
@@ -32,6 +33,8 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             : 'Thoughts on AI, innovation, and technology consulting.'}
         </p>
       </section>
+
+      <NewsletterCTA locale={locale} placement="index" />
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
