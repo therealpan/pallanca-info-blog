@@ -30,6 +30,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       'Ho cominciato negli anni \'90, quando "innovazione tecnologica" voleva dire portare un\'azienda dal fax all\'email aziendale. Ho lavorato sul web prima che esistesse Google, sull\'e-commerce prima che esistesse Amazon Italia, sul mobile prima che il primo iPhone arrivasse in Europa, sull\'AI prima che diventasse il tema di ogni board del 2024. Non perché abbia fiutato il futuro — ma perché ho imparato presto che ogni innovazione passa per due fasi: prima viene rifiutata come "non maturità", poi viene assorbita come "ovvia". Il mio lavoro è da sempre stato in mezzo, dove le decisioni costano.',
       'Oggi aiuto leadership team europei — aziende mid-large, istituzioni pubbliche, fondi VC, founder di scale-up — a portare l\'intelligenza artificiale dal board alla produzione, e a farlo nel modo che regge un audit europeo. Non ho vendor da spingere. Non vendo licenze. Firmo personalmente la strategia, e il mio team operativo (PiirZ Digital) la esegue.',
     ],
+    elsewhere: { pan: 'Scrivo come Pan su', firm: 'La società che esegue i progetti è' },
     statsLabel: 'Anni di esperienza',
     numbersTitle: 'Trent\'anni in cifre',
     numbersIntro: 'I numeri che racconto in CdA, prima dei progetti.',
@@ -94,6 +95,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       'I started in the \'90s, when "technological innovation" meant moving a company from fax to corporate email. I worked on the web before Google existed, on e-commerce before Amazon Italy, on mobile before the first iPhone reached Europe, on AI before it became every board\'s 2024 theme. Not because I had a nose for the future — but because I learned early that every innovation passes through two phases: first it\'s rejected as "not mature," then it\'s absorbed as "obvious." My work has always been in between, where decisions cost.',
       'Today I help European leadership teams — mid-large companies, public institutions, VC funds, scale-up founders — take artificial intelligence from the boardroom to production, in a way that survives a European audit. I have no vendor to push. I sell no licenses. I sign the strategy personally, and my delivery team (PiirZ Digital) ships it.',
     ],
+    elsewhere: { pan: 'I write as Pan on', firm: 'The firm that delivers the projects is' },
     statsLabel: 'Years of experience',
     numbersTitle: 'Thirty years, in numbers',
     numbersIntro: 'The numbers I show in the boardroom, before the projects.',
@@ -160,8 +162,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     description: content.subtitle,
     url: 'https://www.pallanca.info',
     image: 'https://www.pallanca.info/images/photos/foto_pallanca01.png',
-    sameAs: ['https://www.linkedin.com/in/angelopallanca'],
-    worksFor: { '@type': 'Organization', name: 'PiirZ Digital Limited' },
+    sameAs: ['https://www.linkedin.com/in/angelopallanca', 'https://pallanca.net/'],
+    worksFor: { '@type': 'Organization', name: 'PiirZ Digital Limited', url: 'https://piirz.com/' },
     knowsAbout: [
       'Artificial Intelligence Strategy',
       'EU AI Act Compliance',
@@ -212,6 +214,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               {content.bio.map((p, i) => (
                 <p key={i} className="text-[var(--color-text-muted)] leading-relaxed text-base">{p}</p>
               ))}
+              <p className="text-[var(--color-text-muted)] leading-relaxed text-base">
+                {content.elsewhere.pan}{' '}
+                <a href="https://pallanca.net/" className="text-white underline underline-offset-4 hover:text-[var(--color-accent)]">pallanca.net</a>.{' '}
+                {content.elsewhere.firm}{' '}
+                <a href="https://piirz.com/" className="text-white underline underline-offset-4 hover:text-[var(--color-accent)]">PiirZ Digital</a>.
+              </p>
             </div>
             <div className="mt-10">
               <a
