@@ -64,8 +64,9 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               </li>
             </ul>
             <p>
-              Il sito <strong>non utilizza cookie di profilazione né strumenti di analytics</strong> di terze parti. Non
-              vengono usate piattaforme pubblicitarie. I dati raccolti tramite i form non vengono ceduti a terzi né
+              Il sito <strong>non utilizza cookie di profilazione</strong> né piattaforme pubblicitarie. Per contare le
+              visite usa Vercel Web Analytics, che non imposta cookie e non conserva dati che identificano il singolo
+              visitatore: i dati sono aggregati. I dati raccolti tramite i form non vengono ceduti a terzi né
               utilizzati per scopi di marketing automatizzato.
             </p>
 
@@ -153,8 +154,9 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               </li>
             </ul>
             <p>
-              The site does <strong>not use profiling cookies or third-party analytics</strong>. No advertising
-              platforms are used. Data collected via forms is not shared with third parties or used for automated
+              The site does <strong>not use profiling cookies</strong> or advertising platforms. Visits are counted with
+              Vercel Web Analytics, which sets no cookies and keeps no data that identifies an individual visitor: the
+              data is aggregated. Data collected via forms is not shared with third parties or used for automated
               marketing.
             </p>
 
