@@ -55,6 +55,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         body: 'Adottare AI e blockchain in un servizio pubblico richiede una cosa prima della tecnologia: un framework di governance che bilanci innovazione e diritti dei cittadini, e che sopravviva al ciclo politico. È quello che abbiamo costruito — e che ha posizionato Monaco come riferimento europeo per l\'adozione responsabile di tecnologie emergenti nella PA. La lezione: la governance non è un freno all\'innovazione, è la sua condizione di sopravvivenza in un\'organizzazione pubblica.',
       },
     ],
+    labTitle: 'In laboratorio',
+    labIntro: 'Prototipi che costruisco in prima persona, per verificare sul campo quello che consiglio ai clienti.',
+    lab: {
+      title: 'Sentinella',
+      body: "Allarme per frigo e impianti che distingue un guasto da una manomissione. Una centralina 4G con un modello di machine learning a bordo impara il funzionamento normale di ogni apparato e avvisa via SMS solo quando qualcosa esce dallo schema. Il prototipo cerca da tre a cinque siti pilota.",
+      href: 'https://sentinella.pallanca.net/',
+      cta: 'Vai a sentinella.pallanca.net',
+    },
     philosophyTitle: 'Tre cose che non cambio',
     philosophyIntro: 'Tre principi che guidano tutto. Non sono manifesti, sono regole operative.',
     philosophy: [
@@ -111,6 +119,14 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         body: 'Adopting AI and blockchain in a public service requires one thing before the technology: a governance framework that balances innovation and citizen rights, and survives the political cycle. That\'s what we built — and what positioned Monaco as a European reference point for responsible adoption of emerging technologies in public administration. The lesson: in public institutions governance isn\'t a brake on innovation — it\'s the condition of its survival.',
       },
     ],
+    labTitle: 'In the lab',
+    labIntro: 'Prototypes I build myself, to test in the field what I recommend to clients.',
+    lab: {
+      title: 'Sentinella',
+      body: 'An alarm for fridges and equipment that tells a fault from tampering. A 4G hub with an on-board machine learning model learns how each unit normally works and sends an SMS only when something breaks the pattern. The prototype is looking for three to five pilot sites.',
+      href: 'https://sentinella.pallanca.net/en',
+      cta: 'Visit sentinella.pallanca.net',
+    },
     philosophyTitle: 'Three things I don\'t change',
     philosophyIntro: 'Three principles that guide everything. Not manifestos — operational rules.',
     philosophy: [
@@ -278,6 +294,26 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </article>
           ))}
         </div>
+      </section>
+
+      {/* IN THE LAB: own prototypes */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-24">
+        <div className="mb-8">
+          <h2 className="display-md text-white">{content.labTitle}</h2>
+          <p className="mt-4 text-[var(--color-text-muted)] leading-relaxed max-w-2xl">{content.labIntro}</p>
+        </div>
+        <article className="glass-card p-8 md:p-10">
+          <h3 className="display-sm text-white mb-4">{content.lab.title}</h3>
+          <p className="text-[var(--color-text-muted)] leading-relaxed text-base">{content.lab.body}</p>
+          <a
+            href={content.lab.href}
+            target="_blank"
+            rel="noopener"
+            className="mt-6 inline-flex items-center gap-2 text-[var(--color-accent)] font-medium hover:underline"
+          >
+            {content.lab.cta}
+          </a>
+        </article>
       </section>
 
       {/* PHILOSOPHY — zigzag layout, alternating alignment */}
