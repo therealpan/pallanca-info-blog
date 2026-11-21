@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-const SITE_URL = 'https://pallanca.info';
+const SITE_URL = 'https://www.pallanca.info';
 const SITE_NAME = 'Angelo Pallanca';
 const TWITTER_HANDLE = '@angelopallanca';
 const DEFAULT_OG_IMAGE = '/images/photos/og-image.jpg';

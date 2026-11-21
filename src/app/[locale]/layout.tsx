@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: '%s | Angelo Pallanca',
     },
     description,
-    metadataBase: new URL('https://pallanca.info'),
+    metadataBase: new URL('https://www.pallanca.info'),
     alternates: {
       canonical: '/',
       languages: {
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         it: '/it',
       },
     },
-    authors: [{ name: 'Angelo Pallanca', url: 'https://pallanca.info' }],
+    authors: [{ name: 'Angelo Pallanca', url: 'https://www.pallanca.info' }],
     creator: 'Angelo Pallanca',
     publisher: 'Angelo Pallanca',
     keywords: isIt
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       type: 'website',
       locale: isIt ? 'it_IT' : 'en_US',
       alternateLocale: isIt ? 'en_US' : 'it_IT',
-      url: 'https://pallanca.info',
+      url: 'https://www.pallanca.info',
       siteName: 'Angelo Pallanca',
       title,
       description,
@@ -125,12 +125,12 @@ export default async function LocaleLayout({
     '@graph': [
       {
         '@type': 'Person',
-        '@id': 'https://pallanca.info/#person',
+        '@id': 'https://www.pallanca.info/#person',
         name: 'Angelo Pallanca',
-        url: 'https://pallanca.info',
+        url: 'https://www.pallanca.info',
         image: {
           '@type': 'ImageObject',
-          url: 'https://pallanca.info/images/photos/og-image.jpg',
+          url: 'https://www.pallanca.info/images/photos/og-image.jpg',
         },
         sameAs: [
           'https://linkedin.com/in/angelopallanca/',
@@ -141,16 +141,16 @@ export default async function LocaleLayout({
       },
       {
         '@type': 'ProfessionalService',
-        '@id': 'https://pallanca.info/#service',
+        '@id': 'https://www.pallanca.info/#service',
         name: 'Angelo Pallanca - Digital Transformation & AI Governance',
-        url: 'https://pallanca.info',
+        url: 'https://www.pallanca.info',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://pallanca.info/images/logos/logo_pan_microdata.png',
+          url: 'https://www.pallanca.info/images/logos/logo_pan_microdata.png',
         },
-        image: 'https://pallanca.info/images/photos/og-image.jpg',
+        image: 'https://www.pallanca.info/images/photos/og-image.jpg',
         description: 'Digital transformation, AI governance, solution scouting, project and interim management.',
-        founder: { '@id': 'https://pallanca.info/#person' },
+        founder: { '@id': 'https://www.pallanca.info/#person' },
         areaServed: 'Europe',
         serviceType: ['Innovation Consulting', 'AI Strategy', 'Solution Scouting', 'Project Management', 'Interim Management'],
         contactPoint: {
@@ -162,10 +162,10 @@ export default async function LocaleLayout({
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://pallanca.info/#website',
-        url: 'https://pallanca.info',
+        '@id': 'https://www.pallanca.info/#website',
+        url: 'https://www.pallanca.info',
         name: 'Angelo Pallanca',
-        publisher: { '@id': 'https://pallanca.info/#person' },
+        publisher: { '@id': 'https://www.pallanca.info/#person' },
         inLanguage: ['en', 'it'],
       },
     ],

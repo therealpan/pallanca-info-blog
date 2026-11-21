@@ -142,8 +142,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
     alternateName: 'Pan',
     jobTitle: 'Senior AI Advisor & Innovation Consultant',
     description: content.subtitle,
-    url: 'https://pallanca.info',
-    image: 'https://pallanca.info/images/photos/foto_pallanca01.png',
+    url: 'https://www.pallanca.info',
+    image: 'https://www.pallanca.info/images/photos/foto_pallanca01.png',
     sameAs: ['https://www.linkedin.com/in/angelopallanca'],
     worksFor: { '@type': 'Organization', name: 'PiirZ Digital Limited' },
     knowsAbout: [

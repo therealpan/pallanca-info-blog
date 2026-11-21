@@ -22,9 +22,9 @@ Angelo Pallanca is an digital transformation and AI governance consultant with a
 
 ## Links
 
-- [Home](https://pallanca.info)
-- [About](https://pallanca.info/en/about)
-- [Services](https://pallanca.info/en/services)
-- [Blog](https://pallanca.info/en/blog)
-- [Contact](https://pallanca.info/en/contact)
-- [Full content for LLMs](https://pallanca.info/llms-full.txt)
+- [Home](https://www.pallanca.info)
+- [About](https://www.pallanca.info/en/about)
+- [Services](https://www.pallanca.info/en/services)
+- [Blog](https://www.pallanca.info/en/blog)
+- [Contact](https://www.pallanca.info/en/contact)
+- [Full content for LLMs](https://www.pallanca.info/llms-full.txt)

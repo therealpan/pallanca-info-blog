@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({
     provider: {
       '@type': 'Person',
       name: 'Angelo Pallanca',
-      url: 'https://pallanca.info',
+      url: 'https://www.pallanca.info',
     },
     offers: {
       '@type': 'Offer',

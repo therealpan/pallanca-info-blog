@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/blog';
 import { markdownToHtml } from '@/lib/markdown';
 
-const BASE_URL = 'https://pallanca.info';
+const BASE_URL = 'https://www.pallanca.info';
 
 function escapeXml(value: string): string {
   return value

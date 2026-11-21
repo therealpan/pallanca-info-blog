@@ -5,11 +5,11 @@ Allow: /
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://pallanca.info/sitemap.xml
+Sitemap: https://www.pallanca.info/sitemap.xml
 
 # LLM-friendly content
-# See https://pallanca.info/llms.txt for a structured summary
-# See https://pallanca.info/llms-full.txt for complete site content
+# See https://www.pallanca.info/llms.txt for a structured summary
+# See https://www.pallanca.info/llms-full.txt for complete site content
 
 # AI Crawlers - Welcome
 User-agent: GPTBot
