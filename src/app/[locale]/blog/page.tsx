@@ -11,10 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     path: '/blog',
-    title: isIt ? 'Blog — Angelo Pallanca' : 'Blog — Angelo Pallanca',
+    title: isIt ? 'Blog di Pan: AI, strategia e governance' : 'Pan blog: AI strategy, governance and security',
     description: isIt
-      ? 'Riflessioni su AI, innovazione e consulenza tecnologica.'
-      : 'Thoughts on AI, innovation, and technology consulting.',
+      ? 'Articoli di Pan su strategia AI, governance, sicurezza e lavoro: cosa cambia per imprese e istituzioni, con fonti e passi concreti.'
+      : 'Pan on AI strategy, governance, security and work: what changes for companies and institutions, with sources and practical next steps.',
   });
 }
 

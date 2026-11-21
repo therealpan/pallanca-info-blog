@@ -14,7 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     path: '/',
-    title: 'Angelo Pallanca | Digital Transformation & AI Governance',
+    title: isIt
+      ? 'Angelo Pallanca | Trasformazione digitale e governance AI'
+      : 'Angelo Pallanca | Digital Transformation & AI Governance',
     description: isIt
       ? 'Consulente innovazione e AI con 30 anni di esperienza. Aiuto organizzazioni a portare progetti AI in produzione.'
       : 'Innovation and AI consultant with 30 years of experience. I help organizations ship AI projects to production.',

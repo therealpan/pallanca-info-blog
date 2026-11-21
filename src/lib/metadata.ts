@@ -59,9 +59,11 @@ export function buildPageMetadata({
   const itUrl = `${SITE_URL}/it${normalizedPath}`;
 
   const ogImage = image || DEFAULT_OG_IMAGE;
+  // The root layout template already appends " | Angelo Pallanca".
+  const cleanTitle = title.replace(/\s+[—-]\s+Angelo Pallanca$/, '');
 
   return {
-    title,
+    title: cleanTitle,
     description,
     alternates: {
       canonical: url,
@@ -74,7 +76,7 @@ export function buildPageMetadata({
     ...(noIndex && { robots: { index: false, follow: false } }),
     openGraph: {
       type,
-      title,
+      title: cleanTitle,
       description,
       url,
       siteName: SITE_NAME,
@@ -95,7 +97,7 @@ export function buildPageMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
+      title: cleanTitle,
       description,
       images: [ogImage],
       creator: TWITTER_HANDLE,

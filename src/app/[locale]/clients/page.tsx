@@ -1,15 +1,19 @@
 import { setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+import { buildPageMetadata } from '@/lib/metadata';
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return {
+  return buildPageMetadata({
+    locale,
+    path: '/clients',
     title: locale === 'it' ? 'Clienti & Case Studies — Angelo Pallanca' : 'Clients & Case Studies — Angelo Pallanca',
     description:
       locale === 'it'
         ? 'Trent\'anni di lavoro in tre continenti. Case study estesi: banche centrali africane, Gobierno de Canarias, Principato di Monaco.'
         : 'Thirty years of work across three continents. Extended case studies: African central banks, Government of the Canary Islands, Principality of Monaco.',
-  };
+  });
 }
 
 const clientLogos = [
