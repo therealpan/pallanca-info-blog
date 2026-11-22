@@ -21,6 +21,7 @@ import '@/app/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -180,6 +181,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
+        <Script src="/_vercel/insights/script.js" strategy="afterInteractive" />
       </body>
     </html>
   );
