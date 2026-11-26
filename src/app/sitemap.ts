@@ -17,7 +17,8 @@ function localized(
   const languages = {
     en: `${BASE_URL}/en${path}`,
     it: `${BASE_URL}/it${path}`,
-    'x-default': `${BASE_URL}/en${path}`,
+    // La home "/" sceglie la lingua dal browser: e' lei la versione x-default.
+    'x-default': path === '' ? `${BASE_URL}/` : `${BASE_URL}/en${path}`,
   };
   return locales.map((locale) => ({
     url: `${BASE_URL}/${locale}${path}`,

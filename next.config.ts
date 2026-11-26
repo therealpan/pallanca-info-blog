@@ -49,6 +49,9 @@ const nextConfig: NextConfig = {
     return [
       { source: '/demo/mirarsa', destination: 'https://app.mirawithyou.com/rsa/', permanent: true },
       { source: '/demo/mirarsa/:path*', destination: 'https://app.mirawithyou.com/rsa/', permanent: true },
+      // Vecchi indirizzi del blog senza lingua, ancora noti a Google: davano 404.
+      { source: '/blog', destination: '/en/blog', permanent: true },
+      { source: '/blog/:slug', destination: '/en/blog/:slug', permanent: true },
     ];
   },
   async headers() {
