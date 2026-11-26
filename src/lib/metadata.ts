@@ -70,7 +70,10 @@ export function buildPageMetadata({
       languages: {
         en: enUrl,
         it: itUrl,
-        'x-default': enUrl,
+        // La home "/" sceglie la lingua dal browser (307 verso /en o /it): e' lei
+        // la versione x-default. Indicare /en faceva vedere a Google /en come
+        // duplicato di "/".
+        'x-default': normalizedPath === '' ? `${SITE_URL}/` : enUrl,
       },
     },
     ...(noIndex && { robots: { index: false, follow: false } }),
